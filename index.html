@@ -1,125 +1,293 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Lễ Tốt Nghiệp - Nguyễn Hồng Quân - Cử nhân Luật Kinh tế - Học viện Chính sách và Phát triển.">
+    <meta name="author" content="Nguyễn Hồng Quân">
+    <meta name="theme-color" content="#000000">
+    <title>Nguyễn Hồng Quân | Graduation 2026</title>
 
-<meta charset="UTF-8">
+    <!-- Google Fonts: Sang trọng, đẳng cấp (Playfair Display cho Tiêu đề, Inter cho Văn bản) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>Nguyễn Hồng Quân | Graduation 2026</title>
-
-<style>
-
-*{
-
-margin:0;
-
-padding:0;
-
-box-sizing:border-box;
-
-}
-
-body{
-
-background:#7A0000;
-
-color:white;
-
-font-family:Arial,Helvetica,sans-serif;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-height:100vh;
-
-text-align:center;
-
-}
-
-.container{
-
-padding:30px;
-
-}
-
-h1{
-
-font-size:52px;
-
-margin-bottom:15px;
-
-}
-
-h2{
-
-font-size:28px;
-
-margin-bottom:12px;
-
-font-weight:normal;
-
-}
-
-p{
-
-font-size:20px;
-
-margin:8px;
-
-}
-
-button{
-
-margin-top:30px;
-
-padding:15px 35px;
-
-font-size:18px;
-
-border:none;
-
-border-radius:30px;
-
-background:gold;
-
-cursor:pointer;
-
-}
-
-button:hover{
-
-transform:scale(1.05);
-
-transition:.3s;
-
-}
-
-</style>
-
+    <!-- Liên kết CSS (Sẽ tạo ở các bước sau) -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animation.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
+<body class="is-loading">
 
-<body>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="custom-cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
 
-<div class="container">
+    <!-- Music Control Button -->
+    <button id="music-toggle" class="glass-btn floating" aria-label="Play/Pause Music">
+        <span class="icon-music-off">🎵</span>
+    </button>
 
-<h1>NGUYỄN HỒNG QUÂN</h1>
+    <!-- 1. LOADING SCREEN -->
+    <div id="loading-screen" class="glass-overlay">
+        <div class="loading-content">
+            <div class="logo-wrapper fade-in">
+                <img src="assets/logo/logo-apd.png" alt="Logo APD" class="school-logo">
+            </div>
+            <div class="progress-container fade-in">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <div class="loading-text fade-in">Đang tải... <span id="progress-text">0</span>%</div>
+        </div>
+    </div>
 
-<h2>Cử nhân Luật Kinh tế</h2>
+    <!-- 2. INTRO SEQUENCE -->
+    <section id="intro" class="fullscreen-section">
+        <div class="intro-sequence">
+            <h2 class="sequence-text" id="seq-1">2022</h2>
+            <h2 class="sequence-text" id="seq-2">Every dream has a beginning.</h2>
+            <h2 class="sequence-text" id="seq-3">2026</h2>
+            <h2 class="sequence-text" id="seq-4">The journey continues.</h2>
+        </div>
+    </section>
 
-<p>Học viện Chính sách và Phát triển</p>
+    <!-- BẮT ĐẦU NỘI DUNG CHÍNH (Sẽ hiện ra sau Intro) -->
+    <main id="main-content" style="display: none;">
 
-<p>11 / 08 / 2026</p>
+        <!-- 3. HERO SECTION -->
+        <section id="hero" class="parallax-section">
+            <div class="hero-background" id="hero-bg"></div>
+            <div class="glass-panel hero-content" data-aos="fade-up">
+                <img src="assets/logo/logo-apd.png" alt="Học viện Chính sách và Phát triển" class="hero-logo">
+                <h1 class="premium-title">NGUYỄN HỒNG QUÂN</h1>
+                <p class="subtitle gold-text">Cử nhân Luật Kinh tế</p>
+                <p class="university-name">Học viện Chính sách và Phát triển</p>
+                <p class="graduation-date">11 / 08 / 2026</p>
+                
+                <a href="#about" class="btn-luxury ripple" id="explore-btn">
+                    Khám phá hành trình
+                </a>
+            </div>
+            <div class="scroll-indicator">
+                <span>Cuộn xuống</span>
+                <div class="mouse"></div>
+            </div>
+        </section>
 
-<button>Bắt đầu hành trình</button>
+        <!-- 4. ABOUT ME -->
+        <section id="about" class="section-padding content-section">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image glass-card" data-aos="fade-right">
+                        <!-- Vị trí đặt ảnh chân dung -->
+                        <div class="img-placeholder" id="about-img"></div>
+                    </div>
+                    <div class="about-text" data-aos="fade-left">
+                        <h2 class="section-title">Lời mở đầu</h2>
+                        <div class="divider"></div>
+                        <p class="typing-effect-text">Hành trình tại Học viện Chính sách và Phát triển không chỉ là việc tiếp thu tri thức, mà còn là quá trình đưa các vấn đề pháp lý vào thực tiễn kinh doanh. Tôi luôn tâm niệm rằng, giá trị cốt lõi của ngành Luật Kinh tế không nằm trên những trang giấy lý thuyết, mà ở khả năng giải quyết các bài toán thực tiễn của doanh nghiệp dựa trên những nền tảng nghiên cứu chuyên sâu từ các nguồn học thuật uy tín.</p>
+                        <p>Cảm ơn gia đình, thầy cô và những người bạn đã luôn đồng hành cùng tôi trên chặng đường 4 năm thanh xuân rực rỡ này.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-</div>
+        <!-- 5. TIMELINE -->
+        <section id="timeline" class="section-padding dark-section">
+            <div class="container">
+                <h2 class="section-title text-center" data-aos="fade-up">Hành Trình</h2>
+                <div class="timeline-container">
+                    <div class="timeline-line"></div>
+                    
+                    <div class="timeline-item left" data-aos="fade-right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <h3 class="gold-text">2022</h3>
+                            <p>Bước chân vào Học viện Chính sách và Phát triển. Bắt đầu chặng đường với những hoài bão lớn.</p>
+                        </div>
+                    </div>
 
+                    <div class="timeline-item right" data-aos="fade-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <h3 class="gold-text">2023 - 2024</h3>
+                            <p>Khám phá chuyên sâu lĩnh vực Luật Kinh tế. Tham gia tích cực vào dự án nghiên cứu khoa học cấp trường, định hình tư duy pháp lý sắc bén.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item left" data-aos="fade-right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <h3 class="gold-text">2025</h3>
+                            <p>Trải nghiệm thực tiễn và rèn luyện kỹ năng nghề nghiệp thực tế trong thời gian thực tập chuyên môn tại Công ty Luật Quang Huy.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item right" data-aos="fade-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <h3 class="gold-text">2026</h3>
+                            <p>Bảo vệ thành công khóa luận tốt nghiệp. Trở thành Cử nhân Luật Kinh tế.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GALLERY -->
+        <section id="gallery" class="section-padding content-section">
+            <div class="container">
+                <h2 class="section-title text-center" data-aos="fade-up">Kỷ Niệm</h2>
+                <p class="text-center subtitle" data-aos="fade-up">Những khoảnh khắc đáng nhớ trong suốt 4 năm</p>
+                
+                <!-- Grid Masonry sẽ được Render bằng JS -->
+                <div class="masonry-grid" id="masonry-gallery"></div>
+            </div>
+
+            <!-- Popup Lightbox cho Gallery -->
+            <div id="lightbox" class="lightbox-overlay">
+                <button class="lightbox-close">&times;</button>
+                <div class="lightbox-content">
+                    <button class="lightbox-prev">&#10094;</button>
+                    <img id="lightbox-img" src="" alt="Gallery Image">
+                    <button class="lightbox-next">&#10095;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. ACHIEVEMENTS -->
+        <section id="achievements" class="section-padding dark-section">
+            <div class="container">
+                <h2 class="section-title text-center" data-aos="fade-up">Dấu Ấn</h2>
+                <div class="achievement-cards">
+                    <div class="glass-card achievement-card hover-lift" data-aos="zoom-in">
+                        <div class="card-icon">🎓</div>
+                        <h3>Khóa Luận Tốt Nghiệp</h3>
+                        <p>Nghiên cứu chuyên sâu về các vấn đề pháp lý và thực tiễn thi hành trong Luật Kinh tế.</p>
+                    </div>
+                    <div class="glass-card achievement-card hover-lift" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="card-icon">⚖️</div>
+                        <h3>Nghiên Cứu Khoa Học</h3>
+                        <p>Hoàn thành đề tài nghiên cứu cấp trường với các đánh giá mang tính thực tiễn cao.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. UNIVERSITY -->
+        <section id="university" class="section-padding content-section">
+            <div class="container">
+                <div class="uni-flex glass-card" data-aos="fade-up">
+                    <div class="uni-logo">
+                        <img src="assets/logo/logo-apd.png" alt="APD">
+                    </div>
+                    <div class="uni-info">
+                        <h2 class="gold-text">Học viện Chính sách và Phát triển</h2>
+                        <p>Nơi ươm mầm tài năng, rèn luyện bản lĩnh và chắp cánh cho những ước mơ trở thành hiện thực. 4 năm thanh xuân tại APD là một hành trình tự hào và vô giá.</p>
+                        <p class="location-text">📍 Khu đô thị Nam An Khánh, Hoài Đức, Hà Nội</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. COUNTDOWN -->
+        <section id="countdown-section" class="section-padding parallax-section">
+            <div class="glass-panel text-center countdown-panel" data-aos="zoom-in">
+                <h2 class="section-title">Khoảnh Khắc Đón Chờ</h2>
+                <p class="gold-text">11 Tháng 08 Năm 2026</p>
+                <div id="countdown-timer" class="countdown-grid">
+                    <div class="time-box">
+                        <span id="cd-days" class="time-num count-up">00</span>
+                        <span class="time-label">Ngày</span>
+                    </div>
+                    <div class="time-box">
+                        <span id="cd-hours" class="time-num">00</span>
+                        <span class="time-label">Giờ</span>
+                    </div>
+                    <div class="time-box">
+                        <span id="cd-minutes" class="time-num">00</span>
+                        <span class="time-label">Phút</span>
+                    </div>
+                    <div class="time-box">
+                        <span id="cd-seconds" class="time-num">00</span>
+                        <span class="time-label">Giây</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. INVITATION -->
+        <section id="invitation" class="section-padding dark-section">
+            <div class="container text-center">
+                <div class="invitation-card glass-card" data-aos="flip-up">
+                    <h2 class="premium-title gold-text">Trân Trọng Kính Mời</h2>
+                    <p class="invitation-text">Đến dự buổi lễ Tốt nghiệp và chia vui cùng tôi trong khoảnh khắc đặc biệt này.</p>
+                    
+                    <div class="event-details">
+                        <div class="detail-item">
+                            <span class="icon">🕒</span>
+                            <h4>Thời Gian</h4>
+                            <p>08:00 Sáng | Thứ Ba, Ngày 11/08/2026</p>
+                        </div>
+                        <div class="detail-item">
+                            <span class="icon">📍</span>
+                            <h4>Địa Điểm</h4>
+                            <p>Hội trường lớn, Học viện Chính sách và Phát triển<br>An Khánh, Hoài Đức, Hà Nội</p>
+                        </div>
+                        <div class="detail-item">
+                            <span class="icon">👔</span>
+                            <h4>Dresscode</h4>
+                            <p>Trang trọng & Lịch sự</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. GOOGLE MAPS -->
+        <section id="map" class="map-section" data-aos="fade-up">
+            <!-- Tọa độ Map APD -->
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.13840748126!2d105.71182271540182!3d20.987088994578135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134546b4129b131%3A0xc6a82776c5b96ba7!2zSOG7jWMgVmnhu4duIENow61uaCBtw6FjaCBWw6AgUGjDoXQgVHJp4buDbg!5e0!3m2!1svi!2s!4v1680000000000!5m2!1svi!2s" 
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </section>
+
+        <!-- 12. THANK YOU -->
+        <section id="thank-you" class="section-padding text-center content-section">
+            <div class="container">
+                <h2 class="premium-title gold-text" data-aos="zoom-out">Thank You</h2>
+                <p class="thank-you-msg" data-aos="fade-up" data-aos-delay="200">Sự hiện diện của bạn là niềm vinh hạnh và động lực to lớn cho những chặng đường sắp tới của tôi.</p>
+            </div>
+        </section>
+
+        <!-- 13. ENDING & FOOTER -->
+        <footer id="ending" class="glass-footer">
+            <canvas id="confetti-canvas"></canvas>
+            <div class="footer-content text-center">
+                <p>© 2026 Nguyễn Hồng Quân. All rights reserved.</p>
+                <p class="designed-by">Designed with <span class="heart">❤</span> for the future.</p>
+            </div>
+            
+            <!-- Nút Back To Top -->
+            <button id="back-to-top" class="glass-btn floating">↑</button>
+        </footer>
+
+    </main>
+
+    <!-- Thư viện AOS Animation JS (Dùng CDN tạm cho hiệu ứng cuộn mượt, không vi phạm rule framework UI) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Các Module JS do tự code -->
+    <script src="js/main.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/countdown.js"></script>
+    <script src="js/music.js"></script>
 </body>
-
 </html>
