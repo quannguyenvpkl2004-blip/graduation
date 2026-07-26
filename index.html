@@ -4,34 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nguyễn Hồng Quân | Graduation 2026</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        body { background-color: #FDFBF7; color: #4A3728; margin: 0; font-family: 'Inter', sans-serif; }
+        .gold-title { color: #8B0000; font-family: 'Playfair Display', serif; }
+        .section-header { background-color: #8B0000; color: white; padding: 15px; text-align: center; text-transform: uppercase; letter-spacing: 2px; margin: 30px 0; }
+        .story-chapter { margin-bottom: 50px; padding: 0 20px; }
+        .story-img { width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 10px; }
+    </style>
 </head>
 <body>
 
-    <!-- 1. THÔNG TIN LỄ TỐT NGHIỆP -->
-    <div class="section-header">THÔNG TIN LỄ TỐT NGHIỆP</div>
+    <!-- PHÁT NHẠC THÔNG MINH -->
     <div style="text-align: center; padding: 20px;">
-        <h2 style="font-size: 24px;">Nguyễn Hồng Quân</h2>
-        <p>Cử nhân Luật Kinh tế</p>
-        <p>Học viện Chính sách và Phát triển</p>
-        <hr style="width: 50px; border: 1px solid #8B0000; margin: 20px auto;">
-        <p>Thời gian: 08:00 | 11.08.2026</p>
+        <p style="font-size: 12px; font-style: italic;">🎵 Chạm vào màn hình để nghe nhạc</p>
+        <audio id="bg-music" loop><source src="assets/music/nhac-nen.mp3.mp3" type="audio/mpeg"></audio>
     </div>
 
-    <!-- 2. ALBUM ẢNH -->
-    <div class="section-header">ALBUM ẢNH</div>
-    <!-- Bạn có thể thêm Slider ảnh tại đây -->
+    <!-- HERO SECTION -->
+    <section style="text-align: center; padding: 20px;">
+        <img src="assets/logo/logo.jpeg" style="max-width: 130px; border-radius: 8px;">
+        <h1 class="gold-title" style="font-size: 32px;">NGUYỄN HỒNG QUÂN</h1>
+        <p>Cử nhân Luật Kinh tế | Học viện Chính sách và Phát triển</p>
+    </section>
 
-    <!-- 3. SỔ LƯU BÚT -->
+    <!-- ALBUM KỂ CHUYỆN -->
+    <div class="section-header">HÀNH TRÌNH 4 NĂM</div>
+    <div class="story-chapter">
+        <h3 class="gold-title">Chương 1: Khởi đầu</h3>
+        <img src="assets/images/IMG_1223.jpeg" class="story-img">
+        <img src="assets/images/IMG_1489.jpeg" class="story-img">
+    </div>
+
+    <!-- SỔ LƯU BÚT -->
     <div class="section-header">SỔ LƯU BÚT</div>
-    <div style="padding: 20px; background: white; margin: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-        <input type="text" placeholder="Nhập tên của bạn*" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd;">
-        <textarea placeholder="Nhập lời chúc của bạn*" style="width: 100%; padding: 10px; height: 100px; border: 1px solid #ddd;"></textarea>
-        <button style="background: #8B0000; color: white; padding: 10px 20px; border: none; margin-top: 10px;">GỬI LỜI CHÚC</button>
-    </div>
+    <section id="guestbook" style="padding: 20px;">
+        <form action="https://formspree.io/f/xxxxx" method="POST" style="max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 10px;">
+            <input type="text" name="name" placeholder="Tên của bạn*" required style="width: 100%; padding: 10px; margin-bottom: 10px;">
+            <textarea name="message" placeholder="Lời chúc*" required style="width: 100%; padding: 10px; height: 100px;"></textarea>
+            <button type="submit" style="background: #8B0000; color: white; border: none; padding: 10px 20px; width: 100%;">GỬI LỜI CHÚC</button>
+        </form>
+    </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>AOS.init();</script>
+    <script>
+        AOS.init();
+        document.body.addEventListener('click', () => {
+            const music = document.getElementById('bg-music');
+            if(music.paused) music.play();
+        }, { once: true });
+    </script>
 </body>
 </html>
