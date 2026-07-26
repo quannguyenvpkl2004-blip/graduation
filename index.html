@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Lễ Tốt Nghiệp - Nguyễn Hồng Quân - Cử nhân Luật Kinh tế - Học viện Chính sách và Phát triển.">
     <title>Nguyễn Hồng Quân | Graduation 2026</title>
 
     <!-- Google Fonts -->
@@ -11,68 +10,105 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+    <style>
+        /* CSS nội bộ cho giao diện kể chuyện */
+        body { background-color: #050505; color: #ffffff; margin: 0; font-family: 'Inter', sans-serif; }
+        .gold-title { color: #D4AF37; font-family: 'Playfair Display', serif; }
+        
+        .story-chapter { margin-bottom: 60px; text-align: left; }
+        .chapter-title { font-size: 22px; color: #D4AF37; margin-bottom: 10px; border-left: 3px solid #D4AF37; padding-left: 15px; }
+        .chapter-desc { font-size: 14px; color: #aaaaaa; margin-bottom: 20px; padding-left: 18px; font-style: italic; }
+        
+        /* Bố cục ảnh linh hoạt (Masonry/Editorial style) */
+        .story-grid { display: grid; gap: 15px; }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-mixed { grid-template-columns: 1fr 1fr; }
+        .grid-mixed .featured { grid-column: span 2; }
+        
+        .story-img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); transition: transform 0.3s; }
+        .story-img:hover { transform: scale(1.02); }
+    </style>
 </head>
 
-<body style="background-color: #050505; color: #ffffff; margin: 0; font-family: 'Inter', sans-serif;">
+<body>
 
     <main id="main-content">
-        <!-- 3. HERO SECTION -->
+        <!-- 1. HERO SECTION -->
         <section id="hero" style="padding: 60px 20px; text-align: center;">
             <div data-aos="fade-up">
-                <!-- ẢNH 1: LOGO PNG (Đã thêm ?v=1 ép tải lại) -->
-                <img src="IMG_2434.png?v=1" alt="Logo" style="max-width: 130px; margin-bottom: 20px;">
+                <!-- Đã đổi đường dẫn và tên thành assets/images/logo.jpeg -->
+                <img src="assets/images/logo.jpeg?v=3" alt="Logo" style="max-width: 130px; margin-bottom: 20px; border-radius: 8px;">
                 
-                <h1 style="color: #D4AF37; font-family: 'Playfair Display', serif; font-size: 32px; letter-spacing: 2px;">NGUYỄN HỒNG QUÂN</h1>
-                <p style="color: #D4AF37; font-size: 18px; font-weight: 500;">Cử nhân Luật Kinh tế</p>
+                <h1 class="gold-title" style="font-size: 32px; letter-spacing: 2px;">NGUYỄN HỒNG QUÂN</h1>
+                <p class="gold-title" style="font-size: 18px; font-weight: 500;">Cử nhân Luật Kinh tế</p>
                 <p style="color: #cccccc; margin-top: 10px;">Học viện Chính sách và Phát triển</p>
                 <p style="color: #ffffff; letter-spacing: 2px; margin-top: 5px;">11 / 08 / 2026</p>
             </div>
         </section>
 
-        <!-- 4. ABOUT ME -->
+        <!-- 2. ABOUT ME -->
         <section id="about" style="padding: 50px 20px; background: rgba(25,25,25,0.4);">
             <div style="max-width: 800px; margin: 0 auto; text-align: center;">
                 <div data-aos="fade-up">
-                    <h2 style="color: #D4AF37; font-family: 'Playfair Display', serif; font-size: 28px;">Lời mở đầu</h2>
+                    <h2 class="gold-title" style="font-size: 28px;">Dấu Ấn Thanh Xuân</h2>
                     <br>
-                    <!-- ẢNH 2: ẢNH CHÂN DUNG -->
-                    <img src="IMG_1204.jpeg?v=1" alt="Chân dung" style="max-width: 100%; width: 280px; border-radius: 12px; margin-bottom: 25px; border: 1px solid rgba(212, 175, 55, 0.3);">
+                    <!-- Đã cập nhật thư mục cho ảnh chân dung -->
+                    <img src="assets/images/IMG_1204.jpeg?v=3" alt="Chân dung" style="max-width: 100%; width: 280px; border-radius: 12px; margin-bottom: 25px; border: 1px solid rgba(212, 175, 55, 0.3);">
                     
-                    <p style="line-height: 1.8; text-align: justify; color: #dddddd;">Hành trình tại Học viện Chính sách và Phát triển không chỉ là việc tiếp thu tri thức, mà còn là quá trình đưa các vấn đề pháp lý vào thực tiễn kinh doanh. Tôi luôn tâm niệm rằng, giá trị cốt lõi của ngành Luật Kinh tế không nằm trên những trang giấy lý thuyết, mà ở khả năng giải quyết các bài toán thực tiễn của doanh nghiệp dựa trên những nền tảng nghiên cứu chuyên sâu từ các nguồn học thuật uy tín.</p>
-                    <br>
-                    <p style="line-height: 1.8; text-align: justify; color: #dddddd;">Cảm ơn gia đình, thầy cô và những người bạn đã luôn đồng hành cùng tôi trên chặng đường 4 năm thanh xuân rực rỡ này.</p>
+                    <p style="line-height: 1.8; text-align: justify; color: #dddddd;">Giá trị cốt lõi của ngành Luật Kinh tế không nằm trên những trang giấy lý thuyết, mà ở khả năng giải quyết các bài toán thực tiễn của doanh nghiệp. Hành trình 4 năm tại Học viện không chỉ là quá trình tiếp thu tri thức, mà còn là bước đệm vững chắc để tôi đưa các nghiên cứu chuyên sâu vào môi trường hành nghề thực tế.</p>
                 </div>
             </div>
         </section>
 
-        <!-- 6. ALBUM ẢNH (GALLERY) -->
-        <section id="gallery" style="padding: 60px 20px; text-align: center;">
-            <div style="max-width: 1000px; margin: 0 auto;">
-                <h2 data-aos="fade-up" style="color: #D4AF37; font-family: 'Playfair Display', serif; font-size: 28px;">Kỷ Niệm</h2>
-                <p data-aos="fade-up" style="color: #aaaaaa; margin-bottom: 30px;">Những khoảnh khắc đáng nhớ trong suốt 4 năm</p>
+        <!-- 3. KỂ CHUYỆN BẰNG HÌNH ẢNH (STORYTELLING GALLERY) -->
+        <section id="story" style="padding: 60px 20px;">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h2 class="gold-title" data-aos="fade-up" style="font-size: 28px; text-align: center; margin-bottom: 40px;">Hành Trình 4 Năm</h2>
                 
-                <!-- Khung Lưới (Grid) chứa 12 ảnh -->
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px;">
-                    <img src="IMG_1223.jpeg?v=1" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 8px;" data-aos="zoom-in">
-                    <img src="IMG_1489.jpeg?v=1" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 8px;" data-aos="zoom-in" data-aos-delay="50">
-                    <img src="IMG_1527.jpeg?v=1" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 8px;" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="IMG_2423.jpeg?v=1" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 8px;" data-aos="zoom-in" data-aos-delay="150">
-                    <img src="IMG_3862.jpeg?v=1" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 8px;" data-aos="zoom-in">
-                    <img src="IMG_4682.jpeg?v=1" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 8px;" data-aos="zoom-in" data-aos-delay="50">
-                    <img src="IMG_4684.jpeg?v=1" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 8px;" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="IMG_7090.jpeg?v=1" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 8px;" data-aos="zoom-in" data-aos-delay="150">
-                    <img src="IMG_7172.jpeg?v=1" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 8px;" data-aos="zoom-in">
-                    <img src="IMG_7378.jpeg?v=1" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 8px;" data-aos="zoom-in" data-aos-delay="50">
-                    <img src="IMG_7534.jpeg?v=1" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 8px;" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="IMG_7535.jpeg?v=1" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 8px;" data-aos="zoom-in" data-aos-delay="150">
+                <!-- Chương 1 -->
+                <div class="story-chapter" data-aos="fade-up">
+                    <h3 class="chapter-title">Chương 1: Những Bỡ Ngỡ Đầu Tiên</h3>
+                    <p class="chapter-desc">Gói ghém những hoài bão lớn lao bước vào cánh cổng giảng đường.</p>
+                    <div class="story-grid grid-3">
+                        <img src="assets/images/IMG_1223.jpeg" class="story-img" style="aspect-ratio: 1/1;" alt="Kỷ niệm">
+                        <img src="assets/images/IMG_1489.jpeg" class="story-img" style="aspect-ratio: 1/1;" alt="Kỷ niệm">
+                        <img src="assets/images/IMG_1527.jpeg" class="story-img" style="aspect-ratio: 1/1;" alt="Kỷ niệm">
+                    </div>
+                </div>
+
+                <!-- Chương 2 -->
+                <div class="story-chapter" data-aos="fade-up">
+                    <h3 class="chapter-title">Chương 2: Từ Giảng Đường Đến Thực Tiễn</h3>
+                    <p class="chapter-desc">Giai đoạn dấn thân, rèn luyện tư duy pháp lý sắc bén và trực tiếp cọ xát với những vấn đề thực tiễn của doanh nghiệp.</p>
+                    <div class="story-grid grid-mixed">
+                        <img src="assets/images/IMG_2423.jpeg" class="story-img featured" style="aspect-ratio: 16/9;" alt="Kỷ niệm">
+                        <img src="assets/images/IMG_3862.jpeg" class="story-img" style="aspect-ratio: 4/5;" alt="Kỷ niệm">
+                        <img src="assets/images/IMG_4682.jpeg" class="story-img" style="aspect-ratio: 4/5;" alt="Kỷ niệm">
+                        <img src="assets/images/IMG_4684.jpeg" class="story-img featured" style="aspect-ratio: 16/9;" alt="Kỷ niệm">
+                    </div>
+                </div>
+
+                <!-- Chương 3 -->
+                <div class="story-chapter" data-aos="fade-up">
+                    <h3 class="chapter-title">Chương 3: Quả Ngọt & Sự Biết Ơn</h3>
+                    <p class="chapter-desc">Khép lại một chặng đường rực rỡ để mở ra những hành trình mới, cùng sự đồng hành vô giá của những người trân quý.</p>
+                    <div class="story-grid grid-2">
+                        <img src="assets/images/IMG_7090.jpeg" class="story-img" style="aspect-ratio: 1/1;" alt="Kỷ niệm">
+                        <img src="assets/images/IMG_7172.jpeg" class="story-img" style="aspect-ratio: 1/1;" alt="Kỷ niệm">
+                        <img src="assets/images/IMG_7378.jpeg" class="story-img featured" style="aspect-ratio: 16/9;" alt="Kỷ niệm">
+                        <img src="assets/images/IMG_7534.jpeg" class="story-img" style="aspect-ratio: 4/5;" alt="Kỷ niệm">
+                        <img src="assets/images/IMG_7535.jpeg" class="story-img" style="aspect-ratio: 4/5;" alt="Kỷ niệm">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- 10. INVITATION -->
+        <!-- 4. LỜI MỜI -->
         <section id="invitation" style="padding: 60px 20px; background: rgba(25,25,25,0.4); text-align: center;">
             <div style="max-width: 600px; margin: 0 auto; border: 1px solid rgba(212,175,55,0.2); border-radius: 16px; padding: 30px 20px;" data-aos="flip-up">
-                <h2 style="color: #D4AF37; font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 20px;">Trân Trọng Kính Mời</h2>
+                <h2 class="gold-title" style="font-size: 26px; margin-bottom: 20px;">Trân Trọng Kính Mời</h2>
                 <p style="color: #dddddd; line-height: 1.6; margin-bottom: 25px;">Đến dự buổi lễ Tốt nghiệp và chia vui cùng tôi trong khoảnh khắc đặc biệt này.</p>
                 <div style="display: inline-block; text-align: left; line-height: 2; color: #eeeeee;">
                     <p>🕒 <strong style="color:#D4AF37;">Thời Gian:</strong> 08:00 Sáng | Thứ Ba, Ngày 11/08/2026</p>
@@ -82,16 +118,12 @@
             </div>
         </section>
 
-        <!-- FOOTER -->
         <footer style="text-align: center; padding: 30px 20px; border-top: 1px solid #222;">
             <p style="color: #888; font-size: 14px;">© 2026 Nguyễn Hồng Quân. All rights reserved.</p>
         </footer>
     </main>
 
-    <!-- Thư viện hiệu ứng -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true });
-    </script>
+    <script> AOS.init({ duration: 1000, once: true }); </script>
 </body>
-</html> 
+</html>
