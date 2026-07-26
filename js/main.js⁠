@@ -1,0 +1,144 @@
+/**
+ * MAIN.JS
+ * Xử lý Loading Screen, Intro Sequence, Custom Cursor và Back To Top
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+    /* ==========================================================================
+       1. LOADING SCREEN & PROGRESS BAR
+       ========================================================================== */
+    const loadingScreen = document.getElementById('loading-screen');
+    const progressBar = document.getElementById('progress-bar');
+    const progressText = document.getElementById('progress-text');
+    let progress = 0;
+
+    // Giả lập quá trình tải tài nguyên (Loading Simulation)
+    const loadingInterval = setInterval(() => {
+        progress += Math.floor(Math.random() * 15) + 5; // Tăng ngẫu nhiên 5-20%
+        
+        if (progress >= 100) {
+            progress = 100;
+            clearInterval(loadingInterval);
+            
+            // Khi load xong 100%, đợi 0.5s rồi ẩn màn hình loading
+            setTimeout(() => {
+                loadingScreen.style.opacity = '0';
+                loadingScreen.style.transition = 'opacity 0.8s ease';
+                
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                    startIntroSequence(); // Bắt đầu chạy Intro
+                }, 800);
+            }, 500);
+        }
+        
+        progressBar.style.width = `${progress}%`;
+        progressText.innerText = progress;
+    }, 200); // Cập nhật mỗi 0.2s
+
+    /* ==========================================================================
+       2. INTRO SEQUENCE (Hiệu ứng chữ chạy phong cách Apple)
+       ========================================================================== */
+    function startIntroSequence() {
+        const introSection = document.getElementById('intro');
+        const mainContent = document.getElementById('main-content');
+        const sequences = document.querySelectorAll('.sequence-text');
+        
+        let delay = 0;
+        const fadeDuration = 1500; // Thời gian hiện/ẩn của mỗi câu
+        const holdDuration = 1000; // Thời gian giữ chữ trên màn hình
+
+        sequences.forEach((seq, index) => {
+            // Hiện chữ
+            setTimeout(() => {
+                seq.style.transition = `opacity ${fadeDuration}ms ease`;
+                seq.style.opacity = '1';
+            }, delay);
+
+            // Ẩn chữ (trừ khi là câu cuối cùng thì giữ lâu hơn chút)
+            delay += fadeDuration + holdDuration;
+            
+            setTimeout(() => {
+                seq.style.opacity = '0';
+            }, delay);
+            
+            delay += fadeDuration; // Cộng thêm thời gian ẩn trước khi hiện câu tiếp theo
+        });
+
+        // Kết thúc Intro, hiển thị nội dung chính
+        setTimeout(() => {
+            introSection.style.opacity = '0';
+            introSection.style.transition = 'opacity 1s ease';
+            
+            setTimeout(() => {
+                introSection.style.display = 'none';
+                mainContent.style.display = 'block';
+                document.body.classList.remove('is-loading'); // Cho phép cuộn trang
+                
+                // Khởi tạo hiệu ứng AOS (Animation On Scroll) sau khi hiện nội dung
+                if(typeof AOS !== 'undefined') {
+                    AOS.init({
+                        duration: 1000,
+                        once: true,
+                        offset: 100
+                    });
+                }
+            }, 1000);
+        }, delay + 500); // Chờ chuỗi Intro kết thúc hoàn toàn
+    }
+
+    /* ==========================================================================
+       3. CUSTOM CURSOR (Con trỏ chuột Luxury)
+       ========================================================================== */
+    const cursor = document.getElementById('custom-cursor');
+    const follower = document.getElementById('cursor-follower');
+    
+    // Chỉ chạy hiệu ứng trên Desktop (không có màn hình cảm ứng)
+    if (window.matchMedia("(pointer: fine)").matches) {
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            // Follower đi theo với độ trễ nhẹ tạo cảm giác mượt mà
+            setTimeout(() => {
+                follower.style.left = e.clientX + 'px';
+                follower.style.top = e.clientY + 'px';
+            }, 80);
+        });
+
+        // Hiệu ứng phình to follower khi hover vào link hoặc button
+        const interactables = document.querySelectorAll('a, button, .hover-lift');
+        interactables.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                follower.style.width = '60px';
+                follower.style.height = '60px';
+                follower.style.backgroundColor = 'rgba(212, 175, 55, 0.1)';
+            });
+            el.addEventListener('mouseleave', () => {
+                follower.style.width = '40px';
+                follower.style.height = '40px';
+                follower.style.backgroundColor = 'transparent';
+            });
+        });
+    }
+
+    /* ==========================================================================
+       4. BACK TO TOP BUTTON
+       ========================================================================== */
+    const backToTopBtn = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
