@@ -1,0 +1,41 @@
+/* ==========================================================================
+   RESPONSIVE (ĐẢM BẢO HOẠT ĐỘNG TỐT TRÊN MỌI THIẾT BỊ)
+   ========================================================================== */
+
+/* TABLET & MOBILE LỚN (Dưới 1024px) */
+@media (max-width: 1024px) {
+    .premium-title { font-size: 3rem; }
+    .section-title { font-size: 2rem; }
+    .countdown-grid { gap: 15px; }
+    .time-num { font-size: 3rem; }
+}
+
+/* MOBILE (Dưới 768px) */
+@media (max-width: 768px) {
+    .section-padding { padding: 60px 0; }
+    .premium-title { font-size: 2.2rem; }
+    .subtitle { font-size: 1rem; }
+    
+    /* About Section */
+    .about-grid { grid-template-columns: 1fr; gap: 30px; }
+    
+    /* Timeline - Đổi sang 1 cột cho Mobile */
+    .timeline-line { left: 20px; }
+    .timeline-item { width: 100%; padding-left: 50px; padding-right: 0; }
+    .timeline-item.left, .timeline-item.right { left: 0; text-align: left; }
+    .timeline-item.left .timeline-dot, .timeline-item.right .timeline-dot { left: 12px; right: auto; }
+    
+    /* Hero Panel */
+    .hero-content { padding: 40px 20px; width: 90%; }
+    
+    /* Event & University Details */
+    .event-details, .uni-flex { flex-direction: column; gap: 20px; text-align: center; }
+    
+    /* Ẩn Custom Cursor trên thiết bị cảm ứng để tránh lỗi UI/UX */
+    .custom-cursor, .cursor-follower { display: none !important; }
+    
+    /* Nút điều hướng nhỏ hơn */
+    .glass-btn { width: 40px; height: 40px; font-size: 1rem; bottom: 20px; }
+    #music-toggle { left: 20px; }
+    #back-to-top { right: 20px; }
+}
