@@ -1,0 +1,68 @@
+/**
+ * MUSIC.JS
+ * Xử lý phát nhạc nền với hiệu ứng Fade in/out âm lượng mượt mà
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+    const musicBtn = document.getElementById('music-toggle');
+    const iconSpan = musicBtn.querySelector('span');
+
+    // Khởi tạo đối tượng Audio
+    // Lưu ý: Đảm bảo bạn sẽ tải một file nhạc tên 'background-music.mp3' vào thư mục 'assets/music/'
+    const bgMusic = new Audio('assets/music/background-music.mp3');
+    bgMusic.loop = true; // Lặp lại bài hát
+    bgMusic.volume = 0;  // Bắt đầu với âm lượng 0 để thực hiện Fade In
+
+    let isPlaying = false;
+    let fadeInterval;
+
+    // Hàm Fade In (Tăng dần âm lượng)
+    function fadeInMusic() {
+        clearInterval(fadeInterval);
+        
+        // Bắt buộc xử lý Promise khi gọi play() để tránh lỗi trình duyệt chặn Autoplay
+        let playPromise = bgMusic.play();
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                fadeInterval = setInterval(() => {
+                    // Giới hạn âm lượng tối đa ở mức 0.5 (50%) để nhạc nền không quá ồn
+                    if (bgMusic.volume < 0.5) { 
+                        bgMusic.volume = Math.min(bgMusic.volume + 0.05, 0.5);
+                    } else {
+                        clearInterval(fadeInterval);
+                    }
+                }, 150); // Tăng âm lượng mỗi 150ms
+            }).catch(error => {
+                console.log("Vui lòng tải file nhạc vào thư mục assets/music/ hoặc tương tác với trang để phát nhạc.", error);
+            });
+        }
+    }
+
+    // Hàm Fade Out (Giảm dần âm lượng rồi Tạm dừng)
+    function fadeOutMusic() {
+        clearInterval(fadeInterval);
+        fadeInterval = setInterval(() => {
+            if (bgMusic.volume > 0.05) {
+                bgMusic.volume -= 0.05;
+            } else {
+                bgMusic.volume = 0;
+                bgMusic.pause();
+                clearInterval(fadeInterval);
+            }
+        }, 150); // Giảm âm lượng mỗi 150ms
+    }
+
+    // Lắng nghe sự kiện click vào nút Play/Pause
+    musicBtn.addEventListener('click', () => {
+        if (isPlaying) {
+            fadeOutMusic();
+            iconSpan.innerText = '🔇'; // Đổi icon sang tắt âm
+            musicBtn.classList.remove('playing');
+        } else {
+            fadeInMusic();
+            iconSpan.innerText = '🎵'; // Đổi icon sang đang phát
+            musicBtn.classList.add('playing');
+        }
+        isPlaying = !isPlaying;
+    });
+});
