@@ -2,69 +2,159 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Nguyễn Hồng Quân | Graduation 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
     <style>
-        body { background-color: #FDFBF7; color: #4A3728; margin: 0; font-family: 'Inter', sans-serif; }
-        .gold-title { color: #8B0000; font-family: 'Playfair Display', serif; }
-        .section-header { background-color: #8B0000; color: white; padding: 15px; text-align: center; text-transform: uppercase; letter-spacing: 2px; margin: 30px 0; font-family: 'Playfair Display', serif; }
+        body { background-color: #050505; color: #ffffff; margin: 0; font-family: 'Inter', sans-serif; }
+        .gold-title { color: #D4AF37; font-family: 'Playfair Display', serif; }
+        .story-chapter { margin-bottom: 60px; text-align: left; }
+        .chapter-title { font-size: 22px; color: #D4AF37; margin-bottom: 10px; border-left: 3px solid #D4AF37; padding-left: 15px; }
+        .chapter-desc { font-size: 14px; color: #aaaaaa; margin-bottom: 20px; padding-left: 18px; font-style: italic; }
         
-        /* Layout Kể chuyện */
-        .story-chapter { margin-bottom: 50px; padding: 0 20px; }
-        .story-img { width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 15px; }
+        .story-grid { display: grid; gap: 15px; }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-mixed { grid-template-columns: 1fr 1fr; }
+        .grid-mixed .featured { grid-column: span 2; }
         
-        /* Lưu bút cùng màu nền */
-        .guestbook-section { padding: 40px 20px; background-color: #FDFBF7; text-align: center; }
-        .guestbook-form { max-width: 500px; margin: auto; padding: 20px; }
-        input, textarea { width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #8B0000; border-radius: 5px; background: #fff; box-sizing: border-box; }
-        button { background: #8B0000; color: white; border: none; padding: 12px 30px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .story-img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
     </style>
 </head>
+
 <body>
 
-    <!-- NHẠC NỀN -->
-    <div style="text-align: center; padding: 20px;">
-        <p style="font-size: 12px; font-style: italic;">🎵 Chạm vào màn hình để nghe nhạc</p>
-        <audio id="bg-music" loop><source src="assets/music/nhac-nen.mp3.mp3" type="audio/mpeg"></audio>
-    </div>
+    <main id="main-content">
+        <!-- BẢNG ĐIỀU KHIỂN NHẠC (Sẽ tự động chạy khi người dùng chạm vào màn hình) -->
+        <div style="text-align: center; padding-top: 20px;">
+            <p style="color: #D4AF37; font-size: 13px; margin-bottom: 8px; font-style: italic;">🎵 Chạm vào màn hình hoặc bấm Play để phát nhạc</p>
+            <audio id="bg-music" controls loop autoplay style="height: 35px; border-radius: 30px;">
+                <!-- Đã sửa đúng tên file nhạc có 2 đuôi mp3 của bạn -->
+                <source src="assets/music/nhac-nen.mp3.mp3" type="audio/mpeg">
+            </audio>
+        </div>
 
-    <!-- HERO -->
-    <section style="text-align: center; padding: 20px;">
-        <img src="assets/logo/logo.jpeg" style="max-width: 130px; border-radius: 8px;">
-        <h1 class="gold-title" style="font-size: 32px; margin-top: 15px;">NGUYỄN HỒNG QUÂN</h1>
-        <p>Cử nhân Luật Kinh tế | Học viện Chính sách và Phát triển</p>
-    </section>
+        <!-- 1. HERO SECTION -->
+        <section id="hero" style="padding: 40px 20px 60px 20px; text-align: center;">
+            <div data-aos="fade-up">
+                <!-- ĐÃ SỬA: Đường dẫn Logo chuẩn xác -->
+                <img src="assets/logo/logo.jpeg?v=5" alt="Logo" style="max-width: 130px; margin-bottom: 20px; border-radius: 8px;">
+                
+                <h1 class="gold-title" style="font-size: 32px; letter-spacing: 2px;">NGUYỄN HỒNG QUÂN</h1>
+                <p class="gold-title" style="font-size: 18px; font-weight: 500;">Cử nhân Luật Kinh tế</p>
+                <p style="color: #cccccc; margin-top: 10px;">Học viện Chính sách và Phát triển</p>
+                <p style="color: #ffffff; letter-spacing: 2px; margin-top: 5px;">11 / 08 / 2026</p>
+            </div>
+        </section>
 
-    <!-- ALBUM ẢNH -->
-    <div class="section-header">HÀNH TRÌNH 4 NĂM</div>
-    <div class="story-chapter">
-        <img src="assets/images/IMG_1223.jpeg" class="story-img">
-        <img src="assets/images/IMG_1489.jpeg" class="story-img">
-    </div>
+        <!-- 2. ABOUT ME -->
+        <section id="about" style="padding: 50px 20px; background: rgba(25,25,25,0.4);">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <div data-aos="fade-up">
+                    <h2 class="gold-title" style="font-size: 28px;">Dấu Ấn Thanh Xuân</h2>
+                    <br>
+                    <img src="assets/images/IMG_1204.jpeg?v=5" alt="Chân dung" style="max-width: 100%; width: 280px; border-radius: 12px; margin-bottom: 25px; border: 1px solid rgba(212, 175, 55, 0.3);">
+                    <p style="line-height: 1.8; text-align: justify; color: #dddddd;">Giá trị cốt lõi của ngành Luật Kinh tế không nằm trên những trang giấy lý thuyết, mà ở khả năng giải quyết các bài toán thực tiễn của doanh nghiệp. Hành trình 4 năm tại Học viện không chỉ là quá trình tiếp thu tri thức, mà còn là bước đệm vững chắc để tôi đưa các nghiên cứu chuyên sâu vào môi trường hành nghề thực tế.</p>
+                </div>
+            </div>
+        </section>
 
-    <!-- LƯU BÚT -->
-    <div class="section-header">SỔ LƯU BÚT</div>
-    <section class="guestbook-section">
-        <form action="https://formspree.io/f/xxxxx" method="POST" class="guestbook-form">
-            <input type="text" name="name" placeholder="Tên của bạn*" required>
-            <textarea name="message" placeholder="Lời chúc của bạn*" required></textarea>
-            <button type="submit">GỬI LỜI CHÚC</button>
+        <!-- 3. STORYTELLING GALLERY -->
+        <section id="story" style="padding: 60px 20px;">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h2 class="gold-title" data-aos="fade-up" style="font-size: 28px; text-align: center; margin-bottom: 40px;">Hành Trình 4 Năm</h2>
+                
+                <div class="story-chapter" data-aos="fade-up">
+                    <h3 class="chapter-title">Chương 1: Những Bỡ Ngỡ Đầu Tiên</h3>
+                    <p class="chapter-desc">Gói ghém những hoài bão lớn lao bước vào cánh cổng giảng đường.</p>
+                    <div class="story-grid grid-3">
+                        <img src="assets/images/IMG_1223.jpeg" class="story-img" style="aspect-ratio: 1/1;" alt="Kỷ niệm">
+                        <img src="assets/images/IMG_1489.jpeg" class="story-img" style="aspect-ratio: 1/1;" alt="Kỷ niệm">
+                        <img src="assets/images/IMG_1527.jpeg" class="story-img" style="aspect-ratio: 1/1;" alt="Kỷ niệm">
+                    </div>
+                </div>
+
+                <div class="story-chapter" data-aos="fade-up">
+                    <h3 class="chapter-title">Chương 2: Từ Giảng Đường Đến Thực Tiễn</h3>
+                    <p class="chapter-desc">Giai đoạn dấn thân, rèn luyện tư duy pháp lý sắc bén và trực tiếp cọ xát với những vấn đề thực tiễn của doanh nghiệp.</p>
+                    <div class="story-grid grid-mixed">
+                        <img src="assets/images/IMG_2423.jpeg" class="story-img featured" style="aspect-ratio: 16/9;" alt="Kỷ niệm">
+                        <img src="assets/images/IMG_3862.jpeg" class="story-img" style="aspect-ratio: 4/5;" alt="Kỷ niệm">
+                        <img src="assets/images/IMG_4682.jpeg" class="story-img" style="aspect-ratio: 4/5;" alt="Kỷ niệm">
+                        <img src="assets/images/IMG_4684.jpeg" class="story-img featured" style="aspect-ratio: 16/9;" alt="Kỷ niệm">
+                    </div>
+                </div>
+
+                <div class="story-chapter" data-aos="fade-up">
+                    <h3 class="chapter-title">Chương 3: Quả Ngọt & Sự Biết Ơn</h3>
+                    <p class="chapter-desc">Khép lại một chặng đường rực rỡ để mở ra những hành trình mới, cùng sự đồng hành vô giá của những người trân quý.</p>
+                    <div class="story-grid grid-2">
+                        <img src="assets/images/IMG_7090.jpeg" class="story-img" style="aspect-ratio: 1/1;" alt="Kỷ niệm">
+                        <img src="assets/images/IMG_7172.jpeg" class="story-img" style="aspect-ratio: 1/1;" alt="Kỷ niệm">
+                        <img src="assets/images/IMG_7378.jpeg" class="story-img featured" style="aspect-ratio: 16/9;" alt="Kỷ niệm">
+                        <img src="assets/images/IMG_7534.jpeg" class="story-img" style="aspect-ratio: 4/5;" alt="Kỷ niệm">
+                        <img src="assets/images/IMG_7535.jpeg" class="story-img" style="aspect-ratio: 4/5;" alt="Kỷ niệm">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. LỜI MỜI -->
+        <section id="invitation" style="padding: 60px 20px; background: rgba(25,25,25,0.4); text-align: center;">
+            <div style="max-width: 600px; margin: 0 auto; border: 1px solid rgba(212,175,55,0.2); border-radius: 16px; padding: 30px 20px;" data-aos="flip-up">
+                <h2 class="gold-title" style="font-size: 26px; margin-bottom: 20px;">Trân Trọng Kính Mời</h2>
+                <p style="color: #dddddd; line-height: 1.6; margin-bottom: 25px;">Đến dự buổi lễ Tốt nghiệp và chia vui cùng tôi trong khoảnh khắc đặc biệt này.</p>
+                <div style="display: inline-block; text-align: left; line-height: 2; color: #eeeeee;">
+                    <p>🕒 <strong style="color:#D4AF37;">Thời Gian:</strong> 08:00 Sáng | Thứ Ba, Ngày 11/08/2026</p>
+                    <p>📍 <strong style="color:#D4AF37;">Địa Điểm:</strong> Hội trường lớn, Học viện Chính sách và Phát triển</p>
+                    <p>👔 <strong style="color:#D4AF37;">Dresscode:</strong> Trang trọng & Lịch sự</p>
+                </div>
+            </div>
+        </section>
+<!-- PHẦN SỔ LƯU BÚT -->
+<section id="guestbook" style="padding: 60px 20px; background-color: #FDFBF7; text-align: center;">
+    <h2 class="gold-title" style="font-size: 28px; margin-bottom: 30px;">Sổ Lưu Bút</h2>
+    
+    <div style="max-width: 500px; margin: 0 auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #eee;">
+        
+        <!-- Thay link 'https://formspree.io/f/xxxxx' bằng link bạn nhận được từ Formspree -->
+        <form action="https://formspree.io/f/xxxxx" method="POST">
+            <input type="text" name="name" placeholder="Nhập tên của bạn*" required 
+                   style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box;">
+            
+            <textarea name="message" placeholder="Nhập lời chúc của bạn*" required 
+                      style="width: 100%; padding: 12px; height: 120px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box;"></textarea>
+            
+            <button type="submit" 
+                    style="background-color: #8B0000; color: white; padding: 12px 30px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; width: 100%;">
+                GỬI LỜI CHÚC
+            </button>
         </form>
-    </section>
+    </div>
+</section>
 
-    <!-- FOOTER CHUẨN -->
-    <footer style="text-align: center; padding: 40px 20px; background-color: #FDFBF7; font-size: 14px; border-top: 1px solid #ddd;">
-        <p>© 2026 Nguyễn Hồng Quân. All rights reserved.</p>
-    </footer>
+        <footer style="text-align: center; padding: 30px 20px; border-top: 1px solid #222;">
+            <p style="color: #888; font-size: 14px;">© 2026 Nguyễn Hồng Quân. All rights reserved.</p>
+        </footer>
+    </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        AOS.init();
-        document.body.addEventListener('click', () => {
-            const music = document.getElementById('bg-music');
-            if(music.paused) music.play();
+    <script> 
+        // Khởi tạo hiệu ứng
+        AOS.init({ duration: 1000, once: true }); 
+
+        // Mã bẻ khóa Safari: Phát nhạc ngay khi người dùng chạm vào web
+        document.body.addEventListener('click', function() {
+            var audio = document.getElementById('bg-music');
+            if (audio.paused) {
+                audio.play();
+            }
         }, { once: true });
     </script>
 </body>
