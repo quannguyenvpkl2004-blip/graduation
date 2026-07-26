@@ -137,5 +137,15 @@ section {
     height: 100%;
     background: radial-gradient(circle at center, rgba(138, 3, 3, 0.15) 0%, rgba(5, 5, 5, 1) 70%);
     z-index: -1;
+    /* Style cho các phần tử mới */
+.gold-title { color: #8B0000; font-family: 'Playfair Display', serif; }
+
+/* Nút bấm sang trọng */
+button:hover { background-color: #6B0F1A !important; transition: 0.3s; }
+
+/* Làm khung sổ lưu bút nổi bật */
+#guestbook {
+    border-top: 1px solid #E0D0C0;
+    margin-top: 40px;
 }
  
