@@ -1,0 +1,181 @@
+/**
+ * GALLERY.JS
+ * Xử lý thư viện ảnh Masonry, Lazy Loading và Lightbox Popup
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Tự động chèn CSS cho Lightbox để đảm bảo hiệu ứng Glassmorphism mượt mà
+    const lightboxStyle = document.createElement('style');
+    lightboxStyle.textContent = `
+        .lightbox-overlay {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            display: none; justify-content: center; align-items: center;
+            z-index: 10000; transition: opacity 0.4s ease; opacity: 0;
+        }
+        .lightbox-content {
+            position: relative; max-width: 90%; max-height: 90%;
+            display: flex; justify-content: center; align-items: center;
+        }
+        #lightbox-img {
+            max-width: 100%; max-height: 85vh; border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            user-select: none;
+        }
+        .lightbox-close {
+            position: absolute; top: 30px; right: 40px; font-size: 3rem;
+            color: var(--color-gold); background: transparent; border: none;
+            cursor: pointer; z-index: 10001; transition: transform 0.3s;
+        }
+        .lightbox-close:hover { transform: scale(1.1); }
+        .lightbox-prev, .lightbox-next {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            font-size: 3rem; color: var(--color-gold); background: transparent;
+            border: none; cursor: pointer; padding: 20px; transition: all 0.3s;
+        }
+        .lightbox-prev:hover, .lightbox-next:hover {
+            text-shadow: 0 0 20px var(--color-gold); transform: translateY(-50%) scale(1.2);
+        }
+        .lightbox-prev { left: -80px; }
+        .lightbox-next { right: -80px; }
+        
+        @media (max-width: 1024px) {
+            .lightbox-prev { left: -40px; }
+            .lightbox-next { right: -40px; }
+        }
+        @media (max-width: 768px) {
+            .lightbox-prev, .lightbox-next { display: none; /* Dùng vuốt trên mobile */ }
+            .lightbox-close { top: 15px; right: 20px; font-size: 2.5rem; }
+        }
+    `;
+    document.head.appendChild(lightboxStyle);
+
+    // 2. Logic tạo Masonry Grid giả lập
+    const galleryContainer = document.getElementById('masonry-gallery');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.querySelector('.lightbox-close');
+    const prevBtn = document.querySelector('.lightbox-prev');
+    const nextBtn = document.querySelector('.lightbox-next');
+    
+    const totalImages = 30; // Giới hạn 30 ảnh theo yêu cầu
+    let currentIndex = 1;
+
+    function initMasonryGallery() {
+        // Khởi tạo các cột
+        const columnCount = window.innerWidth > 768 ? 3 : 2; // 3 cột Desktop, 2 cột Mobile
+        const columns = [];
+        
+        galleryContainer.style.display = 'flex';
+        galleryContainer.style.gap = '20px';
+        galleryContainer.style.alignItems = 'flex-start';
+
+        for (let i = 0; i < columnCount; i++) {
+            const col = document.createElement('div');
+            col.style.display = 'flex';
+            col.style.flexDirection = 'column';
+            col.style.gap = '20px';
+            col.style.flex = '1';
+            columns.push(col);
+            galleryContainer.appendChild(col);
+        }
+
+        // Tạo phần tử ảnh và phân bổ vào các cột
+        for (let i = 1; i <= totalImages; i++) {
+            const imgWrapper = document.createElement('div');
+            imgWrapper.className = 'glass-card hover-lift'; // Sử dụng class CSS có sẵn
+            imgWrapper.style.padding = '5px';
+            imgWrapper.style.cursor = 'pointer';
+            
+            const img = document.createElement('img');
+            img.src = `assets/images/img${i}.jpg`; // Cấu trúc thư mục giả định
+            img.alt = `Kỷ niệm APD ${i}`;
+            img.loading = 'lazy'; // Tối ưu SEO và Tốc độ
+            img.style.width = '100%';
+            img.style.height = 'auto';
+            img.style.borderRadius = '8px';
+            img.style.display = 'block';
+
+            // Sự kiện click mở Lightbox
+            imgWrapper.addEventListener('click', () => openLightbox(i));
+
+            imgWrapper.appendChild(img);
+            
+            // Chia đều vào các cột
+            const targetColumn = (i - 1) % columnCount;
+            columns[targetColumn].appendChild(imgWrapper);
+        }
+    }
+
+    initMasonryGallery();
+
+    // 3. Logic Lightbox (Popup)
+    function openLightbox(index) {
+        currentIndex = index;
+        lightboxImg.src = `assets/images/img${currentIndex}.jpg`;
+        lightbox.style.display = 'flex';
+        
+        // Trigger reflow để CSS Transition hoạt động
+        void lightbox.offsetWidth; 
+        lightbox.style.opacity = '1';
+    }
+
+    function closeLightbox() {
+        lightbox.style.opacity = '0';
+        setTimeout(() => {
+            lightbox.style.display = 'none';
+        }, 400); // Khớp với thời gian transition
+    }
+
+    function showNext() {
+        currentIndex = currentIndex < totalImages ? currentIndex + 1 : 1;
+        lightboxImg.src = `assets/images/img${currentIndex}.jpg`;
+    }
+
+    function showPrev() {
+        currentIndex = currentIndex > 1 ? currentIndex - 1 : totalImages;
+        lightboxImg.src = `assets/images/img${currentIndex}.jpg`;
+    }
+
+    // Gắn sự kiện nút bấm
+    closeBtn.addEventListener('click', closeLightbox);
+    nextBtn.addEventListener('click', showNext);
+    prevBtn.addEventListener('click', showPrev);
+
+    // Bấm ra ngoài để đóng
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    // Điều hướng bằng bàn phím
+    document.addEventListener('keydown', (e) => {
+        if (lightbox.style.display === 'flex') {
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') showNext();
+            if (e.key === 'ArrowLeft') showPrev();
+        }
+    });
+
+    // 4. Xử lý vuốt (Swipe) trên thiết bị cảm ứng
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    lightbox.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    lightbox.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        const threshold = 50;
+        if (touchStartX - touchEndX > threshold) showNext(); // Vuốt trái
+        if (touchEndX - touchStartX > threshold) showPrev(); // Vuốt phải
+    }
+});
