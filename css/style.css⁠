@@ -1,3 +1,8 @@
+/* ==========================================
+   BIẾN TOÀN CỤC (CSS VARIABLES) - TONE MÀU LUXURY
+   ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap');
+
 :root {
     /* Colors */
     --color-black: #050505;
@@ -7,451 +12,105 @@
     --color-red: #8A0303; /* Đỏ đun/Burgundy cao cấp */
     --color-white: #FFFFFF;
     --color-text-light: #CCCCCC;
-    
+
     /* Glassmorphism */
     --glass-bg: rgba(25, 25, 25, 0.4);
-    --glass-border: rgba(212, 175, 55, 0.15); /* Viền kính ánh gold nhẹ */
+    --glass-border: rgba(212, 175, 55, 0.15);
     --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-    
+    --glass-blur: blur(10px);
+
     /* Fonts */
     --font-heading: 'Playfair Display', serif;
-    --font-body: 'Inter', sans-serif;
+    --font-body: 'Montserrat', sans-serif;
 }
 
-/* ==========================================================================
+/* ==========================================
    RESET & CƠ BẢN
-   ========================================================================== */
-*, *::before, *::after {
+   ========================================== */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-    font-size: 16px;
-}
-
-body {
+html, body {
+    width: 100%;
+    min-height: 100vh;
     background-color: var(--color-black);
-    color: var(--color-text-light);
+    color: var(--color-white);
     font-family: var(--font-body);
-    line-height: 1.6;
     overflow-x: hidden;
-    /* Ngăn cuộn khi đang loading */
+    scroll-behavior: smooth;
 }
 
-body.is-loading {
-    overflow: hidden; 
-}
-
-/* ==========================================================================
-   TYPOGRAPHY
-   ========================================================================== */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
-    color: var(--color-white);
+    color: var(--color-gold);
     font-weight: 600;
-}
-
-.premium-title {
-    font-size: 4rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    background: linear-gradient(to right, var(--color-gold), var(--color-gold-light), var(--color-gold));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 10px;
-}
-
-.gold-text {
-    color: var(--color-gold) !important;
-}
-
-.section-title {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
     letter-spacing: 1px;
-    position: relative;
-    display: inline-block;
 }
 
-.text-center {
-    text-align: center;
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-.subtitle {
-    font-size: 1.2rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+/* ==========================================
+   HIỆU ỨNG KÍNH MỜ (GLASSMORPHISM)
+   ========================================== */
+.glass-box {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur); /* Hỗ trợ Safari */
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    border-radius: 16px;
 }
 
-/* ==========================================================================
-   LAYOUT & KHUNG CHỨA (CONTAINER)
-   ========================================================================== */
+/* ==========================================
+   BỐ CỤC CHÍNH (MAIN LAYOUT)
+   ========================================== */
 .container {
-    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-.section-padding {
-    padding: 100px 0;
-}
-
-.fullscreen-section {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+section {
+    padding: 80px 0;
     position: relative;
 }
 
-/* Các section nền tối và nền đỏ đô mix đen */
-.dark-section {
-    background-color: var(--color-black-light);
-}
-
-.content-section {
-    background: radial-gradient(circle at center, #1a0a0a 0%, var(--color-black) 100%);
-}
-
-/* ==========================================================================
-   UI COMPONENTS (GLASSMORPHISM)
-   ========================================================================== */
-.glass-panel, .glass-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
-    border-radius: 16px;
-    box-shadow: var(--glass-shadow);
-}
-
-.glass-card {
-    padding: 30px;
-    transition: transform 0.4s ease, border-color 0.4s ease;
-}
-
-.glass-card:hover {
-    border-color: rgba(212, 175, 55, 0.5); /* Sáng viền gold khi hover */
-}
-
-/* ==========================================================================
-   BUTTONS
-   ========================================================================== */
-.btn-luxury {
+/* ==========================================
+   NÚT BẤM (BUTTONS) & HIỆU ỨNG NỀN
+   ========================================== */
+.btn {
     display: inline-block;
-    padding: 15px 40px;
-    margin-top: 30px;
-    font-family: var(--font-body);
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--color-gold);
-    background: transparent;
-    border: 1px solid var(--color-gold);
-    border-radius: 30px;
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s ease;
-    cursor: pointer;
-}
-
-.btn-luxury:hover {
-    background: var(--color-gold);
+    padding: 12px 28px;
+    background: linear-gradient(135deg, var(--color-gold), #aa8929);
     color: var(--color-black);
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-}
-
-/* Nút Glass nổi (Play nhạc, Back to top) */
-.glass-btn {
-    position: fixed;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
-    color: var(--color-gold);
-    font-size: 1.2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 30px;
     cursor: pointer;
-    z-index: 99;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
 }
 
-.glass-btn:hover {
-    background: rgba(212, 175, 55, 0.2);
-    transform: scale(1.1);
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
 }
 
-#music-toggle {
-    bottom: 30px;
-    left: 30px;
-}
-
-#back-to-top {
-    bottom: 30px;
-    right: 30px;
-    opacity: 0;
-    pointer-events: none;
-}
-
-#back-to-top.visible {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-/* ==========================================================================
-   CUSTOM CURSOR (CON TRỎ CHUỘT CAO CẤP)
-   ========================================================================== */
-.custom-cursor {
+.bg-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 8px;
-    height: 8px;
-    background-color: var(--color-gold);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s ease;
-}
-
-.cursor-follower {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 40px;
-    height: 40px;
-    border: 1px solid rgba(212, 175, 55, 0.5);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s, height 0.3s, background-color 0.3s;
-    /* Vị trí sẽ được JS cập nhật */
-}
-
-/* ==========================================================================
-   LOADING & INTRO SCREEN
-   ========================================================================== */
-#loading-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: var(--color-black);
-    z-index: 10000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.loading-content {
-    text-align: center;
-    width: 300px;
-}
-
-.school-logo {
-    width: 120px;
-    height: auto;
-    margin-bottom: 30px;
-}
-
-.progress-container {
-    width: 100%;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.1);
-    margin-bottom: 15px;
-    position: relative;
-    overflow: hidden;
-}
-
-.progress-bar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0%;
-    background: var(--color-gold);
-    box-shadow: 0 0 10px var(--color-gold);
-}
-
-.loading-text {
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-    color: var(--color-gold);
-}
-
-/* Intro Sequence */
-#intro {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: var(--color-black);
-    z-index: 9000;
-}
-
-.sequence-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    font-size: 3rem;
-    text-align: center;
-    width: 100%;
-}
-
-/* ==========================================================================
-   HERO SECTION
-   ========================================================================== */
-#hero {
-    overflow: hidden;
-}
-
-.hero-background {
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* Gradient đỏ đen tạo cảm giác sâu và sang */
-    background: linear-gradient(135deg, #110000 0%, #000000 100%);
+    background: radial-gradient(circle at center, rgba(138, 3, 3, 0.15) 0%, rgba(5, 5, 5, 1) 70%);
     z-index: -1;
 }
-
-.hero-content {
-    text-align: center;
-    padding: 60px 40px;
-    max-width: 800px;
-}
-
-.hero-logo {
-    width: 80px;
-    margin-bottom: 20px;
-}
-
-.university-name {
-    font-size: 1.2rem;
-    margin-top: 10px;
-    letter-spacing: 1px;
-}
-
-.graduation-date {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.5);
-    margin-top: 5px;
-    letter-spacing: 5px;
-}
-
-/* ==========================================================================
-   ABOUT & TIMELINE & CÁC THÀNH PHẦN KHÁC
-   ========================================================================== */
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center;
-}
-
-.img-placeholder {
-    width: 100%;
-    padding-top: 130%; /* Tỉ lệ ảnh dọc */
-    background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
-    border-radius: 8px;
-}
-
-.divider {
-    width: 50px;
-    height: 2px;
-    background: var(--color-gold);
-    margin: 20px 0;
-}
-
-/* Timeline Base */
-.timeline-container {
-    position: relative;
-    max-width: 1000px;
-    margin: 50px auto 0;
-}
-
-.timeline-line {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px;
-    height: 100%;
-    background: var(--glass-border);
-}
-
-.timeline-item {
-    width: 50%;
-    padding: 20px 40px;
-    position: relative;
-}
-
-.timeline-item.left { left: 0; text-align: right; }
-.timeline-item.right { left: 50%; text-align: left; }
-
-.timeline-dot {
-    position: absolute;
-    top: 30px;
-    width: 16px;
-    height: 16px;
-    background: var(--color-gold);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--color-gold);
-}
-
-.timeline-item.left .timeline-dot { right: -8px; }
-.timeline-item.right .timeline-dot { left: -8px; }
-
-/* Grid Count down */
-.countdown-grid {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.time-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.time-num {
-    font-family: var(--font-heading);
-    font-size: 4rem;
-    color: var(--color-white);
-    line-height: 1;
-}
-
-.time-label {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--color-gold);
-    font-size: 0.9rem;
-    margin-top: 10px;
-}
-
-/* Footer */
-.glass-footer {
-    padding: 40px 0;
-    border-top: 1px solid var(--glass-border);
-    background: var(--color-black);
-    position: relative;
-}
-
-.heart { color: var(--color-red); }
