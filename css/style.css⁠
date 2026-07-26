@@ -114,3 +114,4 @@ section {
     background: radial-gradient(circle at center, rgba(138, 3, 3, 0.15) 0%, rgba(5, 5, 5, 1) 70%);
     z-index: -1;
 }
+ 
