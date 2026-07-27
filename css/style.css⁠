@@ -1,12 +1,10 @@
-/* Nhúng phông chữ cao cấp từ Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
-/* Nhúng CSS của Swiper để tạo hiệu ứng trượt ảnh */
 @import url('https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
 
 :root {
-    --primary-red: #6B0F1A;  
+    --primary-red: #8B0000;  
     --gold-accent: #D4AF37;  
-    --bg-cream: #FDFBF7;     
+    --bg-orange-light: #FDF5E6; /* Nền cam nhẹ sang trọng ấm áp */
     --text-dark: #3A2E2B;    
 }
 
@@ -16,56 +14,86 @@
 }
 
 body {
-    background-color: #f5f5f5; /* Nền xám nhạt bên ngoài màn hình máy tính */
+    background-color: #E6E6FA; /* Màu nền ngoài máy tính */
     color: var(--text-dark);
     margin: 0;
     font-family: 'Lora', serif;
     line-height: 1.8;
 }
 
-/* KHUNG CHỨA TOÀN BỘ WEB - Sửa lỗi hiển thị Máy tính */
+/* KHUNG ĐỊNH DẠNG MÁY TÍNH & ĐIỆN THOẠI - CHỐNG BỊ BẸT HOẶC LỖI KÍCH THƯỚC */
 #main-content {
-    background-color: var(--bg-cream);
-    max-width: 600px; /* Định dạng chuẩn khung dọc như thiệp điện tử trên cả máy tính */
+    background-color: var(--bg-orange-light);
+    max-width: 500px; /* Độ rộng tiêu chuẩn cho thiệp mobile chuyên nghiệp */
     margin: 0 auto;
-    box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    box-shadow: 0 0 40px rgba(0,0,0,0.15);
     min-height: 100vh;
-    padding-bottom: 40px;
     position: relative;
+    padding-bottom: 50px;
 }
 
-h1, h2, h3, .title-premium {
-    font-family: 'Cinzel', serif;
-    font-weight: 600;
-    letter-spacing: 2px;
-    color: var(--primary-red);
-}
-
-/* THAY THẾ DẢI ĐỎ THÀNH TIÊU ĐỀ TINH TẾ (GIỐNG HÌNH MẪU CỦA BẠN) */
-.section-title-clean {
+/* Khung hình đập vào mắt người xem lúc mở đầu */
+.hero-cover-card {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
     text-align: center;
+}
+
+.premium-frame {
+    width: 100%;
+    max-width: 380px;
+    height: 60vh;
+    border: 2px solid var(--primary-red);
+    padding: 8px;
+    border-radius: 200px 200px 0 0; /* Khung vòm nghệ thuật */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.premium-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 190px 190px 0 0;
+}
+
+/* ĐƯỜNG KẺ NGANG DÀI PHÂN CÁCH TRONG GHI THÔNG TIN */
+.divider-line {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 50px 20px 30px 20px;
+}
+
+.divider-line::before, .divider-line::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--primary-red);
+}
+
+.divider-line span {
+    padding: 0 15px;
     font-family: 'Cinzel', serif;
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 16px;
     letter-spacing: 3px;
     color: var(--primary-red);
-    margin: 50px 0 25px 0;
-    position: relative;
-    padding-bottom: 10px;
+    font-weight: 600;
 }
 
-.section-title-clean::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 1px;
-    background-color: var(--gold-accent);
+/* Định dạng chung */
+.card-premium {
+    background: #ffffff;
+    padding: 25px 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+    margin: 0 20px;
+    border: 1px solid rgba(139, 0, 0, 0.05);
 }
 
-/* Nút bấm sang trọng */
 .btn-premium {
     background-color: var(--primary-red);
     color: #ffffff;
@@ -77,10 +105,9 @@ h1, h2, h3, .title-premium {
     border: 1px solid var(--gold-accent);
     border-radius: 25px;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(107, 15, 26, 0.2);
-    transition: all 0.3s ease;
-    display: inline-block;
     text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s;
 }
 
 .btn-premium:hover {
@@ -88,190 +115,20 @@ h1, h2, h3, .title-premium {
     color: var(--primary-red);
 }
 
-/* Ô nhập liệu của lưu bút */
-.input-premium {
-    width: 100%;
-    padding: 12px 15px;
-    margin-bottom: 15px;
-    border: 1px solid rgba(107, 15, 26, 0.2);
+/* Khung comment Facebook style */
+.fb-comment-box {
+    background: #fff;
+    border: 1px solid #e9ebee;
     border-radius: 8px;
-    background-color: #ffffff;
-    font-family: 'Lora', serif;
-    color: var(--text-dark);
-    font-size: 15px;
+    padding: 12px;
+    margin-bottom: 10px;
+    text-align: left;
 }
+.fb-author { font-weight: bold; color: #365899; font-size: 14px; margin-bottom: 2px; }
+.fb-text { color: #1c1e21; font-size: 14px; }
 
-.card-premium {
-    background: #ffffff;
-    padding: 30px 20px;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(74, 55, 40, 0.03);
-    border: 1px solid rgba(107, 15, 26, 0.03);
-    margin: 0 20px;
-}
-
-/* CSS cho Album ảnh trượt ngang Swiper */
-.swiper {
-    width: 100%;
-    padding-top: 10px;
-    padding-bottom: 40px;
-}
-
-.swiper-slide {
-    background-position: center;
-    background-size: cover;
-    width: 280px; /* Chiều rộng mỗi bức ảnh khi trượt */
-    height: 380px;
-}
-
-.swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-/* Đổi màu chấm tròn chuyển ảnh thành màu đỏ đun */
-.swiper-pagination-bullet-active {
-    background: var(--primary-red) !important;
-}/* Nhúng phông chữ cao cấp từ Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
-/* Nhúng CSS của Swiper để tạo hiệu ứng trượt ảnh */
-@import url('https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
-
-:root {
-    --primary-red: #6B0F1A;  
-    --gold-accent: #D4AF37;  
-    --bg-cream: #FDFBF7;     
-    --text-dark: #3A2E2B;    
-}
-
-* {
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-}
-
-body {
-    background-color: #f5f5f5; /* Nền xám nhạt bên ngoài màn hình máy tính */
-    color: var(--text-dark);
-    margin: 0;
-    font-family: 'Lora', serif;
-    line-height: 1.8;
-}
-
-/* KHUNG CHỨA TOÀN BỘ WEB - Sửa lỗi hiển thị Máy tính */
-#main-content {
-    background-color: var(--bg-cream);
-    max-width: 600px; /* Định dạng chuẩn khung dọc như thiệp điện tử trên cả máy tính */
-    margin: 0 auto;
-    box-shadow: 0 0 30px rgba(0,0,0,0.1);
-    min-height: 100vh;
-    padding-bottom: 40px;
-    position: relative;
-}
-
-h1, h2, h3, .title-premium {
-    font-family: 'Cinzel', serif;
-    font-weight: 600;
-    letter-spacing: 2px;
-    color: var(--primary-red);
-}
-
-/* THAY THẾ DẢI ĐỎ THÀNH TIÊU ĐỀ TINH TẾ (GIỐNG HÌNH MẪU CỦA BẠN) */
-.section-title-clean {
-    text-align: center;
-    font-family: 'Cinzel', serif;
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: 3px;
-    color: var(--primary-red);
-    margin: 50px 0 25px 0;
-    position: relative;
-    padding-bottom: 10px;
-}
-
-.section-title-clean::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 1px;
-    background-color: var(--gold-accent);
-}
-
-/* Nút bấm sang trọng */
-.btn-premium {
-    background-color: var(--primary-red);
-    color: #ffffff;
-    font-family: 'Cinzel', serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    padding: 12px 35px;
-    border: 1px solid var(--gold-accent);
-    border-radius: 25px;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(107, 15, 26, 0.2);
-    transition: all 0.3s ease;
-    display: inline-block;
-    text-decoration: none;
-}
-
-.btn-premium:hover {
-    background-color: #ffffff;
-    color: var(--primary-red);
-}
-
-/* Ô nhập liệu của lưu bút */
-.input-premium {
-    width: 100%;
-    padding: 12px 15px;
-    margin-bottom: 15px;
-    border: 1px solid rgba(107, 15, 26, 0.2);
-    border-radius: 8px;
-    background-color: #ffffff;
-    font-family: 'Lora', serif;
-    color: var(--text-dark);
-    font-size: 15px;
-}
-
-.card-premium {
-    background: #ffffff;
-    padding: 30px 20px;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(74, 55, 40, 0.03);
-    border: 1px solid rgba(107, 15, 26, 0.03);
-    margin: 0 20px;
-}
-
-/* CSS cho Album ảnh trượt ngang Swiper */
-.swiper {
-    width: 100%;
-    padding-top: 10px;
-    padding-bottom: 40px;
-}
-
-.swiper-slide {
-    background-position: center;
-    background-size: cover;
-    width: 280px; /* Chiều rộng mỗi bức ảnh khi trượt */
-    height: 380px;
-}
-
-.swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-/* Đổi màu chấm tròn chuyển ảnh thành màu đỏ đun */
-.swiper-pagination-bullet-active {
-    background: var(--primary-red) !important;
-}
+/* Swiper Album */
+.swiper { width: 100%; padding-bottom: 40px; }
+.swiper-slide { width: 290px; height: 390px; }
+.swiper-slide img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+.swiper-pagination-bullet-active { background: var(--primary-red) !important; }
