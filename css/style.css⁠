@@ -4,7 +4,7 @@
 :root {
     --primary-red: #8B0000;  
     --gold-accent: #D4AF37;  
-    --bg-orange-light: #FDF5E6; /* Nền cam nhẹ sang trọng ấm áp */
+    --bg-orange-light: #FDF5E6; /* Nền cam nhẹ sang trọng */
     --text-dark: #3A2E2B;    
 }
 
@@ -14,105 +14,105 @@
 }
 
 body {
-    background-color: #E6E6FA; /* Màu nền ngoài máy tính */
+    background-color: #E6E6FA; /* Nền ngoài cho máy tính */
     color: var(--text-dark);
     margin: 0;
     font-family: 'Lora', serif;
     line-height: 1.8;
 }
 
-/* KHUNG ĐỊNH DẠNG MÁY TÍNH & ĐIỆN THOẠI - CHỐNG BỊ BẸT HOẶC LỖI KÍCH THƯỚC */
+/* Khung chuẩn chống vỡ giao diện trên máy tính */
 #main-content {
     background-color: var(--bg-orange-light);
-    max-width: 500px; /* Độ rộng tiêu chuẩn cho thiệp mobile chuyên nghiệp */
+    max-width: 500px;
     margin: 0 auto;
     box-shadow: 0 0 40px rgba(0,0,0,0.15);
     min-height: 100vh;
     position: relative;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
+    overflow-x: hidden;
 }
 
-/* Khung hình đập vào mắt người xem lúc mở đầu */
-.hero-cover-card {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 30px 20px;
+/* --- THIẾT KẾ BÌA ĐẦU TIÊN (HERO) GIỐNG ẢNH MẪU --- */
+.hero-top-arch {
+    background-color: var(--primary-red);
+    border-bottom-left-radius: 50% 15%;
+    border-bottom-right-radius: 50% 15%;
+    padding: 40px 20px 100px 20px;
     text-align: center;
+    color: #fff;
 }
 
-.premium-frame {
-    width: 100%;
-    max-width: 380px;
-    height: 60vh;
-    border: 2px solid var(--primary-red);
-    padding: 8px;
-    border-radius: 200px 200px 0 0; /* Khung vòm nghệ thuật */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
+.hero-img-wrapper {
+    text-align: center;
+    margin-top: -80px; /* Kéo ảnh trồi lên phần nền đỏ */
+    padding: 0 20px;
 }
 
-.premium-frame img {
-    width: 100%;
-    height: 100%;
+.hero-img-wrapper img {
+    width: 260px;
+    height: 360px;
     object-fit: cover;
-    border-radius: 190px 190px 0 0;
+    border-radius: 130px 130px 0 0; /* Bo tròn nửa trên thành hình vòm */
+    border: 4px solid var(--bg-orange-light);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-/* ĐƯỜNG KẺ NGANG DÀI PHÂN CÁCH TRONG GHI THÔNG TIN */
-.divider-line {
-    display: flex;
-    align-items: center;
+/* --- TIÊU ĐỀ KHỐI NGANG MÀU ĐỎ CHUẨN VIDEO --- */
+.section-block-header {
+    background-color: var(--primary-red);
+    color: var(--gold-accent);
     text-align: center;
-    margin: 50px 20px 30px 20px;
-}
-
-.divider-line::before, .divider-line::after {
-    content: '';
-    flex: 1;
-    border-bottom: 1px solid var(--primary-red);
-}
-
-.divider-line span {
-    padding: 0 15px;
     font-family: 'Cinzel', serif;
-    font-size: 16px;
-    letter-spacing: 3px;
-    color: var(--primary-red);
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 12px 0;
+    margin: 40px 0 20px 0;
+    text-transform: uppercase;
 }
 
-/* Định dạng chung */
+/* --- ALBUM ẢNH SWIPER ĐÃ FIX KÍCH THƯỚC --- */
+.swiper { 
+    width: 100%; 
+    padding: 20px 0 50px 0; 
+}
+.swiper-slide { 
+    width: 240px; /* Thu nhỏ chiều rộng để ảnh không bị zoom */
+    height: 340px; 
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+    background-color: #fff;
+}
+.swiper-slide img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    border-radius: 10px; 
+}
+.swiper-pagination-bullet-active { 
+    background: var(--primary-red) !important; 
+}
+
+/* Định dạng nội dung chung */
 .card-premium {
-    background: #ffffff;
-    padding: 25px 20px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-    margin: 0 20px;
-    border: 1px solid rgba(139, 0, 0, 0.05);
+    padding: 10px 20px;
+    text-align: center;
 }
 
 .btn-premium {
     background-color: var(--primary-red);
     color: #ffffff;
     font-family: 'Cinzel', serif;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
-    letter-spacing: 2px;
-    padding: 12px 35px;
-    border: 1px solid var(--gold-accent);
+    letter-spacing: 1px;
+    padding: 12px 30px;
+    border: none;
     border-radius: 25px;
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
-    transition: all 0.3s;
-}
-
-.btn-premium:hover {
-    background-color: #ffffff;
-    color: var(--primary-red);
 }
 
 /* Khung comment Facebook style */
@@ -124,11 +124,5 @@ body {
     margin-bottom: 10px;
     text-align: left;
 }
-.fb-author { font-weight: bold; color: #365899; font-size: 14px; margin-bottom: 2px; }
-.fb-text { color: #1c1e21; font-size: 14px; }
-
-/* Swiper Album */
-.swiper { width: 100%; padding-bottom: 40px; }
-.swiper-slide { width: 290px; height: 390px; }
-.swiper-slide img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
-.swiper-pagination-bullet-active { background: var(--primary-red) !important; }
+.fb-author { font-weight: bold; color: var(--primary-red); font-size: 14px; margin-bottom: 2px; }
+.fb-text { color: #333; font-size: 14px; }
