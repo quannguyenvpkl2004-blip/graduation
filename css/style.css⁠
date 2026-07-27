@@ -1,151 +1,96 @@
-/* ==========================================
-   BIẾN TOÀN CỤC (CSS VARIABLES) - TONE MÀU LUXURY
-   ========================================== */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap');
+/* Nhúng phông chữ cao cấp từ Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
 
 :root {
-    /* Colors */
-    --color-black: #050505;
-    --color-black-light: #111111;
-    --color-gold: #D4AF37; /* Vàng Gold Sang Trọng */
-    --color-gold-light: #F3E5AB;
-    --color-red: #8A0303; /* Đỏ đun/Burgundy cao cấp */
-    --color-white: #FFFFFF;
-    --color-text-light: #CCCCCC;
-    :root {
-    --primary-red: #8B0000; /* Đỏ đun sang trọng */
-    --bg-cream: #FDFBF7;    /* Nền kem nhạt */
-    --text-color: #4A3728;  /* Màu nâu đậm cho chữ */
+    --primary-red: #6B0F1A;  /* Đỏ rượu chát/đỏ đun sang trọng */
+    --gold-accent: #D4AF37;  /* Vàng gold điểm nhấn */
+    --bg-cream: #FDFBF7;     /* Nền kem nhã nhặn như giấy mỹ thuật */
+    --text-dark: #3A2E2B;    /* Nâu đen ấm áp giúp chữ sang hơn màu đen tuyền */
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
 }
 
 body {
     background-color: var(--bg-cream);
-    color: var(--text-color);
-    font-family: 'Playfair Display', serif; /* Font có chân sang trọng */
-}
-
-/* Thanh tiêu đề đặc trưng */
-.section-header {
-    background-color: var(--primary-red);
-    color: white;
-    padding: 15px;
-    text-align: center;
-    font-size: 20px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin: 30px 0;
-}
-
-
-    /* Glassmorphism */
-    --glass-bg: rgba(25, 25, 25, 0.4);
-    --glass-border: rgba(212, 175, 55, 0.15);
-    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-    --glass-blur: blur(10px);
-
-    /* Fonts */
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Montserrat', sans-serif;
-}
-
-/* ==========================================
-   RESET & CƠ BẢN
-   ========================================== */
-* {
+    color: var(--text-dark);
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html, body {
-    width: 100%;
-    min-height: 100vh;
-    background-color: var(--color-black);
-    color: var(--color-white);
-    font-family: var(--font-body);
+    font-family: 'Lora', serif;
+    line-height: 1.8;
     overflow-x: hidden;
-    scroll-behavior: smooth;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-    color: var(--color-gold);
+/* Định dạng tiêu đề */
+h1, h2, h3, .title-premium {
+    font-family: 'Cinzel', serif;
     font-weight: 600;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    color: var(--primary-red);
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
+/* Hiệu ứng dải ruy-băng đỏ ngăn cách các phần giống video */
+.section-header-ribbon {
+    background-color: var(--primary-red);
+    color: #ffffff;
+    padding: 15px 20px;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    margin: 40px 0 20px 0;
 }
-
-/* ==========================================
-   HIỆU ỨNG KÍNH MỜ (GLASSMORPHISM)
-   ========================================== */
-.glass-box {
-    background: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur); /* Hỗ trợ Safari */
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
-    border-radius: 16px;
-}
-
-/* ==========================================
-   BỐ CỤC CHÍNH (MAIN LAYOUT)
-   ========================================== */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-section {
-    padding: 80px 0;
-    position: relative;
-}
-
-/* ==========================================
-   NÚT BẤM (BUTTONS) & HIỆU ỨNG NỀN
-   ========================================== */
-.btn {
-    display: inline-block;
-    padding: 12px 28px;
-    background: linear-gradient(135deg, var(--color-gold), #aa8929);
-    color: var(--color-black);
-    font-family: var(--font-heading);
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
-}
-
-.bg-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, rgba(138, 3, 3, 0.15) 0%, rgba(5, 5, 5, 1) 70%);
-    z-index: -1;
-    /* Style cho các phần tử mới */
-.gold-title { color: #8B0000; font-family: 'Playfair Display', serif; }
 
 /* Nút bấm sang trọng */
-button:hover { background-color: #6B0F1A !important; transition: 0.3s; }
-
-/* Làm khung sổ lưu bút nổi bật */
-#guestbook {
-    border-top: 1px solid #E0D0C0;
-    margin-top: 40px;
+.btn-premium {
+    background-color: var(--primary-red);
+    color: #ffffff;
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 12px 35px;
+    border: 1px solid var(--gold-accent);
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(107, 15, 26, 0.2);
+    transition: all 0.4s ease;
 }
- 
+
+.btn-premium:hover {
+    background-color: #ffffff;
+    color: var(--primary-red);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(107, 15, 26, 0.3);
+}
+
+/* Ô nhập liệu của lưu bút */
+.input-premium {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(107, 15, 26, 0.3);
+    border-radius: 8px;
+    background-color: #ffffff;
+    font-family: 'Lora', serif;
+    color: var(--text-dark);
+    font-size: 15px;
+    transition: border 0.3s;
+}
+
+.input-premium:focus {
+    outline: none;
+    border-color: var(--primary-red);
+}
+
+/* Đổ bóng nhẹ cho khung nội dung giống video */
+.card-premium {
+    background: #ffffff;
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(74, 55, 40, 0.05);
+    border: 1px solid rgba(107, 15, 26, 0.05);
+}
