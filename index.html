@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Nguyễn Hồng Quân | Lễ Tốt Nghiệp 2026</title>
     
-    <!-- Nhúng Font chữ và Thư viện CSS -->
+    <!-- Nhúng Font chữ hỗ trợ 100% Tiếng Việt (Playfair Display & Lora) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+    
+    <!-- Thư viện CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
 
-    <!-- NHÚNG TRỰC TIẾP CSS VÀO ĐÂY ĐỂ CHỐNG LỖI VỠ GIAO DIỆN -->
     <style>
         :root {
             --primary-red: #8B0000;
@@ -23,19 +24,17 @@
 
         * { box-sizing: border-box; -webkit-font-smoothing: antialiased; margin: 0; padding: 0; }
 
-        /* Nền bên ngoài màn hình máy tính */
         body {
             background-color: #E9ECEF;
             color: var(--text-dark);
-            font-family: 'Lora', serif;
+            font-family: 'Lora', serif; /* Font chữ mềm mại dễ đọc cho phần nội dung */
             line-height: 1.8;
             overflow-x: hidden;
         }
 
-        /* Khung điện thoại ở giữa màn hình */
         #app-container {
             background-color: var(--bg-cream);
-            max-width: 480px; /* Kích thước chuẩn thiệp di động */
+            max-width: 480px; 
             margin: 0 auto;
             box-shadow: 0 0 30px rgba(0,0,0,0.15);
             min-height: 100vh;
@@ -43,7 +42,7 @@
             overflow: hidden;
         }
 
-        /* KHỐI VÒM ĐỎ TRÊN CÙNG (Y hệt chungdoi.com) */
+        /* VÒM ĐỎ TRÊN CÙNG */
         .top-arch-bg {
             background-color: var(--primary-red);
             color: #ffffff;
@@ -53,20 +52,22 @@
             border-bottom-right-radius: 50% 25%;
             position: relative;
             z-index: 1;
+            box-shadow: 0 10px 20px rgba(139,0,0,0.2);
         }
 
-        /* KHUNG ẢNH CẮT VÒM NẰM ĐÈ LÊN NỀN ĐỎ */
+        /* KHUNG ẢNH CẮT VÒM NỔI BẬT + HIỆU ỨNG BỒNG BỀNH */
         .hero-img-box {
             width: 270px;
             height: 380px;
-            margin: -110px auto 20px auto; /* Kéo trồi lên nền đỏ */
+            margin: -110px auto 20px auto;
             position: relative;
             z-index: 2;
             border-radius: 135px 135px 0 0;
-            border: 4px solid var(--bg-cream);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            border: 5px solid var(--bg-cream);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
             overflow: hidden;
             background: #fff;
+            animation: floating 3s ease-in-out infinite; 
         }
 
         .hero-img-box img {
@@ -76,31 +77,33 @@
             display: block;
         }
 
-        /* THANH TIÊU ĐỀ KHỐI NGANG MÀU ĐỎ ĐUN */
+        /* KHỐI TIÊU ĐỀ NGANG */
         .section-header-block {
             background-color: var(--primary-red);
             color: var(--bg-cream);
             text-align: center;
-            font-family: 'Cinzel', serif;
+            font-family: 'Playfair Display', serif;
             font-size: 18px;
-            font-weight: 600;
-            letter-spacing: 3px;
+            font-weight: 700;
+            letter-spacing: 2px;
             padding: 12px 0;
             margin: 40px 0 30px 0;
             width: 100%;
             text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        /* Định dạng chung */
         .content-box { padding: 0 25px; text-align: center; }
-        h1, h2, h3, .cinzel-text { font-family: 'Cinzel', serif; }
+        
+        /* Font sang trọng cho các tiêu đề */
+        h1, h2, h3, .premium-text { font-family: 'Playfair Display', serif; }
         
         .btn-premium {
             background-color: var(--primary-red);
             color: #ffffff;
-            font-family: 'Cinzel', serif;
+            font-family: 'Playfair Display', serif;
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: 1px;
             padding: 12px 35px;
             border: none;
@@ -111,33 +114,70 @@
             box-shadow: 0 5px 15px rgba(139,0,0,0.2);
             transition: all 0.3s;
         }
-        .btn-premium:hover { transform: translateY(-2px); background-color: #6B0F1A; }
+        .btn-premium:hover { transform: translateY(-3px); background-color: #6B0F1A; box-shadow: 0 8px 20px rgba(139,0,0,0.3); }
 
-        /* Khung nhập liệu Sổ lưu bút */
         .input-box {
             width: 100%; padding: 12px 15px; margin-bottom: 12px;
             border: 1px solid rgba(139,0,0,0.2); border-radius: 8px;
-            font-family: 'Lora', serif; font-size: 15px;
+            font-family: 'Lora', serif; font-size: 15px; transition: 0.3s;
         }
+        .input-box:focus { border-color: var(--primary-red); outline: none; }
+        
         .comment-item {
             background: #ffffff; border: 1px solid #eaeaea; border-radius: 8px;
             padding: 12px; margin-bottom: 10px; text-align: left; box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            animation: fadeIn 0.5s ease-in-out;
         }
 
-        /* Swiper CSS Tùy chỉnh */
         .swiper { width: 100%; padding-bottom: 40px; }
         .swiper-slide { width: 230px; height: 330px; border-radius: 12px; background: #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         .swiper-slide img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
         .swiper-pagination-bullet-active { background: var(--primary-red) !important; }
+
+        /* NÚT PHÁT NHẠC Ở GÓC MÀN HÌNH */
+        #music-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 45px;
+            height: 45px;
+            background-color: var(--primary-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border: 2px solid var(--gold-accent);
+            font-size: 20px;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+        
+        .spinning { animation: spin 3s linear infinite; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
 
-    <!-- MÀN HÌNH CHỜ CLICK MỞ THIỆP -->
+    <!-- MÀN HÌNH CHỜ (Sử dụng Font Playfair Display không bị lỗi dấu) -->
     <div id="welcome-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #8B0000; z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white;">
-        <h1 class="cinzel-text" style="color: #D4AF37; font-size: 26px; letter-spacing: 2px; margin-bottom: 10px;">LỄ TỐT NGHIỆP</h1>
-        <p style="font-style: italic; margin-bottom: 40px;">Nguyễn Hồng Quân | 2026</p>
-        <button onclick="openInvitation()" style="background: white; color: #8B0000; font-family: 'Cinzel'; font-weight: bold; letter-spacing: 2px; padding: 15px 40px; border: none; border-radius: 30px; cursor: pointer; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
+        <h1 class="premium-text" style="color: #D4AF37; font-size: 28px; letter-spacing: 2px; margin-bottom: 10px;" data-aos="zoom-in">LỄ TỐT NGHIỆP</h1>
+        <p style="font-style: italic; margin-bottom: 40px; font-size: 16px;" data-aos="fade-up" data-aos-delay="200">Nguyễn Hồng Quân | 2026</p>
+        <button onclick="openInvitation()" style="background: white; color: #8B0000; font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: 2px; padding: 15px 40px; border: none; border-radius: 30px; cursor: pointer; box-shadow: 0 10px 20px rgba(0,0,0,0.3); transform-origin: center;" data-aos="zoom-in" data-aos-delay="400">
             MỞ THIỆP
         </button>
     </div>
@@ -145,62 +185,64 @@
     <!-- HỆ THỐNG ÂM THANH -->
     <audio id="bg-music" loop><source src="assets/music/nhac-nen.mp3.mp3" type="audio/mpeg"></audio>
 
-    <!-- CONTAINER CHÍNH CỦA THIỆP -->
+    <!-- NÚT BẬT/TẮT NHẠC -->
+    <div id="music-btn" onclick="toggleMusic()">🎵</div>
+
     <main id="app-container">
         
         <!-- BỐ CỤC 1: VÒM ĐỎ VÀ ẢNH BÌA -->
-        <section data-aos="fade-down" data-aos-duration="1200">
-            <div class="top-arch-bg">
-                <p class="cinzel-text" style="letter-spacing: 2px; font-size: 13px; color: var(--gold-accent); margin-bottom: 5px;">THÂN MỜI TỚI DỰ LỄ TỐT NGHIỆP</p>
-                <div class="cinzel-text" style="font-size: 30px; font-weight: bold;">HỒNG QUÂN</div>
-                <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-top: 15px; font-size: 14px;">
-                    <span>✦</span><span class="cinzel-text">11 . 08 . 2026</span><span>✦</span>
+        <section>
+            <div class="top-arch-bg" data-aos="fade-down" data-aos-duration="1200">
+                <p class="premium-text" style="letter-spacing: 1px; font-size: 16px; color: #FFFFFF; font-weight: 700; text-shadow: 1px 1px 4px rgba(0,0,0,0.5); margin-bottom: 8px;">
+                    THÂN MỜI TỚI DỰ LỄ TỐT NGHIỆP
+                </p>
+                <div class="premium-text" style="font-size: 34px; font-weight: 700; color: var(--gold-accent); margin-top: 10px;">HỒNG QUÂN</div>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-top: 15px; font-size: 16px; color: #fff;">
+                    <span>✦</span><span class="premium-text" style="letter-spacing: 1px;">11 . 08 . 2026</span><span>✦</span>
                 </div>
             </div>
             
-            <div class="hero-img-box">
-                <!-- Đã dùng chính xác ảnh bạn yêu cầu -->
+            <div class="hero-img-box" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="1500">
                 <img src="assets/images/IMG_7534.jpeg" alt="Hồng Quân">
             </div>
 
-            <div class="content-box" style="margin-top: 15px;">
-                <h1 class="cinzel-text" style="font-size: 24px; color: var(--primary-red); letter-spacing: 2px;">NGUYỄN HỒNG QUÂN</h1>
-                <p class="cinzel-text" style="color: var(--gold-accent); font-weight: bold; font-size: 15px;">CỬ NHÂN LUẬT KINH TẾ</p>
+            <div class="content-box" style="margin-top: 20px;" data-aos="fade-up">
+                <h1 class="premium-text" style="font-size: 26px; color: var(--primary-red); letter-spacing: 2px;">NGUYỄN HỒNG QUÂN</h1>
+                <p class="premium-text" style="color: var(--gold-accent); font-weight: 700; font-size: 16px; margin-top: 5px;">CỬ NHÂN LUẬT KINH TẾ</p>
             </div>
         </section>
 
         <!-- BỐ CỤC 2: TÂM SỰ -->
-        <div class="section-header-block" data-aos="fade-up">DẤU ẤN THANH XUÂN</div>
+        <div class="section-header-block" data-aos="fade-right">DẤU ẤN THANH XUÂN</div>
         <section class="content-box" data-aos="fade-up" style="text-align: justify;">
-            <p style="color: #555; font-style: italic;">
+            <p style="color: #444; font-style: italic; font-size: 15px;">
                 "Hành trình tại Học viện Chính sách và Phát triển không chỉ là việc tiếp thu tri thức pháp lý, mà còn là quá trình vận dụng vào thực tiễn kinh doanh. Cảm ơn thầy cô, gia đình và những người bạn đã luôn đồng hành cùng Quân trên chặng đường 4 năm rực rỡ này."
             </p>
         </section>
 
         <!-- BỐ CỤC 3: THÔNG TIN LỄ HỘI -->
-        <div class="section-header-block" data-aos="fade-up">THÔNG TIN LỄ HỘI</div>
-        <section class="content-box" data-aos="fade-up">
+        <div class="section-header-block" data-aos="fade-left">THÔNG TIN LỄ HỘI</div>
+        <section class="content-box" data-aos="zoom-in">
             <p style="font-size: 14px; color: #777; text-transform: uppercase; letter-spacing: 1px;">Sự kiện diễn ra vào lúc</p>
-            <h2 class="cinzel-text" style="font-size: 36px; color: var(--primary-red); margin: 5px 0;">08:00 AM</h2>
-            <div style="display: flex; justify-content: center; align-items: center; gap: 15px; margin: 15px 0; font-family: 'Cinzel', serif; color: var(--primary-red);">
-                <div style="font-size: 15px;">THỨ BA</div>
+            <h2 class="premium-text" style="font-size: 38px; color: var(--primary-red); margin: 5px 0;">08:00 AM</h2>
+            <div style="display: flex; justify-content: center; align-items: center; gap: 15px; margin: 15px 0; font-family: 'Playfair Display', serif; color: var(--primary-red); font-weight: 600;">
+                <div style="font-size: 16px;">THỨ BA</div>
                 <div style="font-size: 32px; border-left: 1px solid #ddd; border-right: 1px solid #ddd; padding: 0 15px;">11</div>
-                <div style="font-size: 15px;">THÁNG 08</div>
+                <div style="font-size: 16px;">THÁNG 08</div>
             </div>
-            <p style="font-family: 'Cinzel', serif; font-size: 16px; margin-bottom: 20px;">2026</p>
+            <p style="font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 25px; font-weight: 600;">2026</p>
             
-            <div style="background: #ffffff; border: 1px solid #eee; border-radius: 12px; padding: 20px; text-align: left; font-size: 14px; box-shadow: 0 5px 15px rgba(0,0,0,0.03);">
-                <p style="margin-bottom: 10px;">📍 <strong>Vị trí:</strong> Hội trường lớn, Học viện Chính sách và Phát triển, An Khánh, Hoài Đức, Hà Nội</p>
-                <p>👔 <strong>Dresscode:</strong> Lịch sự, trang trọng</p>
+            <div style="background: #ffffff; border: 1px solid #eee; border-radius: 12px; padding: 20px; text-align: left; font-size: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.03);">
+                <p style="margin-bottom: 10px; color: #444;">📍 <strong>Vị trí:</strong> Hội trường lớn, Học viện Chính sách và Phát triển, An Khánh, Hoài Đức, Hà Nội</p>
+                <p style="color: #444;">👔 <strong>Dresscode:</strong> Lịch sự, trang trọng</p>
             </div>
         </section>
 
-        <!-- BỐ CỤC 4: ALBUM ẢNH TRƯỢT MƯỢT MÀ -->
-        <div class="section-header-block" data-aos="fade-up">ALBUM KỶ NIỆM</div>
-        <section style="padding: 0 10px; overflow: hidden;" data-aos="zoom-in">
+        <!-- BỐ CỤC 4: ALBUM ẢNH -->
+        <div class="section-header-block" data-aos="fade-right">ALBUM KỶ NIỆM</div>
+        <section style="padding: 0 10px; overflow: hidden;" data-aos="fade-up">
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
-                    <!-- Gọi toàn bộ các ảnh từ kho assets/images -->
                     <div class="swiper-slide"><img src="assets/images/IMG_1204.jpeg"></div>
                     <div class="swiper-slide"><img src="assets/images/IMG_1223.jpeg"></div>
                     <div class="swiper-slide"><img src="assets/images/IMG_1489.jpeg"></div>
@@ -215,72 +257,80 @@
         </section>
 
         <!-- BỐ CỤC 5: BẢN ĐỒ -->
-        <div class="section-header-block" data-aos="fade-up">BẢN ĐỒ VỊ TRÍ</div>
+        <div class="section-header-block" data-aos="fade-left">BẢN ĐỒ VỊ TRÍ</div>
         <section class="content-box" data-aos="fade-up">
             <div style="background: #fff; padding: 10px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee;">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.8984918231265!2d105.71181827599986!3d20.997709889877073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313453ba67b43b67%3A0x6bde5b111ffc338!2zSOG7jWMgdmnhu4duIENow61uaCBzMOhY2ggdsOgIFBow6F0 trmnhu4Nu!5e0!3m2!1svi!2svn!4v1700000000000" width="100%" height="250" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy"></iframe>
             </div>
-            <div style="margin-top: 20px;">
+            <div style="margin-top: 25px;">
                 <a href="https://maps.app.goo.gl/5J1zG7R9eRpxqYp46" target="_blank" class="btn-premium">MỞ BẰNG GOOGLE MAPS</a>
             </div>
         </section>
 
-        <!-- BỐ CỤC 6: SỔ LƯU BÚT ĐIỆN TỬ -->
-        <div class="section-header-block" data-aos="fade-up">SỔ LƯU BÚT</div>
+        <!-- BỐ CỤC 6: SỔ LƯU BÚT -->
+        <div class="section-header-block" data-aos="fade-right">SỔ LƯU BÚT</div>
         <section class="content-box" data-aos="fade-up">
-            <div style="background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee;">
+            <div style="background: #fff; padding: 25px 20px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee;">
                 <input type="text" id="gName" class="input-box" placeholder="Tên của bạn...">
-                <textarea id="gMsg" class="input-box" placeholder="Để lại lời chúc cho Quân tại đây nhé..." style="height: 80px; resize: none;"></textarea>
+                <textarea id="gMsg" class="input-box" placeholder="Để lại lời chúc cho Quân tại đây nhé..." style="height: 90px; resize: none;"></textarea>
                 <button onclick="postCmt()" class="btn-premium" style="width: 100%; border-radius: 8px;">GỬI LỜI CHÚC</button>
                 
-                <!-- Khu vực đổ dữ liệu Comment -->
-                <div id="cmt-list" style="margin-top: 20px; max-height: 300px; overflow-y: auto;"></div>
+                <div id="cmt-list" style="margin-top: 25px; max-height: 350px; overflow-y: auto;"></div>
             </div>
         </section>
 
         <!-- BỐ CỤC 7: XÁC NHẬN THAM GIA -->
-        <div class="section-header-block" data-aos="fade-up">XÁC NHẬN THAM GIA</div>
-        <section class="content-box" data-aos="fade-up" style="margin-bottom: 40px;">
-            <p style="margin-bottom: 20px; color: #555;">Sự hiện diện của bạn là niềm vinh hạnh rất lớn. Vui lòng xác nhận để Quân tiện sắp xếp đón tiếp nhé!</p>
+        <div class="section-header-block" data-aos="fade-left">XÁC NHẬN THAM GIA</div>
+        <section class="content-box" data-aos="zoom-in" style="margin-bottom: 50px;">
+            <p style="margin-bottom: 25px; color: #555; font-size: 15px;">Sự hiện diện của bạn là niềm vinh hạnh rất lớn. Vui lòng xác nhận để Quân tiện sắp xếp đón tiếp nhé!</p>
             <a href="https://zalo.me/" target="_blank" class="btn-premium">✔ XÁC NHẬN TỚI DỰ</a>
         </section>
 
         <!-- FOOTER -->
-        <footer style="background-color: var(--primary-red); color: rgba(255,255,255,0.7); text-align: center; padding: 25px 20px; font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 1px;">
+        <footer style="background-color: var(--primary-red); color: rgba(255,255,255,0.8); text-align: center; padding: 30px 20px; font-family: 'Playfair Display', serif; font-size: 13px; letter-spacing: 1px;">
             © 2026 NGUYỄN HỒNG QUÂN. ALL RIGHTS RESERVED.
         </footer>
 
     </main>
 
-    <!-- JAVASCRIPT CHO HIỆU ỨNG VÀ LOGIC -->
+    <!-- JAVASCRIPT -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // Khởi chạy hiệu ứng nổi lên mượt mà
         AOS.init({ duration: 1000, once: true });
 
-        // Khởi chạy Album ảnh (Dạng thẻ xếp lớp 3D y hệt video)
         new Swiper(".mySwiper", {
-            effect: "coverflow",
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: "auto",
+            effect: "coverflow", grabCursor: true, centeredSlides: true, slidesPerView: "auto",
             coverflowEffect: { rotate: 0, stretch: -25, depth: 150, modifier: 1, slideShadows: true },
             pagination: { el: ".swiper-pagination", clickable: true },
         });
 
-        // Hàm click mở thiệp
+        var audio = document.getElementById('bg-music');
+        var musicBtn = document.getElementById('music-btn');
+
         function openInvitation() {
             var over = document.getElementById('welcome-overlay');
             over.style.transition = 'opacity 0.6s';
             over.style.opacity = '0';
             setTimeout(() => { over.style.display = 'none'; }, 600);
             
-            var audio = document.getElementById('bg-music');
-            if(audio) audio.play().catch(e => console.log(e));
+            if(audio) {
+                audio.play().then(() => {
+                    musicBtn.classList.add('spinning');
+                }).catch(e => console.log(e));
+            }
         }
 
-        // Kịch bản quản lý Sổ lưu bút (Lưu cục bộ)
+        function toggleMusic() {
+            if (audio.paused) {
+                audio.play();
+                musicBtn.classList.add('spinning');
+            } else {
+                audio.pause();
+                musicBtn.classList.remove('spinning');
+            }
+        }
+
         const mockCmts = [
             {n: "Hoàng Nam", m: "Chúc mừng Quân tốt nghiệp nhé! Quá đỉnh xịn xò. 🎉"},
             {n: "Thu Trang", m: "Chúc cậu chặng đường mới gặt hái thật nhiều thành công nha!"}
@@ -291,7 +341,7 @@
             box.innerHTML = '';
             var data = JSON.parse(localStorage.getItem('hq_grad_cmts')) || mockCmts;
             data.forEach(c => {
-                box.innerHTML += `<div class="comment-item"><div style="font-weight:bold; color:#8B0000; font-size:14px;">${c.n}</div><div style="font-size:14px; color:#444;">${c.m}</div></div>`;
+                box.innerHTML += `<div class="comment-item"><div style="font-weight:bold; color:#8B0000; font-size:15px; font-family:'Playfair Display', serif;">${c.n}</div><div style="font-size:15px; color:#444; margin-top:3px;">${c.m}</div></div>`;
             });
         }
 
