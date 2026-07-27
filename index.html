@@ -9,43 +9,50 @@
 </head>
 <body>
 
-    <div id="welcome-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #6B0F1A 0%, #3A050B 100%); z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center; padding: 20px;">
-        <div style="width: 80px; height: 80px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; border: 1px solid rgba(212,175,55,0.4);">
-            <span style="font-family: 'Cinzel'; color: #D4AF37; font-size: 24px; font-weight: bold;">HQ</span>
-        </div>
-        <h1 style="color: #D4AF37; font-family: 'Cinzel', serif; font-size: 25px; margin: 0 0 10px 0; letter-spacing: 2px;">LỄ TỐT NGHIỆP</h1>
-        <p style="font-family: 'Lora'; font-style: italic; font-size: 15px; margin: 0 0 35px 0; color: #e5e5e5;">Nguyễn Hồng Quân | 2022 - 2026</p>
-        <button onclick="openInvitation()" style="background: #ffffff; color: #6B0F1A; font-family: 'Cinzel'; font-weight: bold; letter-spacing: 2px; padding: 15px 45px; border: none; border-radius: 30px; font-size: 14px; cursor: pointer; box-shadow: 0 8px 25px rgba(0,0,0,0.3);">MỞ THIỆP</button>
+    <div id="welcome-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #8B0000; z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center; padding: 20px;">
+        <h1 style="color: #D4AF37; font-family: 'Cinzel', serif; font-size: 26px; margin: 0 0 10px 0; letter-spacing: 2px;">LỄ TỐT NGHIỆP</h1>
+        <p style="font-family: 'Lora'; font-style: italic; font-size: 16px; margin: 0 0 35px 0;">Nguyễn Hồng Quân | 2026</p>
+        <button onclick="openInvitation()" style="background: #ffffff; color: #8B0000; font-family: 'Cinzel'; font-weight: bold; letter-spacing: 2px; padding: 15px 45px; border: none; border-radius: 30px; font-size: 14px; cursor: pointer;">MỞ THIỆP</button>
     </div>
 
     <audio id="bg-music" loop><source src="assets/music/nhac-nen.mp3.mp3" type="audio/mpeg"></audio>
 
     <main id="main-content">
         
-        <section class="hero-cover-card" data-aos="fade-up">
-            <div class="premium-frame">
-                <img src="assets/images/IMG_7534.jpeg" alt="Nguyễn Hồng Quân Graduation">
+        <section data-aos="fade-down">
+            <div class="hero-top-arch">
+                <p style="font-family: 'Cinzel'; letter-spacing: 2px; margin: 0; font-size: 14px; color: #D4AF37;">LỄ TỐT NGHIỆP</p>
+                <div style="font-size: 32px; font-family: 'Cinzel'; font-weight: bold; margin: 10px 0;">
+                    <span style="display: block;">HỒNG QUÂN</span>
+                </div>
             </div>
-            <h1 style="font-family: 'Cinzel'; font-size: 24px; color: #8B0000; margin: 10px 0 5px 0; letter-spacing: 2px;">NGUYỄN HỒNG QUÂN</h1>
-            <p style="font-size: 14px; color: #D4AF37; font-family: 'Cinzel'; font-weight: bold; margin: 0;">CỬ NHÂN LUẬT KINH TẾ</p>
-        </section>
-
-        <div class="divider-line"><span>HÀNH TRÌNH 4 NĂM</span></div>
-        <section class="card-premium" data-aos="fade-up" style="text-align: justify; font-size: 14.5px;">
-            <p style="margin: 0; text-indent: 20px;">"Bốn năm học tập và rèn luyện chuyên ngành Luật Kinh tế tại Học viện Chính sách và Phát triển trôi qua nhanh như một cái chớp mắt. Chặng đường này đã giúp Quân trưởng thành rất nhiều trong tư duy và kiến thức thực tiễn..."</p>
-        </section>
-
-        <div class="divider-line"><span>THÔNG TIN LỄ HỘI</span></div>
-        <section class="card-premium" data-aos="fade-up" style="text-align: center;">
-            <h3 style="font-family:'Cinzel'; color:#8B0000; font-size: 28px; margin: 0 0 10px 0;">08:00 AM</h3>
-            <p style="font-family:'Cinzel'; font-size:14px; letter-spacing:2px; margin: 0 0 20px 0;">THỨ BA, 11 THÁNG 08 NĂM 2026</p>
-            <div style="border-top: 1px solid #eee; padding-top: 20px; text-align: left; font-size: 14px;">
-                <p>📍 <strong>Vị trí:</strong> Hội trường lớn, Học viện Chính sách và Phát triển, An Khánh, Hoài Đức, Hà Nội</p>
-                <p>👔 <strong>Trang phục:</strong> Trang trọng, thanh lịch</p>
+            
+            <div class="hero-img-wrapper">
+                <img src="assets/images/IMG_7534.jpeg" alt="Nguyễn Hồng Quân">
+            </div>
+            
+            <div style="text-align: center; margin-top: 15px;">
+                <p style="font-size: 15px; color: #8B0000; font-family: 'Cinzel'; font-weight: bold; letter-spacing: 1px;">CỬ NHÂN LUẬT KINH TẾ</p>
             </div>
         </section>
 
-        <div class="divider-line"><span>ALBUM KỶ NIỆM</span></div>
+        <div class="section-block-header" data-aos="fade-up">HÀNH TRÌNH 4 NĂM</div>
+        <section class="card-premium" data-aos="fade-up" style="text-align: justify; padding: 0 25px;">
+            <p style="margin: 0; font-style: italic; color: #555;">"Bốn năm học tập và rèn luyện chuyên ngành Luật Kinh tế tại Học viện Chính sách và Phát triển trôi qua nhanh như một cái chớp mắt. Chặng đường này đã giúp Quân trưởng thành rất nhiều trong tư duy và kiến thức thực tiễn. Cảm ơn tất cả mọi người đã luôn đồng hành cùng Quân."</p>
+        </section>
+
+        <div class="section-block-header" data-aos="fade-up">THÔNG TIN LỄ HỘI</div>
+        <section class="card-premium" data-aos="fade-up">
+            <h3 style="font-family:'Cinzel'; color:#8B0000; font-size: 30px; margin: 0 0 5px 0;">08:00 AM</h3>
+            <p style="font-family:'Cinzel'; font-size:15px; letter-spacing:1px; margin: 0 0 20px 0; color: #333;">THỨ BA | 11 THÁNG 08 | 2026</p>
+            
+            <div style="border-top: 1px solid #d4af37; padding-top: 15px; text-align: left; font-size: 15px;">
+                <p style="margin: 5px 0;">📍 <strong>Vị trí:</strong> Hội trường lớn, Học viện Chính sách và Phát triển, An Khánh, Hoài Đức, Hà Nội</p>
+                <p style="margin: 5px 0;">👔 <strong>Trang phục:</strong> Trang trọng, thanh lịch</p>
+            </div>
+        </section>
+
+        <div class="section-block-header" data-aos="fade-up">ALBUM ẢNH</div>
         <section style="overflow: hidden;">
             <div class="swiper mySwiper" data-aos="fade-up">
                 <div class="swiper-wrapper">
@@ -62,40 +69,36 @@
             </div>
         </section>
 
-        <div class="divider-line"><span>BẢN ĐỒ VỊ TRÍ</span></div>
-        <section class="card-premium" data-aos="fade-up" style="padding: 12px; text-align: center;">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.8984918231265!2d105.71181827599986!3d20.997709889877073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313453ba67b43b67%3A0x6bde5b111ffc338!2zSOG7jWMgdmnhu4duIENow61uaCBzMOhY2ggdsOgIFBow6F0 trmnhu4Nu!5e0!3m2!1svi!2svn!4v1700000000000" width="100%" height="220" style="border:0; border-radius: 6px;" allowfullscreen="" loading="lazy"></iframe>
-            <div style="margin-top: 15px;">
-                <a href="https://maps.app.goo.gl/5J1zG7R9eRpxqYp46" target="_blank" class="btn-premium">ĐƯỜNG ĐẾN APD</a>
+        <div class="section-block-header" data-aos="fade-up">BẢN ĐỒ ĐƯỜNG ĐI</div>
+        <section class="card-premium" data-aos="fade-up">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.8984918231265!2d105.71181827599986!3d20.997709889877073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313453ba67b43b67%3A0x6bde5b111ffc338!2zSOG7jWMgdmnhu4duIENow61uaCBzMOhY2ggdsOgIFBow6F0 trmnhu4Nu!5e0!3m2!1svi!2svn!4v1700000000000" width="100%" height="250" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy"></iframe>
+            <div style="margin-top: 20px;">
+                <a href="https://maps.app.goo.gl/5J1zG7R9eRpxqYp46" target="_blank" class="btn-premium">MỞ BẰNG GOOGLE MAPS</a>
             </div>
         </section>
 
-        <div class="divider-line"><span>BÌNH LUẬN LƯU BÚT</span></div>
-        <section class="card-premium" data-aos="fade-up">
-            <div style="margin-bottom: 25px;">
-                <input type="text" id="guestName" placeholder="Tên của bạn..." style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #ddd; border-radius:6px;">
-                <textarea id="guestMsg" placeholder="Viết bình luận tâm sự lời chúc của bạn tại đây..." style="width:100%; padding:10px; height:80px; margin-bottom:10px; border:1px solid #ddd; border-radius:6px; resize:none;"></textarea>
-                <button onclick="addComment()" class="btn-premium" style="width: 100%;">ĐĂNG BÌNH LUẬN</button>
+        <div class="section-block-header" data-aos="fade-up">SỔ LƯU BÚT</div>
+        <section class="card-premium" data-aos="fade-up" style="background-color: #fff; margin: 0 20px; border-radius: 12px; padding: 20px;">
+            <div style="margin-bottom: 20px;">
+                <input type="text" id="guestName" placeholder="Tên của bạn..." style="width:100%; padding:12px; margin-bottom:10px; border:1px solid #ddd; border-radius:6px; font-family: 'Lora';">
+                <textarea id="guestMsg" placeholder="Viết lời chúc của bạn tại đây..." style="width:100%; padding:12px; height:80px; margin-bottom:10px; border:1px solid #ddd; border-radius:6px; resize:none; font-family: 'Lora';"></textarea>
+                <button onclick="addComment()" class="btn-premium" style="width: 100%;">ĐĂNG LỜI CHÚC</button>
             </div>
             
             <div id="comments-container">
+                <div class="fb-comment-box"><div class="fb-author">Thu Trang Trần</div><div class="fb-text">Chúc cậu chặng đường mới gặt hái thật nhiều thành công nha! 🎓</div></div>
                 <div class="fb-comment-box"><div class="fb-author">Nguyễn Hoàng Nam</div><div class="fb-text">Chúc mừng Quân tốt nghiệp nhé! Quá đỉnh xịn xò. 🎉</div></div>
-                <div class="fb-comment-box"><div class="fb-author">Thu Trang Trần</div><div class="fb-text">Chúc cậu chặng đường mới gặt hái thật nhiều thành công nha!</div></div>
             </div>
         </section>
 
-        <div class="divider-line"><span>XÁC NHẬN THAM GIA</span></div>
-        <section style="text-align: center; padding: 10px 20px;">
-            <div class="card-premium" data-aos="fade-up" style="background-color: #8B0000; color: white;">
-                <p style="margin-0 0 15px 0; font-size:14px;">Để Quân tiện sắp xếp và đón tiếp chu đáo nhất, hãy dí vào nút bên dưới để báo cho Quân biết sự hiện diện của bạn nhé!</p>
-                <a href="https://zalo.me/09xxxxxxxx" target="_blank" class="btn-premium" style="background:#fff; color:#8B0000; border-color:#fff; font-weight: bold;">✔ XÁC NHẬN THAM GIA</a>
-            </div>
+        <div class="section-block-header" data-aos="fade-up">XÁC NHẬN THAM GIA</div>
+        <section class="card-premium" data-aos="fade-up" style="margin-bottom: 30px;">
+            <p style="margin: 0 0 20px 0; font-size:15px; color: #555;">Để Quân tiện sắp xếp và đón tiếp chu đáo nhất, hãy báo cho Quân biết sự hiện diện của bạn nhé!</p>
+            <a href="https://zalo.me/09xxxxxxxx" target="_blank" class="btn-premium">✔ XÁC NHẬN THAM GIA</a>
         </section>
 
-        <footer style="text-align: center; padding: 40px 20px 0 20px; border-top: 1px solid rgba(139,0,0,0.1);">
-            <p style="font-family: 'Cinzel'; font-size: 12px; letter-spacing: 1px; color: #888; margin: 0;">
-                © 2026 Nguyễn Hồng Quân. All rights reserved.
-            </p>
+        <footer style="text-align: center; padding: 20px; border-top: 1px solid rgba(139,0,0,0.1);">
+            <p style="font-family: 'Cinzel'; font-size: 13px; color: #888; margin: 0;">© 2026 Nguyễn Hồng Quân. All rights reserved.</p>
         </footer>
 
     </main>
@@ -106,12 +109,19 @@
     <script>
         AOS.init({ duration: 1000, once: true });
 
+        // Cấu hình Album trượt giống y hệt video: không nghiêng quá nhiều, xếp lớp chồng lên nhau
         var swiper = new Swiper(".mySwiper", {
             effect: "coverflow",
             grabCursor: true,
             centeredSlides: true,
             slidesPerView: "auto",
-            coverflowEffect: { rotate: 10, stretch: 0, depth: 80, modifier: 1, slideShadows: false },
+            coverflowEffect: { 
+                rotate: 0,      /* Để 0 để ảnh đứng thẳng, không bị bẻ cong */
+                stretch: -30,   /* Khoảng cách âm để các ảnh chồng lên nhau */
+                depth: 150,     /* Chiều sâu 3D */
+                modifier: 1, 
+                slideShadows: true /* Tạo bóng đổ giữa các ảnh xếp lớp */
+            },
             pagination: { el: ".swiper-pagination", clickable: true },
         });
 
@@ -123,7 +133,6 @@
             if (audio) { audio.play().catch(function(e){}); }
         }
 
-        // Kịch bản JavaScript tự động đẩy bình luận lưu bút xuống dưới như Facebook
         function addComment() {
             var name = document.getElementById('guestName').value.trim();
             var msg = document.getElementById('guestMsg').value.trim();
@@ -132,7 +141,7 @@
             var newComment = document.createElement('div');
             newComment.className = 'fb-comment-box';
             newComment.innerHTML = '<div class="fb-author">' + name + '</div><div class="fb-text">' + msg + '</div>';
-            container.insertBefore(newComment, container.firstChild); // Đẩy bình luận mới lên đầu danh sách
+            container.insertBefore(newComment, container.firstChild);
             document.getElementById('guestName').value = "";
             document.getElementById('guestMsg').value = "";
         }
