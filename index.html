@@ -1,150 +1,315 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+    <!-- 1. CẤU HÌNH CƠ BẢN (META TAGS) -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Nguyễn Hồng Quân | Graduation 2026</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- 2. CẤU HÌNH SEO & CHIA SẺ MẠNG XÃ HỘI (OPEN GRAPH) -->
+    <meta name="author" content="Nguyễn Hồng Quân">
+    <meta name="description" content="Trân trọng kính mời quý khách tới dự Lễ Tốt nghiệp Cử nhân Luật Kinh tế của Nguyễn Hồng Quân tại Học viện Chính sách và Phát triển.">
+    
+    <!-- Cấu hình khi gửi link qua Facebook/Zalo sẽ hiện ảnh và tiêu đề đẹp -->
+    <meta property="og:title" content="Kí Sự Tốt Nghiệp | Nguyễn Hồng Quân">
+    <meta property="og:description" content="Sự hiện diện của bạn là niềm vinh hạnh của tôi.">
+    <meta property="og:image" content="assets/images/IMG_7534.jpeg">
+    <meta property="og:url" content="https://quannguyenvpkl2004-blip.github.io/graduation/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="vi_VN">
+
+    <title>Nguyễn Hồng Quân | Lễ Tốt Nghiệp 2026</title>
+
+    <!-- 3. KẾT NỐI FONT CHỮ VÀ THƯ VIỆN HIỆU ỨNG (Tối ưu hóa tốc độ tải) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Thư viện AOS (Hiệu ứng cuộn) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <!-- Thư viện CSS cá nhân -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <div id="welcome-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #8B0000; z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center; padding: 20px;">
-        <h1 style="color: #D4AF37; font-family: 'Cinzel', serif; font-size: 26px; margin: 0 0 10px 0; letter-spacing: 2px;">LỄ TỐT NGHIỆP</h1>
-        <p style="font-family: 'Lora'; font-style: italic; font-size: 16px; margin: 0 0 35px 0;">Nguyễn Hồng Quân | 2026</p>
-        <button onclick="openInvitation()" style="background: #ffffff; color: #8B0000; font-family: 'Cinzel'; font-weight: bold; letter-spacing: 2px; padding: 15px 45px; border: none; border-radius: 30px; font-size: 14px; cursor: pointer;">MỞ THIỆP</button>
+    <!-- ==========================================
+         PHẦN 1: MÀN HÌNH CHỜ (WELCOME OVERLAY) 
+    =========================================== -->
+    <div id="welcome-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #8B0000 0%, #3A050B 100%); z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center; padding: 20px;">
+        
+        <div style="width: 90px; height: 90px; background: rgba(255,255,255,0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; border: 2px solid rgba(212,175,55,0.6); box-shadow: 0 0 20px rgba(212,175,55,0.2);">
+            <span style="font-family: 'Cinzel', serif; color: #D4AF37; font-size: 28px; font-weight: bold;">HQ</span>
+        </div>
+        
+        <h1 style="color: #D4AF37; font-family: 'Cinzel', serif; font-size: 28px; margin: 0 0 10px 0; letter-spacing: 3px; text-transform: uppercase;">Lễ Tốt Nghiệp</h1>
+        <p style="font-family: 'Lora', serif; font-style: italic; font-size: 16px; margin: 0 0 40px 0; color: #f0f0f0; letter-spacing: 1px;">Nguyễn Hồng Quân | 2022 - 2026</p>
+        
+        <button onclick="openInvitation()" aria-label="Mở thiệp mời" style="background: #ffffff; color: #8B0000; font-family: 'Cinzel', serif; font-weight: 700; letter-spacing: 2px; padding: 15px 50px; border: none; border-radius: 30px; font-size: 15px; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.4); transition: transform 0.3s ease;">
+            MỞ THIỆP
+        </button>
     </div>
 
-    <audio id="bg-music" loop><source src="assets/music/nhac-nen.mp3.mp3" type="audio/mpeg"></audio>
+    <!-- ==========================================
+         PHẦN 2: HỆ THỐNG ÂM THANH (AUDIO SYSTEM) 
+    =========================================== -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="assets/music/nhac-nen.mp3.mp3" type="audio/mpeg">
+        Trình duyệt của bạn không hỗ trợ thẻ audio.
+    </audio>
 
-    <main id="main-content">
+    <!-- ==========================================
+         PHẦN 3: NỘI DUNG CHÍNH (MAIN CONTAINER) 
+    =========================================== -->
+    <main id="main-content" role="main">
         
-        <section data-aos="fade-down">
-            <div class="hero-top-arch">
-                <p style="font-family: 'Cinzel'; letter-spacing: 2px; margin: 0; font-size: 14px; color: #D4AF37;">LỄ TỐT NGHIỆP</p>
-                <div style="font-size: 32px; font-family: 'Cinzel'; font-weight: bold; margin: 10px 0;">
-                    <span style="display: block;">HỒNG QUÂN</span>
+        <!-- SECTION 1: BÌA ĐẦU TIÊN (HERO COVER) -->
+        <header class="hero-cover-card" data-aos="fade-down" data-aos-duration="1500">
+            <!-- Khung vòm nghệ thuật chứa ảnh chính -->
+            <figure class="premium-frame" style="margin: 0;">
+                <img src="assets/images/IMG_7534.jpeg" alt="Chân dung Nguyễn Hồng Quân tốt nghiệp" loading="eager">
+            </figure>
+            
+            <div style="margin-top: 25px;">
+                <h1 style="font-family: 'Cinzel', serif; font-size: 26px; color: #8B0000; margin: 0 0 8px 0; letter-spacing: 3px;">NGUYỄN HỒNG QUÂN</h1>
+                <p style="font-size: 15px; color: #D4AF37; font-family: 'Cinzel', serif; font-weight: bold; margin: 0; letter-spacing: 2px;">CỬ NHÂN LUẬT KINH TẾ</p>
+            </div>
+        </header>
+
+        <!-- SECTION 2: TÂM SỰ HÀNH TRÌNH 4 NĂM -->
+        <article>
+            <div class="section-block-header" data-aos="fade-up">HÀNH TRÌNH 4 NĂM</div>
+            <div class="card-premium" data-aos="fade-up" style="text-align: justify; padding: 10px 25px;">
+                <p style="margin: 0; font-style: italic; color: #4A3728; line-height: 2;">
+                    "Hành trình 4 năm học chuyên ngành Luật Kinh tế tại Học viện Chính sách và Phát triển trôi qua nhanh như một cái chớp mắt. Nơi đây không chỉ trang bị cho Quân nền tảng lý thuyết vững chắc về các quy định pháp luật, mà còn là môi trường tuyệt vời để rèn luyện tư duy phản biện, khả năng phân tích và giải quyết các vấn đề thực tiễn của doanh nghiệp. Cảm ơn gia đình, thầy cô và những người bạn đã luôn ở bên cạnh, động viên và đồng hành cùng Quân trên chặng đường rực rỡ này."
+                </p>
+            </div>
+        </article>
+
+        <!-- SECTION 3: THÔNG TIN LỄ TỐT NGHIỆP -->
+        <article>
+            <div class="section-block-header" data-aos="fade-up">THÔNG TIN LỄ HỘI</div>
+            <div class="card-premium" data-aos="fade-up">
+                <p style="font-size: 13px; text-transform: uppercase; letter-spacing: 2px; color: #888; margin: 0 0 10px 0;">Sự kiện diễn ra vào lúc</p>
+                <h2 style="font-family:'Cinzel', serif; color:#8B0000; font-size: 34px; margin: 0 0 5px 0;">08:00 AM</h2>
+                <p style="font-family:'Cinzel', serif; font-size:16px; font-weight: 600; letter-spacing:2px; margin: 0 0 25px 0; color: #333;">THỨ BA | 11 THÁNG 08 | 2026</p>
+                
+                <div style="border-top: 1px solid #D4AF37; padding-top: 20px; text-align: left; font-size: 15px; line-height: 1.8;">
+                    <p style="margin: 8px 0;">📍 <strong>Địa điểm:</strong> Hội trường lớn, Học viện Chính sách và Phát triển, An Khánh, Hoài Đức, Hà Nội</p>
+                    <p style="margin: 8px 0;">👔 <strong>Trang phục (Dresscode):</strong> Lịch sự, trang trọng</p>
                 </div>
             </div>
-            
-            <div class="hero-img-wrapper">
-                <img src="assets/images/IMG_7534.jpeg" alt="Nguyễn Hồng Quân">
-            </div>
-            
-            <div style="text-align: center; margin-top: 15px;">
-                <p style="font-size: 15px; color: #8B0000; font-family: 'Cinzel'; font-weight: bold; letter-spacing: 1px;">CỬ NHÂN LUẬT KINH TẾ</p>
-            </div>
-        </section>
+        </article>
 
-        <div class="section-block-header" data-aos="fade-up">HÀNH TRÌNH 4 NĂM</div>
-        <section class="card-premium" data-aos="fade-up" style="text-align: justify; padding: 0 25px;">
-            <p style="margin: 0; font-style: italic; color: #555;">"Bốn năm học tập và rèn luyện chuyên ngành Luật Kinh tế tại Học viện Chính sách và Phát triển trôi qua nhanh như một cái chớp mắt. Chặng đường này đã giúp Quân trưởng thành rất nhiều trong tư duy và kiến thức thực tiễn. Cảm ơn tất cả mọi người đã luôn đồng hành cùng Quân."</p>
-        </section>
-
-        <div class="section-block-header" data-aos="fade-up">THÔNG TIN LỄ HỘI</div>
-        <section class="card-premium" data-aos="fade-up">
-            <h3 style="font-family:'Cinzel'; color:#8B0000; font-size: 30px; margin: 0 0 5px 0;">08:00 AM</h3>
-            <p style="font-family:'Cinzel'; font-size:15px; letter-spacing:1px; margin: 0 0 20px 0; color: #333;">THỨ BA | 11 THÁNG 08 | 2026</p>
-            
-            <div style="border-top: 1px solid #d4af37; padding-top: 15px; text-align: left; font-size: 15px;">
-                <p style="margin: 5px 0;">📍 <strong>Vị trí:</strong> Hội trường lớn, Học viện Chính sách và Phát triển, An Khánh, Hoài Đức, Hà Nội</p>
-                <p style="margin: 5px 0;">👔 <strong>Trang phục:</strong> Trang trọng, thanh lịch</p>
-            </div>
-        </section>
-
-        <div class="section-block-header" data-aos="fade-up">ALBUM ẢNH</div>
-        <section style="overflow: hidden;">
-            <div class="swiper mySwiper" data-aos="fade-up">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="assets/images/IMG_1204.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/IMG_1223.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/IMG_1489.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/IMG_1527.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/IMG_2423.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/IMG_3862.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/IMG_4682.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/IMG_7090.jpeg"></div>
+        <!-- SECTION 4: ALBUM ẢNH KỶ NIỆM (CHỨA ĐẦY ĐỦ TOÀN BỘ ẢNH) -->
+        <section>
+            <div class="section-block-header" data-aos="fade-up">ALBUM KỶ NIỆM</div>
+            <div style="overflow: hidden; width: 100%;">
+                <div class="swiper mySwiper" data-aos="zoom-in" data-aos-duration="1200">
+                    <div class="swiper-wrapper">
+                        <!-- Danh sách toàn bộ 13 ảnh kỷ niệm + 1 logo -->
+                        <div class="swiper-slide"><img src="assets/images/IMG_1204.jpeg" alt="Kỷ niệm 1" loading="lazy"></div>
+                        <div class="swiper-slide"><img src="assets/images/IMG_1223.jpeg" alt="Kỷ niệm 2" loading="lazy"></div>
+                        <div class="swiper-slide"><img src="assets/images/IMG_1489.jpeg" alt="Kỷ niệm 3" loading="lazy"></div>
+                        <div class="swiper-slide"><img src="assets/images/IMG_1527.jpeg" alt="Kỷ niệm 4" loading="lazy"></div>
+                        <div class="swiper-slide"><img src="assets/images/IMG_2423.jpeg" alt="Kỷ niệm 5" loading="lazy"></div>
+                        <div class="swiper-slide"><img src="assets/images/IMG_3862.jpeg" alt="Kỷ niệm 6" loading="lazy"></div>
+                        <div class="swiper-slide"><img src="assets/images/IMG_4682.jpeg" alt="Kỷ niệm 7" loading="lazy"></div>
+                        <div class="swiper-slide"><img src="assets/images/IMG_4684.jpeg" alt="Kỷ niệm 8" loading="lazy"></div>
+                        <div class="swiper-slide"><img src="assets/images/IMG_7090.jpeg" alt="Kỷ niệm 9" loading="lazy"></div>
+                        <div class="swiper-slide"><img src="assets/images/IMG_7172.jpeg" alt="Kỷ niệm 10" loading="lazy"></div>
+                        <div class="swiper-slide"><img src="assets/images/IMG_7378.jpeg" alt="Kỷ niệm 11" loading="lazy"></div>
+                        <div class="swiper-slide"><img src="assets/images/IMG_7535.jpeg" alt="Kỷ niệm 12" loading="lazy"></div>
+                    </div>
+                    <!-- Thanh phân trang (dấu chấm tròn) -->
+                    <div class="swiper-pagination"></div>
                 </div>
-                <div class="swiper-pagination"></div>
             </div>
         </section>
 
-        <div class="section-block-header" data-aos="fade-up">BẢN ĐỒ ĐƯỜNG ĐI</div>
-        <section class="card-premium" data-aos="fade-up">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.8984918231265!2d105.71181827599986!3d20.997709889877073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313453ba67b43b67%3A0x6bde5b111ffc338!2zSOG7jWMgdmnhu4duIENow61uaCBzMOhY2ggdsOgIFBow6F0 trmnhu4Nu!5e0!3m2!1svi!2svn!4v1700000000000" width="100%" height="250" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy"></iframe>
-            <div style="margin-top: 20px;">
-                <a href="https://maps.app.goo.gl/5J1zG7R9eRpxqYp46" target="_blank" class="btn-premium">MỞ BẰNG GOOGLE MAPS</a>
+        <!-- SECTION 5: BẢN ĐỒ VỊ TRÍ ĐỊA LÝ -->
+        <section>
+            <div class="section-block-header" data-aos="fade-up">BẢN ĐỒ ĐƯỜNG ĐI</div>
+            <div class="card-premium" data-aos="fade-up">
+                <!-- iFrame Google Maps tối ưu hóa -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.8984918231265!2d105.71181827599986!3d20.997709889877073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313453ba67b43b67%3A0x6bde5b111ffc338!2zSOG7jWMgdmnhu4duIENow61uaCBzMOhY2ggdsOgIFBow6F0 trmnhu4Nu!5e0!3m2!1svi!2svn!4v1700000000000" 
+                        width="100%" height="260" style="border:1px solid #eaeaea; border-radius: 8px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05);" 
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Bản đồ Học viện Chính sách và Phát triển">
+                </iframe>
+                <div style="margin-top: 20px;">
+                    <a href="https://maps.app.goo.gl/5J1zG7R9eRpxqYp46" target="_blank" rel="noopener noreferrer" class="btn-premium">
+                        MỞ BẰNG GOOGLE MAPS
+                    </a>
+                </div>
             </div>
         </section>
 
-        <div class="section-block-header" data-aos="fade-up">SỔ LƯU BÚT</div>
-        <section class="card-premium" data-aos="fade-up" style="background-color: #fff; margin: 0 20px; border-radius: 12px; padding: 20px;">
-            <div style="margin-bottom: 20px;">
-                <input type="text" id="guestName" placeholder="Tên của bạn..." style="width:100%; padding:12px; margin-bottom:10px; border:1px solid #ddd; border-radius:6px; font-family: 'Lora';">
-                <textarea id="guestMsg" placeholder="Viết lời chúc của bạn tại đây..." style="width:100%; padding:12px; height:80px; margin-bottom:10px; border:1px solid #ddd; border-radius:6px; resize:none; font-family: 'Lora';"></textarea>
-                <button onclick="addComment()" class="btn-premium" style="width: 100%;">ĐĂNG LỜI CHÚC</button>
-            </div>
-            
-            <div id="comments-container">
-                <div class="fb-comment-box"><div class="fb-author">Thu Trang Trần</div><div class="fb-text">Chúc cậu chặng đường mới gặt hái thật nhiều thành công nha! 🎓</div></div>
-                <div class="fb-comment-box"><div class="fb-author">Nguyễn Hoàng Nam</div><div class="fb-text">Chúc mừng Quân tốt nghiệp nhé! Quá đỉnh xịn xò. 🎉</div></div>
+        <!-- SECTION 6: SỔ LƯU BÚT ĐIỆN TỬ (LOCAL STORAGE SYSTEM) -->
+        <section>
+            <div class="section-block-header" data-aos="fade-up">BÌNH LUẬN LƯU BÚT</div>
+            <div class="card-premium" data-aos="fade-up" style="background-color: #ffffff; margin: 0 20px; border-radius: 12px; padding: 25px 20px;">
+                
+                <!-- Khu vực điền thông tin -->
+                <div style="margin-bottom: 25px; border-bottom: 1px solid #f0f0f0; padding-bottom: 25px;">
+                    <label for="guestName" style="display: none;">Tên của bạn</label>
+                    <input type="text" id="guestName" placeholder="Tên của bạn..." 
+                           style="width:100%; padding:14px; margin-bottom:12px; border:1px solid #ddd; border-radius:8px; font-family: 'Lora', serif; font-size: 15px;">
+                    
+                    <label for="guestMsg" style="display: none;">Lời chúc</label>
+                    <textarea id="guestMsg" placeholder="Viết bình luận, tâm sự hoặc lời chúc của bạn tại đây..." 
+                              style="width:100%; padding:14px; height:90px; margin-bottom:15px; border:1px solid #ddd; border-radius:8px; resize:none; font-family: 'Lora', serif; font-size: 15px;"></textarea>
+                    
+                    <button onclick="addComment()" class="btn-premium" style="width: 100%; padding: 14px; font-size: 15px;">
+                        ĐĂNG BÌNH LUẬN
+                    </button>
+                </div>
+                
+                <!-- Khu vực hiển thị danh sách bình luận -->
+                <div id="comments-container" style="max-height: 400px; overflow-y: auto; padding-right: 5px;">
+                    <!-- Các bình luận sẽ được JavaScript chèn tự động vào đây -->
+                </div>
             </div>
         </section>
 
-        <div class="section-block-header" data-aos="fade-up">XÁC NHẬN THAM GIA</div>
-        <section class="card-premium" data-aos="fade-up" style="margin-bottom: 30px;">
-            <p style="margin: 0 0 20px 0; font-size:15px; color: #555;">Để Quân tiện sắp xếp và đón tiếp chu đáo nhất, hãy báo cho Quân biết sự hiện diện của bạn nhé!</p>
-            <a href="https://zalo.me/09xxxxxxxx" target="_blank" class="btn-premium">✔ XÁC NHẬN THAM GIA</a>
+        <!-- SECTION 7: XÁC NHẬN SỰ HIỆN DIỆN -->
+        <section>
+            <div class="section-block-header" data-aos="fade-up">XÁC NHẬN THAM GIA</div>
+            <div class="card-premium" data-aos="fade-up" style="margin-bottom: 40px; padding: 30px 20px;">
+                <p style="margin: 0 0 25px 0; font-size: 15px; color: #555; line-height: 1.8;">Để buổi tiệc được chuẩn bị chu đáo và trọn vẹn nhất, phiền bạn bớt chút thời gian xác nhận sự hiện diện với Quân nhé!</p>
+                <!-- Thay link zalo bằng số điện thoại thật của bạn -->
+                <a href="https://zalo.me/" target="_blank" rel="noopener noreferrer" class="btn-premium" style="padding: 15px 40px; font-size: 15px;">
+                    ✔ XÁC NHẬN THAM GIA
+                </a>
+            </div>
         </section>
 
-        <footer style="text-align: center; padding: 20px; border-top: 1px solid rgba(139,0,0,0.1);">
-            <p style="font-family: 'Cinzel'; font-size: 13px; color: #888; margin: 0;">© 2026 Nguyễn Hồng Quân. All rights reserved.</p>
+        <!-- FOOTER BẢN QUYỀN -->
+        <footer style="text-align: center; padding: 30px 20px; border-top: 1px solid rgba(139,0,0,0.1); background: #FDF5E6;">
+            <p style="font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 1px; color: #888; margin: 0;">
+                © 2026 Nguyễn Hồng Quân. All rights reserved.
+            </p>
         </footer>
 
     </main>
 
+    <!-- ==========================================
+         CÁC THƯ VIỆN JAVASCRIPT BỔ TRỢ (LÕI XỬ LÝ) 
+    =========================================== -->
+    
+    <!-- Thư viện tạo hiệu ứng xuất hiện khi cuộn trang -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Thư viện tạo Album ảnh vuốt 3D -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+    <!-- KỊCH BẢN XỬ LÝ LOGIC TRANG WEB -->
     <script>
-        AOS.init({ duration: 1000, once: true });
+        // 1. Khởi tạo hiệu ứng AOS
+        AOS.init({ 
+            duration: 1000, 
+            once: true,
+            offset: 50
+        });
 
-        // Cấu hình Album trượt giống y hệt video: không nghiêng quá nhiều, xếp lớp chồng lên nhau
+        // 2. Khởi tạo Album ảnh trượt (SwiperJS Cấu hình chuẩn)
         var swiper = new Swiper(".mySwiper", {
             effect: "coverflow",
             grabCursor: true,
             centeredSlides: true,
             slidesPerView: "auto",
+            initialSlide: 1, /* Bắt đầu từ ảnh thứ 2 cho đẹp */
             coverflowEffect: { 
-                rotate: 0,      /* Để 0 để ảnh đứng thẳng, không bị bẻ cong */
-                stretch: -30,   /* Khoảng cách âm để các ảnh chồng lên nhau */
-                depth: 150,     /* Chiều sâu 3D */
+                rotate: 0, 
+                stretch: -35, 
+                depth: 180, 
                 modifier: 1, 
-                slideShadows: true /* Tạo bóng đổ giữa các ảnh xếp lớp */
+                slideShadows: true 
             },
-            pagination: { el: ".swiper-pagination", clickable: true },
+            pagination: { 
+                el: ".swiper-pagination", 
+                clickable: true 
+            },
         });
 
+        // 3. Hàm xử lý màn hình chờ (Overlay)
         function openInvitation() {
-            document.getElementById('welcome-overlay').style.transition = 'all 0.6s ease';
-            document.getElementById('welcome-overlay').style.opacity = '0';
-            setTimeout(function() { document.getElementById('welcome-overlay').style.display = 'none'; }, 600);
+            var overlay = document.getElementById('welcome-overlay');
+            overlay.style.transition = 'all 0.8s ease';
+            overlay.style.opacity = '0';
+            
+            setTimeout(function() { 
+                overlay.style.display = 'none'; 
+            }, 800);
+            
+            // Xử lý phát nhạc tương thích mọi trình duyệt
             var audio = document.getElementById('bg-music');
-            if (audio) { audio.play().catch(function(e){}); }
+            if (audio) { 
+                audio.play().catch(function(error){
+                    console.log("Trình duyệt chặn autoplay tự động: " + error);
+                }); 
+            }
         }
 
-        function addComment() {
-            var name = document.getElementById('guestName').value.trim();
-            var msg = document.getElementById('guestMsg').value.trim();
-            if(name === "" || msg === "") { alert("Vui lòng điền đầy đủ tên và lời nhắn nhé!"); return; }
+        // 4. HỆ THỐNG LƯU BÚT ĐIỆN TỬ (Sử dụng LocalStorage để lưu dữ liệu vĩnh viễn trên trình duyệt người xem)
+        
+        // Mảng chứa bình luận mặc định (Mồi)
+        const defaultComments = [
+            { name: "Thu Trang Trần", text: "Chúc cậu chặng đường mới gặt hái thật nhiều thành công nha! 🎓" },
+            { name: "Nguyễn Hoàng Nam", text: "Chúc mừng Quân tốt nghiệp nhé! Cử nhân luật kinh tế xịn xò quá. 🎉" }
+        ];
+
+        // Hàm tải bình luận ra màn hình
+        function loadComments() {
             var container = document.getElementById('comments-container');
-            var newComment = document.createElement('div');
-            newComment.className = 'fb-comment-box';
-            newComment.innerHTML = '<div class="fb-author">' + name + '</div><div class="fb-text">' + msg + '</div>';
-            container.insertBefore(newComment, container.firstChild);
-            document.getElementById('guestName').value = "";
-            document.getElementById('guestMsg').value = "";
+            container.innerHTML = ''; // Xóa sạch để vẽ lại
+            
+            // Lấy dữ liệu từ bộ nhớ trình duyệt, nếu không có thì dùng mảng mặc định
+            var savedComments = JSON.parse(localStorage.getItem('gradComments_HQ'));
+            if (!savedComments || savedComments.length === 0) {
+                savedComments = defaultComments;
+                localStorage.setItem('gradComments_HQ', JSON.stringify(savedComments));
+            }
+
+            // Đổ bình luận ra HTML
+            savedComments.forEach(function(comment) {
+                var newComment = document.createElement('div');
+                newComment.className = 'fb-comment-box';
+                newComment.innerHTML = '<div class="fb-author">' + comment.name + '</div><div class="fb-text">' + comment.text + '</div>';
+                container.appendChild(newComment);
+            });
         }
+
+        // Hàm thêm bình luận mới
+        function addComment() {
+            var nameInput = document.getElementById('guestName');
+            var msgInput = document.getElementById('guestMsg');
+            var name = nameInput.value.trim();
+            var msg = msgInput.value.trim();
+            
+            if(name === "" || msg === "") { 
+                alert("Vui lòng điền đầy đủ Tên và Lời nhắn nhé!"); 
+                return; 
+            }
+            
+            // Lấy danh sách cũ
+            var savedComments = JSON.parse(localStorage.getItem('gradComments_HQ')) || [];
+            
+            // Thêm bình luận mới vào ĐẦU danh sách (unshift)
+            savedComments.unshift({ name: name, text: msg });
+            
+            // Lưu lại vào bộ nhớ
+            localStorage.setItem('gradComments_HQ', JSON.stringify(savedComments));
+            
+            // Xóa rỗng ô nhập liệu
+            nameInput.value = "";
+            msgInput.value = "";
+            
+            // Gọi hàm tải lại để hiển thị ngay lập tức
+            loadComments();
+        }
+
+        // Tự động tải bình luận ngay khi trang web mở lên
+        document.addEventListener("DOMContentLoaded", function() {
+            loadComments();
+        });
     </script>
 </body>
 </html>
