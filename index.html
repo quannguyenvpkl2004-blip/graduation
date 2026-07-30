@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Nguyễn Hồng Quân | Lễ Tốt Nghiệp 2026</title>
+    <title>NGUYỄN HỒNG QUÂN | Lễ Tốt Nghiệp 2026</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +14,8 @@
     <style>
         :root {
             --primary-red: #8B0000;
+            --card-red: #9B111E; /* Màu đỏ của thẻ mở thiệp */
+            --bg-dark-red: #3A0404; /* Nền tối phía sau */
             --gold-accent: #D4AF37;
             --bg-cream: #FDFBF7;
             --text-dark: #333333;
@@ -26,7 +28,7 @@
             color: var(--text-dark);
             font-family: 'Lora', serif;
             line-height: 1.8;
-            overflow: hidden; /* Khóa cuộn trang khi chưa xem xong intro */
+            overflow: hidden; /* Khóa cuộn trang ban đầu */
         }
 
         #app-container {
@@ -36,41 +38,118 @@
             box-shadow: 0 0 30px rgba(0,0,0,0.15);
             min-height: 100vh;
             position: relative;
-            display: none; /* Ẩn đi cho đến khi xem xong intro */
+            display: none; /* Ẩn đi chờ video */
         }
 
-        /* --- HIỆU ỨNG STICKER --- */
-        .floating-icon {
+        /* ==============================================
+           TRANG 1: THIẾT KẾ MỚI DẠNG CARD SANG TRỌNG
+           ============================================== */
+        #welcome-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--bg-dark-red); z-index: 99999; 
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Họa tiết chìm phía sau */
+        .bg-pattern {
             position: absolute;
-            z-index: 1;
-            user-select: none;
-            pointer-events: none;
-            opacity: 0.65;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
+            font-size: 28px;
+            color: var(--gold-accent);
+            opacity: 0.1; /* Làm mờ để không rối mắt */
+            z-index: 0;
+            animation: float-slow 8s ease-in-out infinite alternate;
+        }
+        @keyframes float-slow {
+            0% { transform: translateY(0) rotate(-10deg); }
+            100% { transform: translateY(-20px) rotate(10deg); }
         }
 
-        @keyframes float-around-1 {
-            0% { transform: translate(0, 0) rotate(-15deg); }
-            50% { transform: translate(15px, -25px) rotate(15deg); }
-            100% { transform: translate(0, 0) rotate(-15deg); }
-        }
-        @keyframes float-around-2 {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(-20px, 20px) scale(1.15); }
-            100% { transform: translate(0, 0) scale(1); }
-        }
-        @keyframes float-around-3 {
-            0% { transform: translate(0, 0) rotate(0deg); opacity: 0.4; }
-            50% { transform: translate(10px, 30px) rotate(20deg); opacity: 0.9; }
-            100% { transform: translate(0, 0) rotate(0deg); opacity: 0.4; }
+        /* Khung thẻ chính giữa (Card) */
+        .welcome-card {
+            background: var(--card-red);
+            width: 85%;
+            max-width: 360px;
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            z-index: 2;
+            position: relative;
         }
 
-        /* --- VIDEO INTRO OVERLAY --- */
+        /* Logo trong thẻ */
+        .welcome-logo {
+            width: 70px; height: 70px;
+            background: var(--bg-cream);
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 0 25px rgba(253, 251, 247, 0.4); /* Hiệu ứng phát sáng nhẹ */
+        }
+        .welcome-logo img {
+            width: 100%; height: 100%; object-fit: contain; border-radius: 50%;
+        }
+
+        /* Chữ trong thẻ */
+        .welcome-name {
+            font-family: 'Playfair Display', serif;
+            color: var(--bg-cream);
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 5px;
+        }
+
+        .welcome-separator {
+            display: flex; align-items: center; justify-content: center; margin: 15px 0;
+        }
+        .welcome-separator::before, .welcome-separator::after {
+            content: ''; width: 40px; height: 1px; background: rgba(253, 251, 247, 0.4); margin: 0 15px;
+        }
+        
+        .welcome-date {
+            font-family: 'Lora', serif;
+            color: rgba(253, 251, 247, 0.9);
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .welcome-subtext {
+            font-family: 'Lora', serif;
+            color: rgba(253, 251, 247, 0.7);
+            font-size: 16px;
+            margin-bottom: 35px;
+        }
+
+        /* Nút Mở thiệp phát sáng */
+        .welcome-btn {
+            background: linear-gradient(135deg, #FFFFFF 0%, #F0E6D2 100%);
+            color: var(--card-red);
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 14px 45px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(253, 251, 247, 0.5);
+            transition: all 0.3s ease;
+        }
+        .welcome-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(253, 251, 247, 0.7);
+        }
+
+        /* ==============================================
+           VIDEO INTRO OVERLAY
+           ============================================== */
         #video-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: #000; z-index: 99998; display: none;
             flex-direction: column; align-items: center; justify-content: center;
         }
+        /* Fix lỗi video trên điện thoại (playsinline) */
         #intro-video {
             width: 100%; height: 100%; object-fit: contain; max-width: 480px;
         }
@@ -81,15 +160,15 @@
             font-family: 'Lora', serif; font-size: 14px; cursor: pointer; z-index: 99999;
         }
 
-        /* VÒM ĐỎ TRANG CHÍNH */
+        /* ==============================================
+           TRANG THIỆP CHÍNH (CÁC PHẦN CÒN LẠI)
+           ============================================== */
         .top-arch-bg {
             background-color: var(--primary-red); color: #ffffff;
             padding: 40px 20px 140px 20px; text-align: center;
             border-bottom-left-radius: 50% 25%; border-bottom-right-radius: 50% 25%;
             position: relative; z-index: 1; box-shadow: 0 10px 20px rgba(139,0,0,0.2);
         }
-
-        /* KHUNG ẢNH CẮT VÒM */
         .hero-img-box {
             width: 270px; height: 380px; margin: -110px auto 20px auto;
             position: relative; z-index: 2; border-radius: 135px 135px 0 0;
@@ -97,8 +176,8 @@
             overflow: hidden; background: #fff; animation: floating 3s ease-in-out infinite; 
         }
         .hero-img-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        @keyframes floating { 0% { transform: translateY(0); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0); } }
 
-        /* KHỐI TIÊU ĐỀ NGANG */
         .section-header-block {
             background-color: var(--primary-red); color: var(--bg-cream);
             text-align: center; font-family: 'Playfair Display', serif;
@@ -106,7 +185,6 @@
             padding: 12px 0; margin: 40px 0 30px 0; width: 100%;
             text-transform: uppercase; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-
         .content-box { padding: 0 25px; text-align: center; }
         h1, h2, h3, .premium-text { font-family: 'Playfair Display', serif; }
         
@@ -118,75 +196,64 @@
             box-shadow: 0 5px 15px rgba(139,0,0,0.2); transition: all 0.3s;
         }
 
-        /* Sổ lưu bút */
-        .input-box {
-            width: 100%; padding: 12px 15px; margin-bottom: 12px;
-            border: 1px solid rgba(139,0,0,0.2); border-radius: 8px;
-            font-family: 'Lora', serif; font-size: 15px; transition: 0.3s;
-        }
-        .input-box:focus { border-color: var(--primary-red); outline: none; }
-        
-        .comment-item {
-            background: #ffffff; border: 1px solid #eaeaea; border-radius: 8px;
-            padding: 12px; margin-bottom: 10px; text-align: left; box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-            animation: fadeIn 0.5s ease-in-out;
-        }
-
-        /* Swiper CSS Tùy chỉnh cho Album */
         .swiper { width: 100%; padding-bottom: 40px; }
         .swiper-slide { width: 230px; height: 330px; border-radius: 12px; background: #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         .swiper-slide img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
         .swiper-pagination-bullet-active { background: var(--primary-red) !important; }
 
-        /* NÚT PHÁT NHẠC */
+        /* Sổ lưu bút */
+        .input-box { width: 100%; padding: 12px 15px; margin-bottom: 12px; border: 1px solid rgba(139,0,0,0.2); border-radius: 8px; font-family: 'Lora', serif; font-size: 15px; transition: 0.3s; }
+        .input-box:focus { border-color: var(--primary-red); outline: none; }
+        .comment-item { background: #ffffff; border: 1px solid #eaeaea; border-radius: 8px; padding: 12px; margin-bottom: 10px; text-align: left; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+
         #music-btn {
             position: fixed; bottom: 25px; right: 25px; width: 45px; height: 45px;
             background-color: var(--primary-red); border-radius: 50%; display: none;
             align-items: center; justify-content: center; cursor: pointer; z-index: 1000;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3); border: 2px solid var(--gold-accent); font-size: 20px;
         }
-
-        @keyframes floating { 0% { transform: translateY(0); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0); } }
         @keyframes spin { 100% { transform: rotate(360deg); } }
         .spinning { animation: spin 3s linear infinite; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
-    <div id="welcome-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, #8B0000 0%, #4A0000 100%); z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; overflow: hidden;">
+    <div id="welcome-overlay">
         
-        <div class="floating-icon" style="top: 10%; left: 15%; font-size: 35px; animation: float-around-1 6s ease-in-out infinite;">⚖️</div>
-        <div class="floating-icon" style="top: 22%; right: 15%; font-size: 32px; animation: float-around-2 5s ease-in-out infinite;">🎓</div>
-        <div class="floating-icon" style="bottom: 25%; left: 10%; font-size: 35px; animation: float-around-3 7s ease-in-out infinite;">📜</div>
-        <div class="floating-icon" style="bottom: 12%; right: 18%; font-size: 30px; animation: float-around-1 5.5s ease-in-out infinite;">🏛️</div>
-        <div class="floating-icon" style="top: 40%; left: 8%; font-size: 28px; animation: float-around-2 6.5s ease-in-out infinite;">📚</div>
-        <div class="floating-icon" style="top: 55%; right: 8%; font-size: 26px; animation: float-around-3 8s ease-in-out infinite;">✨</div>
-        <div class="floating-icon" style="top: 75%; left: 25%; font-size: 24px; animation: float-around-1 7.5s ease-in-out infinite;">🎓</div>
-        <div class="floating-icon" style="top: 15%; right: 35%; font-size: 28px; animation: float-around-2 6.2s ease-in-out infinite;">⚖️</div>
-        <div class="floating-icon" style="bottom: 40%; right: 25%; font-size: 22px; animation: float-around-3 5.8s ease-in-out infinite;">✨</div>
-        <div class="floating-icon" style="bottom: 8%; left: 35%; font-size: 25px; animation: float-around-2 7.2s ease-in-out infinite;">🌟</div>
+        <div class="bg-pattern" style="top: 8%; left: 10%;">🎓</div>
+        <div class="bg-pattern" style="top: 25%; right: 12%;">⚖️</div>
+        <div class="bg-pattern" style="bottom: 15%; left: 15%;">📜</div>
+        <div class="bg-pattern" style="bottom: 25%; right: 10%;">📚</div>
+        <div class="bg-pattern" style="top: 50%; left: 5%;">✨</div>
+        <div class="bg-pattern" style="top: 65%; right: 8%;">🏛️</div>
 
-        <img src="assets/images/image.png" alt="Hồng Quân" style="height: 250px; object-fit: contain; margin-bottom: 20px; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.5)); animation: floating 3.5s ease-in-out infinite; z-index: 2;">
-
-        <h1 class="premium-text" style="color: #D4AF37; font-size: 30px; letter-spacing: 2px; margin-bottom: 5px; z-index: 2; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">LỄ TỐT NGHIỆP</h1>
-        <p style="font-style: italic; margin-bottom: 35px; font-size: 16px; z-index: 2; opacity: 0.9;">Nguyễn Hồng Quân | 2026</p>
-
-        <button onclick="playIntroVideo()" style="background: white; color: #8B0000; font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: 2px; padding: 15px 45px; border: none; border-radius: 30px; cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.5); transform-origin: center; z-index: 2;">
-            MỞ THIỆP
-        </button>
+        <div class="welcome-card" data-aos="zoom-in" data-aos-duration="1000">
+            <div class="welcome-logo">
+                <img src="assets/logo/logo.jpeg" alt="Logo">
+            </div>
+            
+            <div class="welcome-name">Tạ Minh Phú</div>
+            
+            <div class="welcome-separator">
+                <span style="font-size: 14px; color: rgba(253, 251, 247, 0.8);">🎓</span>
+            </div>
+            
+            <div class="welcome-date">11 tháng 08, 2026</div>
+            <div class="welcome-subtext">Lễ Tốt Nghiệp</div>
+            
+            <button class="welcome-btn" onclick="playIntroVideo()">Mở thiệp</button>
+        </div>
     </div>
 
     <div id="video-overlay">
-        <video id="intro-video" playsinline>
-            <source src="assets/video/Gemini_generated_video_C183EF63.mp4" type="video/mp4">
+        <video id="intro-video" playsinline webkit-playsinline>
+            <source src="assets/video/gemini_generated_video_C183EF63.mp4" type="video/mp4">
             Trình duyệt không hỗ trợ video.
         </video>
         <button class="skip-btn" onclick="skipVideo()">Bỏ qua >></button>
     </div>
 
     <audio id="bg-music" loop><source src="assets/music/nhac-nen.mp3.mp3" type="audio/mpeg"></audio>
-
     <div id="music-btn" onclick="toggleMusic()">🎵</div>
 
 
@@ -197,26 +264,26 @@
                 <p class="premium-text" style="letter-spacing: 1px; font-size: 16px; color: #FFFFFF; font-weight: 700; text-shadow: 1px 1px 4px rgba(0,0,0,0.5); margin-bottom: 8px;">
                     THÂN MỜI TỚI DỰ LỄ TỐT NGHIỆP
                 </p>
-                <div class="premium-text" style="font-size: 34px; font-weight: 700; color: var(--gold-accent); margin-top: 10px;">HỒNG QUÂN</div>
+                <div class="premium-text" style="font-size: 34px; font-weight: 700; color: var(--gold-accent); margin-top: 10px;">MINH PHÚ</div>
                 <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-top: 15px; font-size: 16px; color: #fff;">
                     <span>✦</span><span class="premium-text" style="letter-spacing: 1px;">11 . 08 . 2026</span><span>✦</span>
                 </div>
             </div>
             
             <div class="hero-img-box" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="1500">
-                <img src="assets/images/image.png" alt="Hồng Quân">
+                <img src="assets/images/1.jpg" alt="Minh Phú">
             </div>
 
             <div class="content-box" style="margin-top: 20px;" data-aos="fade-up">
-                <h1 class="premium-text" style="font-size: 26px; color: var(--primary-red); letter-spacing: 2px;">NGUYỄN HỒNG QUÂN</h1>
-                <p class="premium-text" style="color: var(--gold-accent); font-weight: 700; font-size: 16px; margin-top: 5px;">CỬ NHÂN LUẬT KINH TẾ</p>
+                <h1 class="premium-text" style="font-size: 26px; color: var(--primary-red); letter-spacing: 2px;">TẠ MINH PHÚ</h1>
+                <p class="premium-text" style="color: var(--gold-accent); font-weight: 700; font-size: 16px; margin-top: 5px;">CỬ NHÂN CHÍNH SÁCH CÔNG</p>
             </div>
         </section>
 
         <div class="section-header-block" data-aos="fade-right">DẤU ẤN THANH XUÂN</div>
         <section class="content-box" data-aos="fade-up" style="text-align: justify;">
             <p style="color: #444; font-style: italic; font-size: 15px;">
-                "Hành trình tại Học viện Chính sách và Phát triển không chỉ là việc tiếp thu tri thức pháp lý, mà còn là quá trình vận dụng vào thực tiễn kinh doanh. Cảm ơn thầy cô, gia đình và những người bạn đã luôn đồng hành cùng Quân trên chặng đường 4 năm rực rỡ này."
+                "Hành trình tại Học viện Chính sách và Phát triển không chỉ là việc tiếp thu kiến thức chuyên môn, mà còn là quá trình rèn luyện tư duy phân tích và giải quyết các vấn đề thực tiễn của xã hội. Cảm ơn thầy cô, gia đình và những người bạn đã luôn đồng hành cùng Phú trên chặng đường 4 năm rực rỡ này."
             </p>
         </section>
 
@@ -225,10 +292,9 @@
         <section style="padding: 0 10px; overflow: hidden;" data-aos="fade-up">
             <div class="swiper mySwiper1">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="assets/images/IMG_1204.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/IMG_1223.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/IMG_1489.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/IMG_1527.jpeg"></div>
+                    <div class="swiper-slide"><img src="assets/images/2.jpg"></div>
+                    <div class="swiper-slide"><img src="assets/images/3.jpg"></div>
+                    <div class="swiper-slide"><img src="assets/images/4.jpg"></div>
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
@@ -238,14 +304,14 @@
         <section style="padding: 0 10px; overflow: hidden;" data-aos="fade-up">
             <div class="swiper mySwiper2">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="assets/images/IMG_2423.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/IMG_3862.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/IMG_4682.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/IMG_7090.jpeg"></div>
+                    <div class="swiper-slide"><img src="assets/images/5.jpg"></div>
+                    <div class="swiper-slide"><img src="assets/images/6.jpg"></div>
+                    <div class="swiper-slide"><img src="assets/images/7.jpg"></div>
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
         </section>
+
 
         <div class="section-header-block" data-aos="fade-right">THÔNG TIN LỄ HỘI</div>
         <section class="content-box" data-aos="zoom-in">
@@ -277,7 +343,7 @@
         <section class="content-box" data-aos="fade-up">
             <div style="background: #fff; padding: 25px 20px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee;">
                 <input type="text" id="gName" class="input-box" placeholder="Tên của bạn...">
-                <textarea id="gMsg" class="input-box" placeholder="Để lại lời chúc cho Quân tại đây nhé..." style="height: 90px; resize: none;"></textarea>
+                <textarea id="gMsg" class="input-box" placeholder="Để lại lời chúc cho Phú tại đây nhé..." style="height: 90px; resize: none;"></textarea>
                 <button onclick="postCmt()" class="btn-premium" style="width: 100%; border-radius: 8px;">GỬI LỜI CHÚC</button>
                 
                 <div id="cmt-list" style="margin-top: 25px; max-height: 350px; overflow-y: auto;"></div>
@@ -286,12 +352,12 @@
 
         <div class="section-header-block" data-aos="fade-left">XÁC NHẬN THAM GIA</div>
         <section class="content-box" data-aos="zoom-in" style="margin-bottom: 50px;">
-            <p style="margin-bottom: 25px; color: #555; font-size: 15px;">Sự hiện diện của bạn là niềm vinh hạnh rất lớn. Vui lòng xác nhận để Quân tiện sắp xếp đón tiếp nhé!</p>
+            <p style="margin-bottom: 25px; color: #555; font-size: 15px;">Sự hiện diện của bạn là niềm vinh hạnh rất lớn. Vui lòng xác nhận để Phú tiện sắp xếp đón tiếp nhé!</p>
             <a href="https://zalo.me/" target="_blank" class="btn-premium">✔ XÁC NHẬN TỚI DỰ</a>
         </section>
 
         <footer style="background-color: var(--primary-red); color: rgba(255,255,255,0.8); text-align: center; padding: 30px 20px; font-family: 'Playfair Display', serif; font-size: 13px; letter-spacing: 1px; margin-top: 40px;">
-            © 2026 NGUYỄN HỒNG QUÂN. ALL RIGHTS RESERVED.
+            © 2026 TẠ MINH PHÚ. ALL RIGHTS RESERVED.
         </footer>
 
     </main>
@@ -309,51 +375,47 @@
 
         // BƯỚC 1: Bấm Mở Thiệp -> Phát Video
         function playIntroVideo() {
-            // Mở khóa âm thanh trình duyệt bằng thủ thuật play-pause
-            if(bgMusic) {
-                bgMusic.play().then(() => { bgMusic.pause(); }).catch(e => {});
-            }
-
-            // Ẩn màn hình chờ
             welcomeOverlay.style.display = 'none';
-            
-            // Hiện màn hình Video và phát
             videoOverlay.style.display = 'flex';
-            introVideo.play().catch(e => {
-                // Nếu trình duyệt lỗi không cho phát video, tự động bỏ qua video
+            
+            // Xử lý để đảm bảo video chạy mượt mà trên iPhone
+            introVideo.play().then(() => {
+                // Video chạy thành công
+            }).catch(error => {
+                console.log("Trình duyệt chặn autoplay video:", error);
+                // Nếu bị chặn, tự động bỏ qua video để vào thẳng thiệp
                 skipVideo();
             });
         }
 
-        // BƯỚC 2: Khi video kết thúc tự nhiên
-        introVideo.onended = function() {
+        // BƯỚC 2: Khi video kết thúc tự nhiên -> tự động chuyển trang
+        introVideo.addEventListener('ended', function() {
             enterMainApp();
-        };
+        });
 
-        // BƯỚC 3: Nếu khách bấm "Bỏ qua"
+        // BƯỚC 3: Nút bỏ qua video thủ công
         function skipVideo() {
             introVideo.pause();
             enterMainApp();
         }
 
-        // BƯỚC 4: Hàm chuyển vào thiệp chính
+        // BƯỚC 4: Hàm hiển thị Web chính (Trang 2)
         function enterMainApp() {
-            // Ẩn video, hiện Web chính
             videoOverlay.style.display = 'none';
             appContainer.style.display = 'block';
+            document.body.style.overflow = 'auto'; // Mở khóa cuộn trang
             
-            // Mở khóa cuộn trang
-            document.body.style.overflow = 'auto';
-            
-            // Hiện nút nhạc và phát nhạc nền
+            // Bật nhạc nền
             musicBtn.style.display = 'flex';
             if(bgMusic) {
-                bgMusic.play();
+                bgMusic.play().catch(e => console.log(e));
                 musicBtn.classList.add('spinning');
             }
 
-            // Kích hoạt hiệu ứng cuộn trang (AOS)
-            AOS.init({ duration: 1000, once: true });
+            // Kích hoạt lại hiệu ứng sau khi hiện trang web
+            setTimeout(() => {
+                AOS.init({ duration: 1000, once: true });
+            }, 100);
 
             // Kích hoạt 2 Album Ảnh Swiper
             new Swiper(".mySwiper1", {
@@ -367,11 +429,9 @@
                 pagination: { el: ".swiper-pagination", clickable: true },
             });
             
-            // Load comments sau khi vào thiệp
             loadCmt();
         }
 
-        // Tắt/bật nhạc khi ấn vào nút đĩa nhạc
         function toggleMusic() {
             if (bgMusic.paused) {
                 bgMusic.play();
@@ -384,7 +444,7 @@
 
         // KỊCH BẢN QUẢN LÝ SỔ LƯU BÚT
         const mockCmts = [
-            {n: "Hoàng Nam", m: "Chúc mừng Quân tốt nghiệp nhé! Quá đỉnh xịn xò. 🎉"},
+            {n: "Hoàng Nam", m: "Chúc mừng Phú tốt nghiệp nhé! Quá đỉnh xịn xò. 🎉"},
             {n: "Thu Trang", m: "Chúc cậu chặng đường mới gặt hái thật nhiều thành công nha!"}
         ];
 
@@ -392,7 +452,7 @@
             var box = document.getElementById('cmt-list');
             if(!box) return;
             box.innerHTML = '';
-            var data = JSON.parse(localStorage.getItem('hq_grad_cmts')) || mockCmts;
+            var data = JSON.parse(localStorage.getItem('tmp_grad_cmts')) || mockCmts;
             data.forEach(c => {
                 box.innerHTML += `<div class="comment-item"><div style="font-weight:bold; color:#8B0000; font-size:15px; font-family:'Playfair Display', serif;">${c.n}</div><div style="font-size:15px; color:#444; margin-top:3px;">${c.m}</div></div>`;
             });
@@ -402,9 +462,9 @@
             var n = document.getElementById('gName').value.trim();
             var m = document.getElementById('gMsg').value.trim();
             if(!n || !m) return alert("Vui lòng nhập tên và lời chúc!");
-            var data = JSON.parse(localStorage.getItem('hq_grad_cmts')) || mockCmts;
+            var data = JSON.parse(localStorage.getItem('tmp_grad_cmts')) || mockCmts;
             data.unshift({n: n, m: m});
-            localStorage.setItem('hq_grad_cmts', JSON.stringify(data));
+            localStorage.setItem('tmp_grad_cmts', JSON.stringify(data));
             document.getElementById('gName').value = '';
             document.getElementById('gMsg').value = '';
             loadCmt();
