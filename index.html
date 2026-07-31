@@ -257,7 +257,6 @@
                     <div class="swiper-slide"><img src="assets/images/me2.jpeg"></div>
                     <div class="swiper-slide"><img src="assets/images/me5.jpeg"></div>
                     <div class="swiper-slide"><img src="assets/images/me7.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/me8.jpeg"></div>
                     <div class="swiper-slide"><img src="assets/images/me9.jpeg"></div>
                     <div class="swiper-slide"><img src="assets/images/ME.jpeg"></div>
                     <div class="swiper-slide"><img src="assets/images/event1.jpeg"></div>
@@ -284,7 +283,6 @@
                     <div class="swiper-slide"><img src="assets/images/apd.jpeg"></div>
                     <div class="swiper-slide"><img src="assets/images/apd2.jpeg"></div>
                     <div class="swiper-slide"><img src="assets/images/ban1.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/ban2.jpeg"></div>
                     <div class="swiper-slide"><img src="assets/images/Quanghuy.jpeg"></div>
                     <div class="swiper-slide"><img src="assets/images/khanh.jpeg"></div>
                     <div class="swiper-slide"><img src="assets/images/KH.jpeg"></div>
@@ -326,15 +324,27 @@
             </div>
         </section>
 
-        <!-- ================= SỔ LƯU BÚT ================= -->
+       <!-- ================= SỔ LƯU BÚT (GỬI VỀ GMAIL) ================= -->
         <div class="section-header-block" data-aos="fade-right">SỔ LƯU BÚT</div>
         <section class="content-box" data-aos="fade-up">
             <div style="background: #fff; padding: 25px 20px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee;">
-                <input type="text" id="gName" class="input-box" placeholder="Tên của bạn...">
-                <textarea id="gMsg" class="input-box" placeholder="Để lại lời chúc cho Quân tại đây nhé..." style="height: 90px; resize: none;"></textarea>
-                <button onclick="postCmt()" class="btn-premium" style="width: 100%; border-radius: 8px;">GỬI LỜI CHÚC</button>
                 
-                <div id="cmt-list" style="margin-top: 25px; max-height: 350px; overflow-y: auto;"></div>
+                <!-- Form gửi dữ liệu trực tiếp về email của Quân -->
+                <form action="https://formsubmit.co/quannguyenvpkl2004@gmail.com" method="POST">
+                    
+                    <input type="text" name="Tên_Khách_Mời" class="input-box" placeholder="Tên của bạn..." required>
+                    
+                    <textarea name="Lời_Chúc" class="input-box" placeholder="Để lại lời chúc cho Quân tại đây nhé..." style="height: 90px; resize: none;" required></textarea>
+                    
+                    <!-- Ẩn mã Captcha để khách gửi mượt mà không bị hỏi robot -->
+                    <input type="hidden" name="_captcha" value="false">
+                    
+                    <!-- Đưa khách trở lại trang thiệp sau khi bấm Gửi -->
+                    <input type="hidden" name="_next" value="https://quannguyenvpkl2004-blip.github.io/graduation/">
+                    
+                    <button type="submit" class="btn-premium" style="width: 100%; border-radius: 8px;">GỬI LỜI CHÚC</button>
+                </form>
+
             </div>
         </section>
 
@@ -342,7 +352,7 @@
         <div class="section-header-block" data-aos="fade-left">XÁC NHẬN THAM GIA</div>
         <section class="content-box" data-aos="zoom-in" style="margin-bottom: 50px;">
             <p style="margin-bottom: 25px; color: #555; font-size: 15px;">Sự hiện diện của bạn là niềm vinh hạnh rất lớn. Vui lòng xác nhận để Quân tiện sắp xếp đón tiếp nhé!</p>
-            <a href="https://zalo.me/" target="_blank" class="btn-premium">✔ XÁC NHẬN TỚI DỰ</a>
+            <a href="https://zalo.me/0338842227" target="_blank" class="btn-premium">✔ XÁC NHẬN TỚI DỰ</a>
         </section>
 
         <!-- FOOTER -->
@@ -432,8 +442,9 @@
 
         // KỊCH BẢN QUẢN LÝ SỔ LƯU BÚT CỦA HỒNG QUÂN
         const mockCmts = [
-            {n: "Hoàng Nam", m: "Chúc mừng Quân tốt nghiệp nhé! Quá đỉnh xịn xò. 🎉"},
-            {n: "Thu Trang", m: "Chúc cậu chặng đường mới gặt hái thật nhiều thành công nha!"}
+            {n: "Phạm Lộc", m: "Chúc mừng sư đệ tốt nghiệp nhé! Quá đỉnh xịn xò. 🎉"},
+            {n: "Phinh Lan", m: "Mai la ban nhe. 🎉"},
+            {n: "Bảo Khanh", m: "Chúc em chặng đường mới gặt hái thật nhiều thành công nha!"}
         ];
 
         function loadCmt() {
