@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>NGUYỄN HỒNG QUÂN | Lễ Tốt Nghiệp 2026</title>
+    <title>Nguyễn Hồng Quân | Lễ Tốt Nghiệp 2026</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,8 +14,8 @@
     <style>
         :root {
             --primary-red: #8B0000;
-            --card-red: #9B111E; /* Màu đỏ của thẻ mở thiệp */
-            --bg-dark-red: #3A0404; /* Nền tối phía sau */
+            --card-red: #9B111E; 
+            --bg-dark-red: #3A0404; 
             --gold-accent: #D4AF37;
             --bg-cream: #FDFBF7;
             --text-dark: #333333;
@@ -42,7 +42,7 @@
         }
 
         /* ==============================================
-           TRANG 1: THIẾT KẾ MỚI DẠNG CARD SANG TRỌNG
+           TRANG 1: THIẾT KẾ CARD SANG TRỌNG (FIX LỖI HIỂN THỊ)
            ============================================== */
         #welcome-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -56,7 +56,7 @@
             position: absolute;
             font-size: 28px;
             color: var(--gold-accent);
-            opacity: 0.1; /* Làm mờ để không rối mắt */
+            opacity: 0.15; 
             z-index: 0;
             animation: float-slow 8s ease-in-out infinite alternate;
         }
@@ -85,7 +85,7 @@
             border-radius: 50%;
             margin: 0 auto 20px auto;
             display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 0 25px rgba(253, 251, 247, 0.4); /* Hiệu ứng phát sáng nhẹ */
+            box-shadow: 0 0 25px rgba(253, 251, 247, 0.4); 
         }
         .welcome-logo img {
             width: 100%; height: 100%; object-fit: contain; border-radius: 50%;
@@ -149,7 +149,6 @@
             background: #000; z-index: 99998; display: none;
             flex-direction: column; align-items: center; justify-content: center;
         }
-        /* Fix lỗi video trên điện thoại (playsinline) */
         #intro-video {
             width: 100%; height: 100%; object-fit: contain; max-width: 480px;
         }
@@ -161,7 +160,7 @@
         }
 
         /* ==============================================
-           TRANG THIỆP CHÍNH (CÁC PHẦN CÒN LẠI)
+           TRANG THIỆP CHÍNH (TRANG 2)
            ============================================== */
         .top-arch-bg {
             background-color: var(--primary-red); color: #ffffff;
@@ -227,15 +226,15 @@
         <div class="bg-pattern" style="top: 50%; left: 5%;">✨</div>
         <div class="bg-pattern" style="top: 65%; right: 8%;">🏛️</div>
 
-        <div class="welcome-card" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="welcome-card" data-aos="zoom-in" data-aos-duration="1200">
             <div class="welcome-logo">
                 <img src="assets/logo/logo.jpeg" alt="Logo">
             </div>
             
-            <div class="welcome-name">Tạ Minh Phú</div>
+            <div class="welcome-name">Hồng Quân</div>
             
             <div class="welcome-separator">
-                <span style="font-size: 14px; color: rgba(253, 251, 247, 0.8);">🎓</span>
+                <span style="font-size: 14px; color: rgba(253, 251, 247, 0.8);">⚖️</span>
             </div>
             
             <div class="welcome-date">11 tháng 08, 2026</div>
@@ -247,7 +246,7 @@
 
     <div id="video-overlay">
         <video id="intro-video" playsinline webkit-playsinline>
-            <source src="assets/video/gemini_generated_video_C183EF63.mp4" type="video/mp4">
+            <source src="assets/video/Gemini_generated_video_C183EF63.mp4" type="video/mp4">
             Trình duyệt không hỗ trợ video.
         </video>
         <button class="skip-btn" onclick="skipVideo()">Bỏ qua >></button>
@@ -264,37 +263,37 @@
                 <p class="premium-text" style="letter-spacing: 1px; font-size: 16px; color: #FFFFFF; font-weight: 700; text-shadow: 1px 1px 4px rgba(0,0,0,0.5); margin-bottom: 8px;">
                     THÂN MỜI TỚI DỰ LỄ TỐT NGHIỆP
                 </p>
-                <div class="premium-text" style="font-size: 34px; font-weight: 700; color: var(--gold-accent); margin-top: 10px;">MINH PHÚ</div>
+                <div class="premium-text" style="font-size: 34px; font-weight: 700; color: var(--gold-accent); margin-top: 10px;">HỒNG QUÂN</div>
                 <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-top: 15px; font-size: 16px; color: #fff;">
                     <span>✦</span><span class="premium-text" style="letter-spacing: 1px;">11 . 08 . 2026</span><span>✦</span>
                 </div>
             </div>
             
             <div class="hero-img-box" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="1500">
-                <img src="assets/images/1.jpg" alt="Minh Phú">
+                <img src="assets/images/IMG_7534.jpeg" alt="Hồng Quân">
             </div>
 
             <div class="content-box" style="margin-top: 20px;" data-aos="fade-up">
-                <h1 class="premium-text" style="font-size: 26px; color: var(--primary-red); letter-spacing: 2px;">TẠ MINH PHÚ</h1>
-                <p class="premium-text" style="color: var(--gold-accent); font-weight: 700; font-size: 16px; margin-top: 5px;">CỬ NHÂN CHÍNH SÁCH CÔNG</p>
+                <h1 class="premium-text" style="font-size: 26px; color: var(--primary-red); letter-spacing: 2px;">NGUYỄN HỒNG QUÂN</h1>
+                <p class="premium-text" style="color: var(--gold-accent); font-weight: 700; font-size: 16px; margin-top: 5px;">CỬ NHÂN LUẬT KINH TẾ</p>
             </div>
         </section>
 
         <div class="section-header-block" data-aos="fade-right">DẤU ẤN THANH XUÂN</div>
         <section class="content-box" data-aos="fade-up" style="text-align: justify;">
             <p style="color: #444; font-style: italic; font-size: 15px;">
-                "Hành trình tại Học viện Chính sách và Phát triển không chỉ là việc tiếp thu kiến thức chuyên môn, mà còn là quá trình rèn luyện tư duy phân tích và giải quyết các vấn đề thực tiễn của xã hội. Cảm ơn thầy cô, gia đình và những người bạn đã luôn đồng hành cùng Phú trên chặng đường 4 năm rực rỡ này."
+                "Hành trình tại Học viện Chính sách và Phát triển không chỉ là việc tiếp thu tri thức pháp lý, mà còn là quá trình vận dụng vào thực tiễn kinh doanh. Cảm ơn thầy cô, gia đình và những người bạn đã luôn đồng hành cùng Quân trên chặng đường 4 năm rực rỡ này."
             </p>
         </section>
-
 
         <div class="section-header-block" data-aos="fade-right">KỶ NIỆM GIẢNG ĐƯỜNG</div>
         <section style="padding: 0 10px; overflow: hidden;" data-aos="fade-up">
             <div class="swiper mySwiper1">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="assets/images/2.jpg"></div>
-                    <div class="swiper-slide"><img src="assets/images/3.jpg"></div>
-                    <div class="swiper-slide"><img src="assets/images/4.jpg"></div>
+                    <div class="swiper-slide"><img src="assets/images/IMG_1204.jpeg"></div>
+                    <div class="swiper-slide"><img src="assets/images/IMG_1223.jpeg"></div>
+                    <div class="swiper-slide"><img src="assets/images/IMG_1489.jpeg"></div>
+                    <div class="swiper-slide"><img src="assets/images/IMG_1527.jpeg"></div>
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
@@ -304,14 +303,14 @@
         <section style="padding: 0 10px; overflow: hidden;" data-aos="fade-up">
             <div class="swiper mySwiper2">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="assets/images/5.jpg"></div>
-                    <div class="swiper-slide"><img src="assets/images/6.jpg"></div>
-                    <div class="swiper-slide"><img src="assets/images/7.jpg"></div>
+                    <div class="swiper-slide"><img src="assets/images/IMG_2423.jpeg"></div>
+                    <div class="swiper-slide"><img src="assets/images/IMG_3862.jpeg"></div>
+                    <div class="swiper-slide"><img src="assets/images/IMG_4682.jpeg"></div>
+                    <div class="swiper-slide"><img src="assets/images/IMG_7090.jpeg"></div>
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
         </section>
-
 
         <div class="section-header-block" data-aos="fade-right">THÔNG TIN LỄ HỘI</div>
         <section class="content-box" data-aos="zoom-in">
@@ -343,7 +342,7 @@
         <section class="content-box" data-aos="fade-up">
             <div style="background: #fff; padding: 25px 20px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee;">
                 <input type="text" id="gName" class="input-box" placeholder="Tên của bạn...">
-                <textarea id="gMsg" class="input-box" placeholder="Để lại lời chúc cho Phú tại đây nhé..." style="height: 90px; resize: none;"></textarea>
+                <textarea id="gMsg" class="input-box" placeholder="Để lại lời chúc cho Quân tại đây nhé..." style="height: 90px; resize: none;"></textarea>
                 <button onclick="postCmt()" class="btn-premium" style="width: 100%; border-radius: 8px;">GỬI LỜI CHÚC</button>
                 
                 <div id="cmt-list" style="margin-top: 25px; max-height: 350px; overflow-y: auto;"></div>
@@ -352,12 +351,12 @@
 
         <div class="section-header-block" data-aos="fade-left">XÁC NHẬN THAM GIA</div>
         <section class="content-box" data-aos="zoom-in" style="margin-bottom: 50px;">
-            <p style="margin-bottom: 25px; color: #555; font-size: 15px;">Sự hiện diện của bạn là niềm vinh hạnh rất lớn. Vui lòng xác nhận để Phú tiện sắp xếp đón tiếp nhé!</p>
+            <p style="margin-bottom: 25px; color: #555; font-size: 15px;">Sự hiện diện của bạn là niềm vinh hạnh rất lớn. Vui lòng xác nhận để Quân tiện sắp xếp đón tiếp nhé!</p>
             <a href="https://zalo.me/" target="_blank" class="btn-premium">✔ XÁC NHẬN TỚI DỰ</a>
         </section>
 
         <footer style="background-color: var(--primary-red); color: rgba(255,255,255,0.8); text-align: center; padding: 30px 20px; font-family: 'Playfair Display', serif; font-size: 13px; letter-spacing: 1px; margin-top: 40px;">
-            © 2026 TẠ MINH PHÚ. ALL RIGHTS RESERVED.
+            © 2026 NGUYỄN HỒNG QUÂN. ALL RIGHTS RESERVED.
         </footer>
 
     </main>
@@ -365,6 +364,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
+        // Kích hoạt AOS ngay khi trang vừa tải để sửa lỗi "tàng hình" trang 1
+        document.addEventListener("DOMContentLoaded", function() {
+            AOS.init({ duration: 1000, once: true });
+            loadCmt();
+        });
+
         // Các biến điều khiển
         var bgMusic = document.getElementById('bg-music');
         var introVideo = document.getElementById('intro-video');
@@ -414,7 +419,7 @@
 
             // Kích hoạt lại hiệu ứng sau khi hiện trang web
             setTimeout(() => {
-                AOS.init({ duration: 1000, once: true });
+                AOS.refresh();
             }, 100);
 
             // Kích hoạt 2 Album Ảnh Swiper
@@ -428,8 +433,6 @@
                 coverflowEffect: { rotate: 0, stretch: -25, depth: 150, modifier: 1, slideShadows: true },
                 pagination: { el: ".swiper-pagination", clickable: true },
             });
-            
-            loadCmt();
         }
 
         function toggleMusic() {
@@ -442,9 +445,9 @@
             }
         }
 
-        // KỊCH BẢN QUẢN LÝ SỔ LƯU BÚT
+        // KỊCH BẢN QUẢN LÝ SỔ LƯU BÚT CỦA HỒNG QUÂN
         const mockCmts = [
-            {n: "Hoàng Nam", m: "Chúc mừng Phú tốt nghiệp nhé! Quá đỉnh xịn xò. 🎉"},
+            {n: "Hoàng Nam", m: "Chúc mừng Quân tốt nghiệp nhé! Quá đỉnh xịn xò. 🎉"},
             {n: "Thu Trang", m: "Chúc cậu chặng đường mới gặt hái thật nhiều thành công nha!"}
         ];
 
@@ -452,7 +455,7 @@
             var box = document.getElementById('cmt-list');
             if(!box) return;
             box.innerHTML = '';
-            var data = JSON.parse(localStorage.getItem('tmp_grad_cmts')) || mockCmts;
+            var data = JSON.parse(localStorage.getItem('hq_grad_cmts')) || mockCmts;
             data.forEach(c => {
                 box.innerHTML += `<div class="comment-item"><div style="font-weight:bold; color:#8B0000; font-size:15px; font-family:'Playfair Display', serif;">${c.n}</div><div style="font-size:15px; color:#444; margin-top:3px;">${c.m}</div></div>`;
             });
@@ -462,9 +465,9 @@
             var n = document.getElementById('gName').value.trim();
             var m = document.getElementById('gMsg').value.trim();
             if(!n || !m) return alert("Vui lòng nhập tên và lời chúc!");
-            var data = JSON.parse(localStorage.getItem('tmp_grad_cmts')) || mockCmts;
+            var data = JSON.parse(localStorage.getItem('hq_grad_cmts')) || mockCmts;
             data.unshift({n: n, m: m});
-            localStorage.setItem('tmp_grad_cmts', JSON.stringify(data));
+            localStorage.setItem('hq_grad_cmts', JSON.stringify(data));
             document.getElementById('gName').value = '';
             document.getElementById('gMsg').value = '';
             loadCmt();
