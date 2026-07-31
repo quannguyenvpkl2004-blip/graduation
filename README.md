@@ -29,7 +29,7 @@ Dự án tuân thủ cấu trúc phân chia module rõ ràng:
 - `assets/`: Lưu trữ tài nguyên tĩnh như hình ảnh, âm thanh, logo.
 
 ## 📅 Thông tin sự kiện
-*   **Thời gian:** 08:00 AM | Ngày 11/08/2026
+*   **Thời gian:** 10:00 AM | Ngày 11/08/2026
 *   **Địa điểm:** Học viện Chính sách và Phát triển (An Khánh, Hoài Đức, Hà Nội)
 
 ---
