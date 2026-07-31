@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Nguyễn Hồng Quân | Lễ Tốt Nghiệp 2026</title>
     
+    <!-- Thẻ hiển thị hình ảnh và nội dung khi gửi link qua Zalo, Facebook -->
+    <meta property="og:title" content="Thiệp Mời Lễ Tốt Nghiệp | Nguyễn Hồng Quân">
+    <meta property="og:description" content="Thân mời quý khách đến dự lễ tốt nghiệp của Nguyễn Hồng Quân - Cử nhân Luật Kinh tế. Sự hiện diện của bạn là niềm vinh hạnh rất lớn!">
+    <meta property="og:image" content="https://quannguyenvpkl2004-blip.github.io/graduation/assets/images/painapd.png">
+    <meta property="og:url" content="https://quannguyenvpkl2004-blip.github.io/graduation/">
+    <meta property="og:type" content="website">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
@@ -242,13 +249,7 @@
         <div class="section-header-block" data-aos="fade-right">DẤU ẤN THANH XUÂN</div>
         <section class="content-box" data-aos="fade-up" style="text-align: justify;">
             <p style="color: #444; font-style: italic; font-size: 15px;">
-                "<!-- TÂM SỰ -->
-        <div class="section-header-block" data-aos="fade-right">DẤU ẤN THANH XUÂN</div>
-        <section class="content-box" data-aos="fade-up" style="text-align: justify;">
-            <p style="color: #444; font-style: italic; font-size: 15px;">
                 "Hành trình 4 năm tại APD không chỉ là khoảng thời gian tích lũy tri thức, mà còn là một trải nghiệm quý giá giúp tôi từng bước trưởng thành. Nhìn lại chặng đường đã qua, Wan xin gửi lời biết ơn chân thành nhất đến bố mẹ và gia đình vì đã luôn ủng hộ và trở thành điểm tựa vững chắc nhất. Xin tri ân các thầy cô đã tận tâm dìu dắt, và cảm ơn những người bạn đã sát cánh cùng Wan trong suốt những năm tháng thanh xuân. Cảm ơn mọi người vì tất cả!"
-            </p>
-        </section>"
             </p>
         </section>
 
@@ -374,7 +375,6 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             AOS.init({ duration: 1000, once: true });
-            loadCmt();
         });
 
         var bgMusic = document.getElementById('bg-music');
@@ -444,35 +444,6 @@
                 bgMusic.pause();
                 musicBtn.classList.remove('spinning');
             }
-        }
-
-        // KỊCH BẢN QUẢN LÝ SỔ LƯU BÚT CỦA HỒNG QUÂN
-        const mockCmts = [
-            {n: "Phạm Lộc", m: "Chúc mừng sư đệ tốt nghiệp nhé! Quá đỉnh xịn xò. 🎉"},
-            {n: "Phinh Lan", m: "Mai la ban nhe. 🎉"},
-            {n: "Bảo Khanh", m: "Chúc em chặng đường mới gặt hái thật nhiều thành công nha!"}
-        ];
-
-        function loadCmt() {
-            var box = document.getElementById('cmt-list');
-            if(!box) return;
-            box.innerHTML = '';
-            var data = JSON.parse(localStorage.getItem('hq_grad_cmts')) || mockCmts;
-            data.forEach(c => {
-                box.innerHTML += `<div class="comment-item"><div style="font-weight:bold; color:#8B0000; font-size:15px; font-family:'Playfair Display', serif;">${c.n}</div><div style="font-size:15px; color:#444; margin-top:3px;">${c.m}</div></div>`;
-            });
-        }
-
-        function postCmt() {
-            var n = document.getElementById('gName').value.trim();
-            var m = document.getElementById('gMsg').value.trim();
-            if(!n || !m) return alert("Vui lòng nhập tên và lời chúc!");
-            var data = JSON.parse(localStorage.getItem('hq_grad_cmts')) || mockCmts;
-            data.unshift({n: n, m: m});
-            localStorage.setItem('hq_grad_cmts', JSON.stringify(data));
-            document.getElementById('gName').value = '';
-            document.getElementById('gMsg').value = '';
-            loadCmt();
         }
     </script>
 </body>
