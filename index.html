@@ -1,3 +1,12 @@
+
+Mã mời của tôi là --VD6BgFjBQ5--, [[llxjQ9Rgp9QSW6JhMgtZwEGepKGcTPP ]]
+https://drive.google.com/drive/folders/16nArLeEPHS6U5lx0Usz1TnVfWRefDdHz
+https://drive.google.com/drive/folders/1xezZh8DBx6CF4lSJ5_h-MeDjzaoEMEzf?usp=drive_link
+https://quannguyenvpkl2004-blip.github.io/graduation/
+https://docs.google.com/spreadsheets/d/1L8VHbGIKQkVOUvZixTivZl8U2bRaaOiaX_3ZoGWhwa0/edit?usp=drivesd
+https://quannguyenvpkl2004-blip.github.io/graduation/?v=999/
+tuyến
+quản lý thu
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -7,7 +16,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,4…yfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
 
@@ -38,123 +47,62 @@
             box-shadow: 0 0 30px rgba(0,0,0,0.15);
             min-height: 100vh;
             position: relative;
-            display: none; /* Ẩn đi chờ bấm mở thiệp */
+            display: none; 
         }
 
         /* ==============================================
-           TRANG 1: THIẾT KẾ CARD & STICKER BAY LƯỢN ĐA DẠNG
+           TRANG 1: THIẾT KẾ CARD & HIỆU ỨNG MỞ THIỆP
            ============================================== */
         #welcome-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: var(--bg-dark-red); z-index: 99999; 
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             overflow: hidden;
-            transition: opacity 0.8s ease; /* Hiệu ứng mờ dần khi mở thiệp */
+        }
+
+        /* Hiệu ứng trượt lên khi bấm mở thiệp */
+        .slide-up-out {
+            animation: slideUpFade 1s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+        }
+        @keyframes slideUpFade {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100%); opacity: 0; }
         }
 
         /* Họa tiết sticker bay lượn sinh động */
         .floating-icon {
-            position: absolute;
-            z-index: 1;
-            user-select: none;
-            pointer-events: none;
-            opacity: 0.35; 
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5));
+            position: absolute; z-index: 1; user-select: none; pointer-events: none;
+            opacity: 0.35; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5));
         }
-
-        @keyframes float-around-1 {
-            0% { transform: translate(0, 0) rotate(-15deg); }
-            50% { transform: translate(15px, -25px) rotate(15deg); }
-            100% { transform: translate(0, 0) rotate(-15deg); }
-        }
-        @keyframes float-around-2 {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            50% { transform: translate(-25px, 20px) scale(1.15) rotate(20deg); }
-            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-        }
-        @keyframes float-around-3 {
-            0% { transform: translate(0, 0) rotate(0deg); opacity: 0.15; }
-            50% { transform: translate(10px, 35px) rotate(-20deg); opacity: 0.6; }
-            100% { transform: translate(0, 0) rotate(0deg); opacity: 0.15; }
-        }
-        @keyframes float-around-4 {
-            0% { transform: translate(0, 0) rotate(10deg); }
-            50% { transform: translate(-30px, -15px) rotate(-10deg); }
-            100% { transform: translate(0, 0) rotate(10deg); }
-        }
+        @keyframes float-around-1 { 0%, 100% { transform: translate(0, 0) rotate(-15deg); } 50% { transform: translate(15px, -25px) rotate(15deg); } }
+@keyframes float-around-2 { 0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); } 50% { transform: translate(-25px, 20px) scale(1.15) rotate(20deg); } }
+        @keyframes float-around-3 { 0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.15; } 50% { transform: translate(10px, 35px) rotate(-20deg); opacity: 0.6; } }
+        @keyframes float-around-4 { 0%, 100% { transform: translate(0, 0) rotate(10deg); } 50% { transform: translate(-30px, -15px) rotate(-10deg); } }
 
         /* Khung thẻ chính giữa (Card) */
         .welcome-card {
-            background: var(--card-red);
-            width: 85%;
-            max-width: 360px;
-            border-radius: 12px;
-            padding: 40px 20px;
-            text-align: center;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-            z-index: 2;
-            position: relative;
+            background: var(--card-red); width: 85%; max-width: 360px;
+            border-radius: 12px; padding: 40px 20px; text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6); z-index: 2; position: relative;
         }
-
         .welcome-logo {
-            width: 70px; height: 70px;
-            background: var(--bg-cream);
-            border-radius: 50%;
-            margin: 0 auto 20px auto;
-            display: flex; align-items: center; justify-content: center;
+            width: 70px; height: 70px; background: var(--bg-cream); border-radius: 50%;
+            margin: 0 auto 20px auto; display: flex; align-items: center; justify-content: center;
             box-shadow: 0 0 25px rgba(253, 251, 247, 0.4); 
         }
-        .welcome-logo img {
-            width: 100%; height: 100%; object-fit: contain; border-radius: 50%;
-        }
-
-        .welcome-name {
-            font-family: 'Playfair Display', serif;
-            color: var(--bg-cream);
-            font-size: 32px;
-            font-weight: 700;
-            line-height: 1.3;
-            margin-bottom: 5px;
-        }
-
-        .welcome-separator {
-            display: flex; align-items: center; justify-content: center; margin: 15px 0;
-        }
-        .welcome-separator::before, .welcome-separator::after {
-            content: ''; width: 40px; height: 1px; background: rgba(253, 251, 247, 0.4); margin: 0 15px;
-        }
-        
-        .welcome-date {
-            font-family: 'Lora', serif;
-            color: rgba(253, 251, 247, 0.9);
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .welcome-subtext {
-            font-family: 'Lora', serif;
-            color: rgba(253, 251, 247, 0.7);
-            font-size: 16px;
-            margin-bottom: 35px;
-        }
-
+        .welcome-logo img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; }
+        .welcome-name { font-family: 'Playfair Display', serif; color: var(--bg-cream); font-size: 32px; font-weight: 700; line-height: 1.3; margin-bottom: 5px; }
+        .welcome-separator { display: flex; align-items: center; justify-content: center; margin: 15px 0; }
+        .welcome-separator::before, .welcome-separator::after { content: ''; width: 40px; height: 1px; background: rgba(253, 251, 247, 0.4); margin: 0 15px; }
+        .welcome-date { font-family: 'Lora', serif; color: rgba(253, 251, 247, 0.9); font-size: 18px; margin-bottom: 10px; }
+        .welcome-subtext { font-family: 'Lora', serif; color: rgba(253, 251, 247, 0.7); font-size: 16px; margin-bottom: 35px; }
         .welcome-btn {
-            background: linear-gradient(135deg, #FFFFFF 0%, #F0E6D2 100%);
-            color: var(--card-red);
-            font-family: 'Playfair Display', serif;
-            font-size: 18px;
-            font-weight: 700;
-            padding: 14px 45px;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            box-shadow: 0 0 20px rgba(253, 251, 247, 0.5);
-            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #FFFFFF 0%, #F0E6D2 100%); color: var(--card-red);
+            font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700;
+            padding: 14px 45px; border: none; border-radius: 30px; cursor: pointer;
+            box-shadow: 0 0 20px rgba(253, 251, 247, 0.5); transition: all 0.3s ease;
         }
-        .welcome-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(253, 251, 247, 0.7);
-        }
+        .welcome-btn:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(253, 251, 247, 0.7); }
 
         /* ==============================================
            TRANG THIỆP CHÍNH (TRANG 2)
@@ -167,12 +115,12 @@
         }
         .hero-img-box {
             width: 270px; height: 380px; margin: -110px auto 20px auto;
-            position: relative; z-index: 2; border-radius: 135px 135px 0 0;
+position: relative; z-index: 2; border-radius: 135px 135px 0 0;
             border: 5px solid var(--bg-cream); box-shadow: 0 15px 30px rgba(0,0,0,0.2);
             overflow: hidden; background: #fff; animation: floating 3s ease-in-out infinite; 
         }
         .hero-img-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        @keyframes floating { 0% { transform: translateY(0); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0); } }
+        @keyframes floating { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
         .section-header-block {
             background-color: var(--primary-red); color: var(--bg-cream);
@@ -192,13 +140,33 @@
             box-shadow: 0 5px 15px rgba(139,0,0,0.2); transition: all 0.3s;
         }
 
-        .swiper { width: 100%; padding-bottom: 40px; }
-        .swiper-slide { width: 230px; height: 330px; border-radius: 12px; background: #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .swiper-slide img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
-        .swiper-pagination-bullet-active { background: var(--primary-red) !important; }
+        /* ==============================================
+           CUSTOM SWIPER ALBUM - CHUẨN THIỆP SỰ KIỆN CAO CẤP
+           ============================================== */
+        .swiper { width: 100%; padding-bottom: 50px; padding-top: 20px; }
+        .swiper-slide {
+            width: 240px; height: 340px; border-radius: 15px; 
+            background: #fff; box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
+            overflow: hidden;
+        }
+        .swiper-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        
+        /* Chấm pagination */
+        .swiper-pagination-bullet { background: #ccc; opacity: 0.6; width: 8px; height: 8px; margin: 0 5px !important; }
+        .swiper-pagination-bullet-active { background: var(--primary-red) !important; opacity: 1; transform: scale(1.3); }
+        
+        /* Nút mũi tên chuyển ảnh */
+        .swiper-button-next, .swiper-button-prev {
+            background: rgba(255, 255, 255, 0.85); width: 35px; height: 35px; 
+            border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            color: var(--text-dark);
+        }
+        .swiper-button-next::after, .swiper-button-prev::after { font-size: 14px; font-weight: bold; }
+        .swiper-button-next { right: 10px; }
+        .swiper-button-prev { left: 10px; }
 
         /* Sổ lưu bút */
-        .input-box { width: 100%; padding: 12px 15px; margin-bottom: 12px; border: 1px solid rgba(139,0,0,0.2); border-radius: 8px; font-family: 'Lora', serif; font-size: 15px; transition: 0.3s; }
+.input-box { width: 100%; padding: 12px 15px; margin-bottom: 12px; border: 1px solid rgba(139,0,0,0.2); border-radius: 8px; font-family: 'Lora', serif; font-size: 15px; transition: 0.3s; }
         .input-box:focus { border-color: var(--primary-red); outline: none; }
         .comment-item { background: #ffffff; border: 1px solid #eaeaea; border-radius: 8px; padding: 12px; margin-bottom: 10px; text-align: left; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
 
@@ -215,286 +183,10 @@
 <body>
 
     <!-- ==============================================
-         1. TRANG 1: MÀN HÌNH CHỜ (CÓ STICKER MƯỢT MÀ)
+         1. TRANG 1: MÀN HÌNH CHỜ DẠNG CARD
     =============================================== -->
     <div id="welcome-overlay">
         
         <!-- Hàng loạt Sticker bay lượn sinh động khắp màn hình -->
         <div class="floating-icon" style="top: 8%; left: 10%; font-size: 32px; animation: float-around-1 6s ease-in-out infinite;">🎓</div>
-        <div class="floating-icon" style="top: 15%; right: 12%; font-size: 35px; animation: float-around-2 7s ease-in-out infinite 1s;">⚖️</div>
-        <div class="floating-icon" style="top: 5%; right: 35%; font-size: 20px; animation: float-around-3 5s ease-in-out infinite;">✨</div>
-        
-        <div class="floating-icon" style="top: 30%; left: 5%; font-size: 28px; animation: float-around-4 8s ease-in-out infinite 0.5s;">📜</div>
-        <div class="floating-icon" style="top: 25%; right: 5%; font-size: 24px; animation: float-around-1 6.5s ease-in-out infinite 2s;">🌟</div>
-        <div class="floating-icon" style="top: 45%; right: 15%; font-size: 30px; animation: float-around-2 5.5s ease-in-out infinite;">🏛️</div>
-        
-        <div class="floating-icon" style="bottom: 35%; left: 8%; font-size: 25px; animation: float-around-3 7.5s ease-in-out infinite 1.5s;">✨</div>
-        <div class="floating-icon" style="bottom: 25%; left: 15%; font-size: 32px; animation: float-around-1 6.2s ease-in-out infinite;">📚</div>
-        <div class="floating-icon" style="bottom: 15%; left: 5%; font-size: 28px; animation: float-around-4 5.8s ease-in-out infinite 1s;">🎓</div>
-        
-        <div class="floating-icon" style="bottom: 30%; right: 8%; font-size: 28px; animation: float-around-2 8s ease-in-out infinite;">🎉</div>
-        <div class="floating-icon" style="bottom: 15%; right: 20%; font-size: 34px; animation: float-around-1 6.8s ease-in-out infinite 0.5s;">⚖️</div>
-        <div class="floating-icon" style="bottom: 8%; right: 35%; font-size: 22px; animation: float-around-3 5.5s ease-in-out infinite 2s;">✨</div>
-        
-        <div class="floating-icon" style="top: 60%; left: 18%; font-size: 26px; animation: float-around-4 7s ease-in-out infinite;">🎊</div>
-        <div class="floating-icon" style="bottom: 50%; right: 25%; font-size: 30px; animation: float-around-1 6s ease-in-out infinite 1.5s;">📜</div>
-        <div class="floating-icon" style="top: 80%; left: 35%; font-size: 24px; animation: float-around-2 5s ease-in-out infinite;">🎓</div>
-
-        <!-- Khung Card chính giữa -->
-        <div class="welcome-card" data-aos="zoom-in" data-aos-duration="1200">
-            <div class="welcome-logo">
-                <img src="assets/logo/logo.jpeg" alt="Logo">
-            </div>
-            
-            <div class="welcome-name">Hồng Quân</div>
-            
-            <div class="welcome-separator">
-                <span style="font-size: 14px; color: rgba(253, 251, 247, 0.8);">⚖️</span>
-            </div>
-            
-            <div class="welcome-date">11 tháng 08, 2026</div>
-            <div class="welcome-subtext">Lễ Tốt Nghiệp</div>
-            
-            <button class="welcome-btn" onclick="openInvitation()">Mở thiệp</button>
-        </div>
-    </div>
-
-    <!-- Hệ thống Audio ẩn -->
-    <audio id="bg-music" loop><source src="assets/music/nhac-nen.mp3.mp3" type="audio/mpeg"></audio>
-    <div id="music-btn" onclick="toggleMusic()">🎵</div>
-
-
-    <!-- ==============================================
-         2. TRANG THIỆP CHÍNH CỦA QUÂN
-    =============================================== -->
-    <main id="app-container">
-        
-        <section>
-            <div class="top-arch-bg" data-aos="fade-down" data-aos-duration="1200">
-                <p class="premium-text" style="letter-spacing: 1px; font-size: 16px; color: #FFFFFF; font-weight: 700; text-shadow: 1px 1px 4px rgba(0,0,0,0.5); margin-bottom: 8px;">
-                    THÂN MỜI TỚI DỰ LỄ TỐT NGHIỆP
-                </p>
-                <div class="premium-text" style="font-size: 34px; font-weight: 700; color: var(--gold-accent); margin-top: 10px;">HỒNG QUÂN</div>
-                <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-top: 15px; font-size: 16px; color: #fff;">
-                    <span>✦</span><span class="premium-text" style="letter-spacing: 1px;">11 . 08 . 2026</span><span>✦</span>
-                </div>
-            </div>
-            
-            <div class="hero-img-box" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="1500">
-                <!-- Đã cập nhật ảnh đại diện ở khung vòm thành file daidien.jpeg -->
-                <img src="assets/images/daidien.jpeg" alt="Hồng Quân">
-            </div>
-
-            <div class="content-box" style="margin-top: 20px;" data-aos="fade-up">
-                <h1 class="premium-text" style="font-size: 26px; color: var(--primary-red); letter-spacing: 2px;">NGUYỄN HỒNG QUÂN</h1>
-                <p class="premium-text" style="color: var(--gold-accent); font-weight: 700; font-size: 16px; margin-top: 5px;">CỬ NHÂN LUẬT KINH TẾ</p>
-            </div>
-        </section>
-
-        <!-- TÂM SỰ -->
-        <div class="section-header-block" data-aos="fade-right">DẤU ẤN THANH XUÂN</div>
-        <section class="content-box" data-aos="fade-up" style="text-align: justify;">
-            <!-- Đoạn tâm sự tập trung vào thực tiễn kinh doanh theo đúng lịch sử của Quân -->
-            <p style="color: #444; font-style: italic; font-size: 15px;">
-                "Hành trình tại Học viện Chính sách và Phát triển không chỉ là việc tiếp thu tri thức pháp lý, mà còn là quá trình vận dụng vào thực tiễn kinh doanh. Cảm ơn thầy cô, gia đình và những người bạn đã luôn đồng hành cùng Quân trên chặng đường 4 năm rực rỡ này."
-            </p>
-        </section>
-
-        <!-- ================= ALBUM 1: KỶ NIỆM GIẢNG ĐƯỜNG ================= -->
-        <div class="section-header-block" data-aos="fade-right">KỶ NIỆM GIẢNG ĐƯỜNG</div>
-        <section style="padding: 0 10px; overflow: hidden;" data-aos="fade-up">
-            <div class="swiper mySwiper1">
-                <div class="swiper-wrapper">
-                    <!-- Ảnh trường lớp, bạn bè, thực tập -->
-                    <div class="swiper-slide"><img src="assets/images/apd.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/apd2.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/ban1.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/ban2.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/Quanghuy.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/painapd.png"></div>
-                </div>
-                <div class="swiper-pagination"></div>
-            </div>
-        </section>
-
-        <!-- ================= ALBUM 2: KHOẢNH KHẮC TỐT NGHIỆP ================= -->
-        <div class="section-header-block" data-aos="fade-left">KHOẢNH KHẮC TỐT NGHIỆP</div>
-        <section style="padding: 0 10px; overflow: hidden;" data-aos="fade-up">
-            <div class="swiper mySwiper2">
-                <div class="swiper-wrapper">
-                    <!-- Loạt ảnh kỷ yếu cá nhân -->
-                    <div class="swiper-slide"><img src="assets/images/me1.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/me2.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/me5.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/me7.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/me8.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/me9.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/ME.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/khanh.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/event1.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/event2.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/event4.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/event6.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/event10.png"></div>
-                    <div class="swiper-slide"><img src="assets/images/KH.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/KH2.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/KM1.jpeg"></div>
-                    <div class="swiper-slide"><img src="assets/images/KM2.jpeg"></div>
-                </div>
-                <div class="swiper-pagination"></div>
-            </div>
-        </section>
-
-        <!-- THÔNG TIN LỄ HỘI -->
-        <div class="section-header-block" data-aos="fade-right">THÔNG TIN LỄ HỘI</div>
-        <section class="content-box" data-aos="zoom-in">
-            <h2 class="premium-text" style="font-size: 38px; color: var(--primary-red); margin: 5px 0;">08:00 AM</h2>
-            <div style="display: flex; justify-content: center; align-items: center; gap: 15px; margin: 15px 0; font-family: 'Playfair Display', serif; color: var(--primary-red); font-weight: 600;">
-                <div style="font-size: 16px;">THỨ BA</div>
-                <div style="font-size: 32px; border-left: 1px solid #ddd; border-right: 1px solid #ddd; padding: 0 15px;">11</div>
-                <div style="font-size: 16px;">THÁNG 08</div>
-            </div>
-            <p style="font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 25px; font-weight: 600;">2026</p>
-            
-            <div style="background: #ffffff; border: 1px solid #eee; border-radius: 12px; padding: 20px; text-align: left; font-size: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.03);">
-                <p style="margin-bottom: 10px; color: #444;">📍 <strong>Vị trí:</strong> Hội trường lớn, Học viện Chính sách và Phát triển, An Khánh, Hoài Đức</p>
-                <p style="color: #444;">👔 <strong>Dresscode:</strong> Lịch sự, trang trọng</p>
-            </div>
-        </section>
-
-        <!-- ================= BẢN ĐỒ VỊ TRÍ ================= -->
-        <div class="section-header-block" data-aos="fade-left">BẢN ĐỒ VỊ TRÍ</div>
-        <section class="content-box" data-aos="fade-up">
-            <div style="background: #fff; padding: 10px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee;">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.8984918231265!2d105.71181827599986!3d20.997709889877073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313453ba67b43b67%3A0x6bde5b111ffc338!2zSOG7jWMgdmnhu4duIENow61uaCBzMOhY2ggdsOgIFBow6F0 trmnhu4Nu!5e0!3m2!1svi!2svn!4v1700000000000" width="100%" height="250" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-            <div style="margin-top: 25px;">
-                <a href="https://maps.app.goo.gl/5J1zG7R9eRpxqYp46" target="_blank" class="btn-premium">MỞ BẰNG GOOGLE MAPS</a>
-            </div>
-        </section>
-
-        <!-- ================= SỔ LƯU BÚT ================= -->
-        <div class="section-header-block" data-aos="fade-right">SỔ LƯU BÚT</div>
-        <section class="content-box" data-aos="fade-up">
-            <div style="background: #fff; padding: 25px 20px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee;">
-                <input type="text" id="gName" class="input-box" placeholder="Tên của bạn...">
-                <textarea id="gMsg" class="input-box" placeholder="Để lại lời chúc cho Quân tại đây nhé..." style="height: 90px; resize: none;"></textarea>
-                <button onclick="postCmt()" class="btn-premium" style="width: 100%; border-radius: 8px;">GỬI LỜI CHÚC</button>
-                
-                <div id="cmt-list" style="margin-top: 25px; max-height: 350px; overflow-y: auto;"></div>
-            </div>
-        </section>
-
-        <!-- XÁC NHẬN THAM GIA -->
-        <div class="section-header-block" data-aos="fade-left">XÁC NHẬN THAM GIA</div>
-        <section class="content-box" data-aos="zoom-in" style="margin-bottom: 50px;">
-            <p style="margin-bottom: 25px; color: #555; font-size: 15px;">Sự hiện diện của bạn là niềm vinh hạnh rất lớn. Vui lòng xác nhận để Quân tiện sắp xếp đón tiếp nhé!</p>
-            <a href="https://zalo.me/" target="_blank" class="btn-premium">✔ XÁC NHẬN TỚI DỰ</a>
-        </section>
-
-        <!-- FOOTER -->
-        <footer style="background-color: var(--primary-red); color: rgba(255,255,255,0.8); text-align: center; padding: 30px 20px; font-family: 'Playfair Display', serif; font-size: 13px; letter-spacing: 1px; margin-top: 40px;">
-            © 2026 NGUYỄN HỒNG QUÂN. ALL RIGHTS RESERVED.
-        </footer>
-
-    </main>
-
-    <!-- JAVASCRIPT ĐIỀU KHIỂN HIỆU ỨNG -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        // Kích hoạt AOS ngay khi trang vừa tải
-        document.addEventListener("DOMContentLoaded", function() {
-            AOS.init({ duration: 1000, once: true });
-            loadCmt();
-        });
-
-        // Các biến điều khiển
-        var bgMusic = document.getElementById('bg-music');
-        var welcomeOverlay = document.getElementById('welcome-overlay');
-        var appContainer = document.getElementById('app-container');
-        var musicBtn = document.getElementById('music-btn');
-
-        // Hàm mở thiệp thẳng vào Trang 2 (Bỏ qua video)
-        function openInvitation() {
-            // Hiệu ứng mờ dần màn hình chờ
-            welcomeOverlay.style.opacity = '0';
-            
-            // Đợi 0.6 giây cho hiệu ứng mờ chạy xong rồi mới chuyển trang
-            setTimeout(function() {
-                welcomeOverlay.style.display = 'none';
-                enterMainApp();
-            }, 600);
-        }
-
-        // Hàm hiển thị Web chính (Trang 2)
-        function enterMainApp() {
-            appContainer.style.display = 'block';
-            document.body.style.overflow = 'auto'; // Mở khóa cuộn trang
-            
-            // Bật nhạc nền
-            musicBtn.style.display = 'flex';
-            if(bgMusic) {
-                bgMusic.play().catch(e => console.log("Không thể tự phát nhạc:", e));
-                musicBtn.classList.add('spinning');
-            }
-
-            // Refresh lại AOS để các thành phần ở trang 2 bay lên mượt mà
-            setTimeout(() => {
-                AOS.refresh();
-            }, 100);
-
-            // Kích hoạt 2 Album Ảnh Swiper
-            new Swiper(".mySwiper1", {
-                effect: "coverflow", grabCursor: true, centeredSlides: true, slidesPerView: "auto",
-                coverflowEffect: { rotate: 0, stretch: -25, depth: 150, modifier: 1, slideShadows: true },
-                pagination: { el: ".swiper-pagination", clickable: true },
-            });
-            new Swiper(".mySwiper2", {
-                effect: "coverflow", grabCursor: true, centeredSlides: true, slidesPerView: "auto",
-                coverflowEffect: { rotate: 0, stretch: -25, depth: 150, modifier: 1, slideShadows: true },
-                pagination: { el: ".swiper-pagination", clickable: true },
-            });
-        }
-
-        // Tắt/bật nhạc
-        function toggleMusic() {
-            if (bgMusic.paused) {
-                bgMusic.play();
-                musicBtn.classList.add('spinning');
-            } else {
-                bgMusic.pause();
-                musicBtn.classList.remove('spinning');
-            }
-        }
-
-        // KỊCH BẢN QUẢN LÝ SỔ LƯU BÚT CỦA HỒNG QUÂN
-        const mockCmts = [
-            {n: "Hoàng Nam", m: "Chúc mừng Quân tốt nghiệp nhé! Quá đỉnh xịn xò. 🎉"},
-            {n: "Thu Trang", m: "Chúc cậu chặng đường mới gặt hái thật nhiều thành công nha!"}
-        ];
-
-        function loadCmt() {
-            var box = document.getElementById('cmt-list');
-            if(!box) return;
-            box.innerHTML = '';
-            var data = JSON.parse(localStorage.getItem('hq_grad_cmts')) || mockCmts;
-            data.forEach(c => {
-                box.innerHTML += `<div class="comment-item"><div style="font-weight:bold; color:#8B0000; font-size:15px; font-family:'Playfair Display', serif;">${c.n}</div><div style="font-size:15px; color:#444; margin-top:3px;">${c.m}</div></div>`;
-            });
-        }
-
-        function postCmt() {
-            var n = document.getElementById('gName').value.trim();
-            var m = document.getElementById('gMsg').value.trim();
-            if(!n || !m) return alert("Vui lòng nhập tên và lời chúc!");
-            var data = JSON.parse(localStorage.getItem('hq_grad_cmts')) || mockCmts;
-            data.unshift({n: n, m: m});
-            localStorage.setItem('hq_grad_cmts', JSON.stringify(data));
-            document.getElementById('gName').value = '';
-            document.getElementById('gMsg').value = '';
-            loadCmt();
-        }
-    </script>
-</body>
-</html>
+        <div class="floating-icon" styl
